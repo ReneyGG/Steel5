@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtwxbv8c5k3fb"]
+[gd_scene load_steps=5 format=3 uid="uid://dtwxbv8c5k3fb"]
 
 [ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_o4slm"]
 [ext_resource type="Script" uid="uid://ch2x83py2jhq4" path="res://scenes/characters/dziady/dziad_I.gd" id="2_lpjfw"]
+[ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://addons/gdquest_gobot/gobot_skin.tscn" id="3_lpjfw"]
 
-[node name="Dziad_I" instance=ExtResource("1_o4slm")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpjfw"]
+radius = 150.0
+
+[node name="Dziad_I" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_o4slm")]
 script = ExtResource("2_lpjfw")
+model_3d = NodePath("SubViewportContainer/SubViewport/GobotSkin")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 338)
+shape = SubResource("CircleShape2D_lpjfw")
+
+[node name="GobotSkin" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_lpjfw")]
