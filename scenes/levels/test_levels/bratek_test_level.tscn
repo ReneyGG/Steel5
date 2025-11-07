@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpa3nmrt5ysnp"]
+
+[ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziad.tscn" id="1_dfi1k"]
+
+[node name="BratekTestLevel" type="Node2D"]
+
+[node name="Dziad" parent="." instance=ExtResource("1_dfi1k")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
