@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://foq2dvqle1t2"]
 
-[ext_resource type="Script" uid="uid://debvq8imgqowm" path="res://scenes/characters/dziad.gd" id="1_md4sw"]
+[ext_resource type="Script" uid="uid://debvq8imgqowm" path="res://scenes/characters/dziady/dziad.gd" id="1_md4sw"]
 [ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://addons/gdquest_gobot/gobot_skin.tscn" id="1_mkd7n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wujf3"]
@@ -21,6 +21,7 @@ offset_bottom = 512.0
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1024, 1024)
