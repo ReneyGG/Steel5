@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpa3nmrt5ysnp"]
+[gd_scene load_steps=3 format=3 uid="uid://cpa3nmrt5ysnp"]
 
-[ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziad.tscn" id="1_dfi1k"]
+[ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="1_dfi1k"]
+[ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="2_x02r0"]
 
 [node name="BratekTestLevel" type="Node2D"]
 
-[node name="Dziad" parent="." instance=ExtResource("1_dfi1k")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.4, 0.4)
+
+[node name="Dziad_I" parent="." instance=ExtResource("1_dfi1k")]
+position = Vector2(-1157, -163)
+
+[node name="Dziad_II" parent="." instance=ExtResource("2_x02r0")]
+position = Vector2(1416, 310)

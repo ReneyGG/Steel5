@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxxyey5y24qba"]
+
+[ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_lxsgr"]
+[ext_resource type="Script" uid="uid://02ns6nc8jmnv" path="res://scenes/characters/dziady/dziad_II.gd" id="2_7ehhd"]
+
+[node name="Dziad_II" instance=ExtResource("1_lxsgr")]
+script = ExtResource("2_7ehhd")
