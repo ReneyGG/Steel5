@@ -12,7 +12,17 @@ script = ExtResource("2_lpjfw")
 model_3d = NodePath("SubViewportContainer/SubViewport/GobotSkin")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, 338)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_lpjfw")
 
+[node name="SubViewportContainer" parent="." index="1"]
+offset_top = -856.0
+offset_bottom = 168.0
+
 [node name="GobotSkin" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_lpjfw")]
+
+[node name="AttackArea" type="Area2D" parent="." index="2"]
+position = Vector2(0, -6)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea" index="0"]
+polygon = PackedVector2Array(0, 0, 600, 300, 600, -300)

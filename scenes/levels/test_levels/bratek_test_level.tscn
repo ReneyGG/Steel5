@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpa3nmrt5ysnp"]
+[gd_scene load_steps=4 format=3 uid="uid://cpa3nmrt5ysnp"]
 
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="1_dfi1k"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="2_x02r0"]
+[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="3_calfr"]
 
 [node name="BratekTestLevel" type="Node2D"]
 y_sort_enabled = true
@@ -14,3 +15,6 @@ position = Vector2(-1157, -163)
 
 [node name="Dziad_II" parent="." instance=ExtResource("2_x02r0")]
 position = Vector2(1416, 310)
+
+[node name="Enemy" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(1003, -509)
