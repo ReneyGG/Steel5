@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxxyey5y24qba"]
+[gd_scene load_steps=5 format=3 uid="uid://bxxyey5y24qba"]
 
 [ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_lxsgr"]
 [ext_resource type="Script" uid="uid://02ns6nc8jmnv" path="res://scenes/characters/dziady/dziad_II.gd" id="2_7ehhd"]
+[ext_resource type="PackedScene" uid="uid://bpjqcswabdtyb" path="res://addons/gdquest_beetle_bot/beetlebot_skin.tscn" id="3_57s4p"]
 
-[node name="Dziad_II" instance=ExtResource("1_lxsgr")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_57s4p"]
+radius = 248.78
+
+[node name="Dziad_II" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_lxsgr")]
 script = ExtResource("2_7ehhd")
+model_3d = NodePath("SubViewportContainer/SubViewport/BeetlebotSkin")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 390)
+shape = SubResource("CircleShape2D_57s4p")
+
+[node name="BeetlebotSkin" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_57s4p")]

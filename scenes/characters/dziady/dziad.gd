@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+@export var SPEED = 500.0
 
-@onready var model_3d: Node3D = $SubViewportContainer/SubViewport/GobotSkin
+@export var model_3d: Node3D
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
