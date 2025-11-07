@@ -2145,7 +2145,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-40.65625, 39.820313)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8xvna"]
-graph_offset = Vector2(-138.41621, 25.140614)
+graph_offset = Vector2(-117.37291, -112.939964)
 nodes/output/position = Vector2(580, 80)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_g4wg5")
 nodes/Animation/position = Vector2(192, 352)
@@ -2175,14 +2175,14 @@ bones/0/position = Vector3(0.125361, 0.0989139, 0.0728901)
 bones/0/rotation = Quaternion(0.77254915, 0.10769103, -0.13622104, 0.61074907)
 bones/1/position = Vector3(-0.109875, 0.0989111, -0.0510765)
 bones/1/rotation = Quaternion(0.6793683, -0.31008515, 0.39223418, 0.5370832)
-bones/2/position = Vector3(0, 0.3501339, 0)
-bones/2/rotation = Quaternion(0.069736265, 0.024002893, -0.0016784455, 0.99727523)
-bones/3/rotation = Quaternion(1, -5.8053826e-11, -7.503e-08, 3.726276e-09)
-bones/4/rotation = Quaternion(-0.49821162, -0.13746272, -0.0490985, 0.8546805)
-bones/5/rotation = Quaternion(0.38287336, 1.049811e-06, -1.30719e-05, 0.9238008)
-bones/6/rotation = Quaternion(-0.22355881, 0.5446693, 0.23529723, 0.7732995)
-bones/7/rotation = Quaternion(0.52367765, -9.655167e-07, 1.792289e-05, 0.85191655)
-bones/8/rotation = Quaternion(-0.67755693, -0.2601546, -0.62806875, 0.28065246)
+bones/2/position = Vector3(0, 0.35765204, 0)
+bones/2/rotation = Quaternion(0.06973615, 0.024085075, -0.001684192, 0.9972733)
+bones/3/rotation = Quaternion(1, -5.7795935e-11, -7.502632e-08, 3.727933e-09)
+bones/4/rotation = Quaternion(-0.4447473, -0.14019789, -0.040751785, 0.8836763)
+bones/5/rotation = Quaternion(0.29580167, 1.0808271e-06, -1.0107229e-05, 0.95524937)
+bones/6/rotation = Quaternion(-0.19551001, 0.55233645, 0.2087587, 0.78301996)
+bones/7/rotation = Quaternion(0.4638725, -1.0159049e-06, 1.587748e-05, 0.88590205)
+bones/8/rotation = Quaternion(-0.6275269, -0.28086066, -0.6780591, 0.25992927)
 bones/9/rotation = Quaternion(2.1693694e-07, 5.3554083e-07, -0.3950289, 0.91866875)
 bones/10/rotation = Quaternion(-0.28973204, -0.6374582, -0.21743803, 0.6800171)
 bones/11/rotation = Quaternion(0.48790604, -0.017439902, 0.008545421, 0.87268007)
@@ -2190,7 +2190,7 @@ bones/12/rotation = Quaternion(-0.3712239, -0.0019769692, 0.005853659, 0.9285228
 bones/13/rotation = Quaternion(-0.5023331, 1.5004906e-05, -2.8505408e-05, 0.86467415)
 bones/14/rotation = Quaternion(-0.3712239, -0.0019769794, 0.0058536893, 0.9285228)
 bones/15/rotation = Quaternion(-0.5023331, 1.4999904e-05, -2.8506805e-05, 0.86467415)
-bones/16/rotation = Quaternion(-0.6378532, 0.27684158, 0.66835403, 0.2642062)
+bones/16/rotation = Quaternion(-0.6871103, 0.25581974, 0.6176027, 0.28460965)
 bones/17/rotation = Quaternion(2.2720293e-07, -5.847489e-07, 0.3950289, 0.91866875)
 bones/18/rotation = Quaternion(-0.28973204, 0.6374582, 0.21743803, 0.6800171)
 bones/19/rotation = Quaternion(0.48790604, 0.017439902, -0.008545411, 0.87268007)
@@ -2237,5 +2237,10 @@ parameters/HurtShot/active = false
 parameters/HurtShot/internal_active = false
 parameters/HurtShot/request = 0
 parameters/StateMachine/Run/Add2/add_amount = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8660254, 1.131334e-08, -0.5, -9.052925e-09, 1, 6.9465536e-09, 0.5, -1.4894298e-09, 0.8660254, -1.1648321, 1, 2)
+projection = 1
+size = 1.215
 
 [editable path="gobot"]
