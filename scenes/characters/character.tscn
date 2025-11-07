@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://foq2dvqle1t2"]
+[gd_scene load_steps=3 format=3 uid="uid://ctn3a4vogupjh"]
 
-[ext_resource type="Script" uid="uid://debvq8imgqowm" path="res://scenes/characters/dziady/dziad.gd" id="1_md4sw"]
+[ext_resource type="Script" uid="uid://2ase4ldakkp4" path="res://scenes/characters/character.gd" id="1_x31xa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wujf3"]
 radius = 161.0
 height = 912.0
 
-[node name="Dziad" type="CharacterBody2D" groups=["dziady"]]
-script = ExtResource("1_md4sw")
+[node name="Character" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_x31xa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wujf3")

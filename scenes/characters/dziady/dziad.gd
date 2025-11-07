@@ -1,20 +1,18 @@
-extends CharacterBody2D
-
-
-@export var SPEED = 500.0
-
-@export var model_3d: Node3D
+extends "res://scenes/characters/character.gd"
+class_name DZIAD
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
-	var direction := Input.get_vector(name + "_move_left", name + "_move_right", name + "_move_up", name + "_move_down")
-	if direction:
+	direction = Input.get_vector(name + "_move_left", name + "_move_right", name + "_move_up", name + "_move_down")
+	if direction and !is_attacking:
 		velocity = direction * SPEED
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 
 	handle_animation()
 	move_and_slide()
+	if Input.is_action_just_pressed(name + "_attack") and !is_attacking:
+		attack()
 
 func handle_animation():
 	if abs(velocity) > Vector2.ZERO:
@@ -22,3 +20,6 @@ func handle_animation():
 		model_3d.run()
 	else:
 		model_3d.idle()
+	
+func attack():
+	pass

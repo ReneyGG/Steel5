@@ -6,3 +6,6 @@ func handle_animation():
 		model_3d.walk()
 	else:
 		model_3d.idle()
+
+func attack():
+	print(name + "ATTACK")
