@@ -11,10 +11,14 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity = direction * SPEED
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, 10)
+		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 
 	handle_animation()
 	move_and_slide()
 
 func handle_animation():
 	model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
+	if abs(velocity) > Vector2.ZERO:
+		model_3d.run()
+	else:
+		model_3d.idle()
