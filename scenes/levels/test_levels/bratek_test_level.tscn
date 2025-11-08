@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpa3nmrt5ysnp"]
+[gd_scene load_steps=4 format=3 uid="uid://cpa3nmrt5ysnp"]
 
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="1_dfi1k"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="2_x02r0"]
-[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="3_calfr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_calfr"]
 viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
@@ -56,9 +55,6 @@ collision_mask = 1
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("2_x02r0")]
 position = Vector2(-513, -779)
 other_dziad = NodePath("../Dziad_I")
-
-[node name="Enemy" parent="." instance=ExtResource("3_calfr")]
-position = Vector2(1003, -509)
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)

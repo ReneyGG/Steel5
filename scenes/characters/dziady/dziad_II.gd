@@ -100,6 +100,19 @@ func end_merge_with_other_dziad():
 	is_merged = false
 	merge_area.set_deferred("monitoring", true)
 
+func launch_to_point(point):
+	model_3d.reparent($SubViewportContainer/SubViewport)
+	var new_catapult_projectile = catapult_projectile.instantiate()
+	get_parent().get_parent().add_child(new_catapult_projectile)
+	var projectile_direction = global_position.direction_to(point)
+	var desired_distance = global_position.distance_to(point)
+	var desired_angle_deg = 45
+	new_catapult_projectile.LaunchProjectile(self, global_position, projectile_direction, desired_distance, desired_angle_deg)
+	await new_catapult_projectile.landing
+	is_merged = false
+	merge_area.set_deferred("monitoring", true)
+	
+
 func find_point_to_land() -> Node2D:
 	var landing_points = get_tree().get_nodes_in_group("landing_points")
 	landing_points.sort_custom(sort_by_range)

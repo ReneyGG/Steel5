@@ -19,10 +19,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if Input.is_action_just_pressed(name + "_attack") and !is_attacking:
 		attack()
-	elif Input.is_action_just_pressed(name + "_merge"):
-		if is_merged:
-			end_merge_with_other_dziad()
-			other_dziad.end_merge_with_other_dziad()
 
 func handle_animation():
 	if abs(velocity) > Vector2.ZERO:
