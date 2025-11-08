@@ -66,12 +66,12 @@ func attack():
 func take_damage(instigator, knockback):
 	is_attacking = false
 	if is_dead: return
+	on_take_damage.emit()
 	if instigator == dziad_II:
 		health -= 1
 	if health <= 0:
 		dead(instigator)
 		return
-	on_take_damage.emit()
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
 	velocity = knocback_direction * knockback

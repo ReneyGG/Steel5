@@ -12,11 +12,13 @@ func _ready():
 	$CanvasLayer/Control/ColorRect2/Stage.text = str(Global.stage)
 	get_node("Dziad_I").on_take_damage.connect(_on_impact)
 	get_node("Dziad_II").on_take_damage.connect(_on_impact)
-	for i in $Enemies.get_children():
-		i.death.connect(_on_enemy_death)
+	for e in $Enemies.get_children():
+		e.death.connect(_on_enemy_death)
+		e.on_take_damage.connect(_on_impact)
 		enemy_count += 1
-	for i in $Orbs.get_children():
-		i.death.connect(_on_orb_death)
+	for o in $Orbs.get_children():
+		o.death.connect(_on_orb_death)
+		o.on_take_damage.connect(_on_impact)
 		orb_count += 1
 	
 	if enemy_count == 0:

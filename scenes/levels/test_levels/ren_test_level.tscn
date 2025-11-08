@@ -259,7 +259,7 @@ limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("5_yulho")
-randomStrength = 100.0
+randomStrength = 80.0
 dziad1 = NodePath("../../Dziad_I")
 dziad2 = NodePath("../../Dziad_II")
 
