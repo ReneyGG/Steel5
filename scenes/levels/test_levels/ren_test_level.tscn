@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=15 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="Texture2D" uid="uid://b4gr0ndbp5hdo" path="res://scenes/levels/test_levels/steelwrks-lvl.png" id="1_tt4ag"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://16j4e3jw6hog" path="res://Art/door.png" id="2_d68gh"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="5_sa84b"]
+[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="5_tg8vw"]
 [ext_resource type="Script" uid="uid://cc6hk8qmojo4p" path="res://scenes/levels/test_levels/camera_shake.gd" id="5_yulho"]
-[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="6_ja4jy"]
+[ext_resource type="PackedScene" uid="uid://dx52prcy661j0" path="res://scenes/props/orb/orb.tscn" id="6_tg8vw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j76wg"]
 size = Vector2(143.66663, 146.42087)
@@ -239,12 +240,15 @@ polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693,
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("6_ja4jy")]
-position = Vector2(-2362, 24)
+[node name="Enemy" parent="Enemies" instance=ExtResource("5_tg8vw")]
+position = Vector2(-2208, 130)
 
 [node name="Orbs" type="Node2D" parent="."]
 
-[node name="Buttons" type="Node2D" parent="."]
+[node name="Orb" parent="Orbs" instance=ExtResource("6_tg8vw")]
+position = Vector2(-112, -960)
+
+[node name="Plates" type="Node2D" parent="."]
 
 [node name="CameraHandle" type="Node2D" parent="."]
 position = Vector2(-8158, 4571)
@@ -272,6 +276,7 @@ SPEED = 1000.0
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("5_sa84b")]
 position = Vector2(341, 101)
 other_dziad = NodePath("../Dziad_I")
+SPEED = 1500.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

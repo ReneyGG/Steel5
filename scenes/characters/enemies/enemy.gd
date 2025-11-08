@@ -12,6 +12,7 @@ var is_dead:= false
 var stunned:= false
 
 signal death
+signal on_take_damage
 
 func _ready() -> void:
 	var dziady = get_tree().get_nodes_in_group("dziady")
@@ -70,6 +71,7 @@ func take_damage(instigator, knockback):
 	if health <= 0:
 		dead(instigator)
 		return
+	on_take_damage.emit()
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
 	velocity = knocback_direction * knockback
