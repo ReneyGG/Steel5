@@ -7,6 +7,8 @@ var dziad_II : DZIAD
 var focus_dziad: DZIAD = dziad_I
 var attack_range: float = 400
 
+signal death
+
 func _ready() -> void:
 	var dziady = get_tree().get_nodes_in_group("dziady")
 	dziad_I = dziady[0]
@@ -21,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func find_first_dziad():
-	if global_position.distance_to(dziad_I.global_position) <= global_position.distance_to(dziad_II.global_position):
+	if global_position.distance_to(dziad_I.global_position) <= global_position.distance_to(dziad_II.global_position) or dziad_II.is_merged:
 		focus_dziad = dziad_I
 	else :
 		focus_dziad = dziad_II
@@ -47,3 +49,5 @@ func attack():
 func take_damage():
 	can_move = false
 	model_3d.power_off()
+	death.emit()
+	$CollisionShape2D.disabled = true
