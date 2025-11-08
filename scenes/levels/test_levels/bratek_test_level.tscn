@@ -45,11 +45,13 @@ expand_mode = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.4, 0.4)
 
-[node name="Dziad_I" parent="." instance=ExtResource("1_dfi1k")]
+[node name="Dziad_I" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("1_dfi1k")]
 position = Vector2(-1157, -163)
+other_dziad = NodePath("../Dziad_II")
 
-[node name="Dziad_II" parent="." instance=ExtResource("2_x02r0")]
+[node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("2_x02r0")]
 position = Vector2(1416, 310)
+other_dziad = NodePath("../Dziad_I")
 
 [node name="Enemy" parent="." instance=ExtResource("3_calfr")]
 position = Vector2(1003, -509)

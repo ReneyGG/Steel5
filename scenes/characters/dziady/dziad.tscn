@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://foq2dvqle1t2"]
+[gd_scene load_steps=4 format=3 uid="uid://foq2dvqle1t2"]
 
 [ext_resource type="Script" uid="uid://debvq8imgqowm" path="res://scenes/characters/dziady/dziad.gd" id="1_md4sw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wujf3"]
 radius = 161.0
 height = 912.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lr52v"]
+radius = 400.0
 
 [node name="Dziad" type="CharacterBody2D" groups=["dziady"]]
 script = ExtResource("1_md4sw")
@@ -33,3 +36,10 @@ size = 2.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0, 0)
+
+[node name="MergeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MergeArea"]
+shape = SubResource("CircleShape2D_lr52v")
+
+[connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]

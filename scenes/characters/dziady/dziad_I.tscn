@@ -26,6 +26,9 @@ render_target_update_mode = 4
 
 [node name="GobotSkin" parent="SubViewportContainer/SubViewport/SubViewport" index="0" instance=ExtResource("3_lpjfw")]
 
+[node name="OtherDziadOrigin" type="Node3D" parent="SubViewportContainer/SubViewport/SubViewport" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
 [node name="AttackArea" type="Area2D" parent="." index="2"]
 position = Vector2(0, -6)
 
