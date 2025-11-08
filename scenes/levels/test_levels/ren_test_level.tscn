@@ -1,12 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=12 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="Texture2D" uid="uid://b4gr0ndbp5hdo" path="res://scenes/levels/test_levels/steelwrks-lvl.png" id="1_tt4ag"]
 [ext_resource type="Texture2D" uid="uid://16j4e3jw6hog" path="res://Art/door.png" id="2_d68gh"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
+[ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="5_sa84b"]
+[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="6_ja4jy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j76wg"]
 size = Vector2(143.66663, 146.42087)
+
+[sub_resource type="Animation" id="Animation_sa84b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7614, 4292)]
+}
 
 [sub_resource type="Animation" id="Animation_j76wg"]
 resource_name = "enter"
@@ -23,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-7614, 4292), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_sa84b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-7614, 4292)]
 }
 
 [sub_resource type="Animation" id="Animation_ja4jy"]
@@ -78,9 +80,6 @@ _data = {
 &"exit": SubResource("Animation_ja4jy")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sa84b"]
-radius = 150.0
-
 [node name="RenTestLevel" type="Node2D"]
 script = ExtResource("1_j76wg")
 
@@ -115,6 +114,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_bottom = 100.0
+grow_horizontal = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Stage" type="Label" parent="CanvasLayer/Control/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -157,6 +179,8 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_d68gh")
 
 [node name="Exit" type="Area2D" parent="Environment/Door"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Door/Exit"]
 position = Vector2(-51, 171)
@@ -167,10 +191,18 @@ shape = SubResource("RectangleShape2D_j76wg")
 [node name="Walls" type="StaticBody2D" parent="Environment"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Walls"]
-polygon = PackedVector2Array(-3600, 68, -534, -1450, 383, -1479, 3750, 291, 3757, -2138, -3822, -2145)
+polygon = PackedVector2Array(-3600, 68, -534, -1450, 383, -1479, 3751, 307, 3757, -2138, -3822, -2145)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Environment/Walls"]
-polygon = PackedVector2Array(-3600, 61, 290, 2053, 3750, 312, 3764, 2132, -3693, 2117)
+polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693, 2117)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("6_ja4jy")]
+position = Vector2(-2362, 24)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("6_ja4jy")]
+position = Vector2(59, 1403)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-7614, 4292)
@@ -181,22 +213,28 @@ libraries = {
 &"": SubResource("AnimationLibrary_ja4jy")
 }
 
-[node name="Dziad_I" parent="." instance=ExtResource("2_tt4ag")]
+[node name="Dziad_I" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("2_tt4ag")]
+position = Vector2(-433, 95)
+other_dziad = NodePath("../Dziad_II")
 SPEED = 1000.0
 
-[node name="Trigger" type="Area2D" parent="."]
-position = Vector2(208, -480)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
-position = Vector2(-287, -523)
-shape = SubResource("CircleShape2D_sa84b")
+[node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("5_sa84b")]
+position = Vector2(341, 101)
+other_dziad = NodePath("../Dziad_I")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
-autostart = true
+
+[node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
+position = Vector2(-1238, -793)
+
+[node name="LandingPoint2" type="Node2D" parent="." groups=["landing_points"]]
+position = Vector2(147, 1392)
+
+[node name="LandingPoint3" type="Node2D" parent="." groups=["landing_points"]]
+position = Vector2(2189, 338)
 
 [connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Environment/Door/Exit" to="." method="_on_exit_body_entered"]
-[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
