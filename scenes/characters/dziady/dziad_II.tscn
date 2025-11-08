@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxxyey5y24qba"]
+[gd_scene load_steps=7 format=3 uid="uid://bxxyey5y24qba"]
 
 [ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_lxsgr"]
 [ext_resource type="Script" uid="uid://02ns6nc8jmnv" path="res://scenes/characters/dziady/dziad_II.gd" id="2_7ehhd"]
 [ext_resource type="PackedScene" uid="uid://b7lljkenan5m7" path="res://scenes/catapult_projectile/catapult_projectile.tscn" id="3_7sv5s"]
 [ext_resource type="PackedScene" uid="uid://bpjqcswabdtyb" path="res://addons/gdquest_beetle_bot/beetlebot_skin.tscn" id="3_57s4p"]
+[ext_resource type="Texture2D" uid="uid://b1kkofdj6ov01" path="res://Art/icon.svg" id="5_shdat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57s4p"]
 radius = 248.78
@@ -11,6 +12,7 @@ radius = 248.78
 [node name="Dziad_II" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_lxsgr")]
 script = ExtResource("2_7ehhd")
 catapult_projectile = ExtResource("3_7sv5s")
+SPEED = 100.0
 model_3d = NodePath("SubViewportContainer/SubViewport/BeetlebotSkin")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -23,6 +25,54 @@ offset_bottom = 117.0
 
 [node name="BeetlebotSkin" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_57s4p")]
 
+[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
+bones/1/position = Vector3(-0.4584, 0.1718, 0.0044344887)
+bones/1/rotation = Quaternion(0, 0, 0.6890807, 0.7246847)
+bones/2/rotation = Quaternion(-0.7071068, 1.0536698e-08, -1.0536698e-08, 0.7071068)
+bones/3/rotation = Quaternion(0.56098586, 0.56098586, 0.43045887, 0.43045887)
+bones/4/rotation = Quaternion(0.4304589, 0.4304589, 0.56098586, 0.56098586)
+bones/6/position = Vector3(-0.2685, -0.383726, 0.0044344887)
+bones/6/rotation = Quaternion(0, 0, 0.93442947, 0.35614818)
+bones/7/rotation = Quaternion(-0.7071068, -3.743389e-23, -6.2803687e-16, 0.7071068)
+bones/8/rotation = Quaternion(0.56098586, 0.56098586, 0.43045887, 0.43045887)
+bones/9/rotation = Quaternion(0.4304589, 0.4304589, 0.56098586, 0.56098586)
+bones/11/rotation = Quaternion(9.967933e-09, -2.4383008e-08, 0.38695112, 0.9221003)
+bones/12/rotation = Quaternion(-0.7071068, 3.4421288e-07, -2.5465093e-07, 0.7071068)
+bones/13/rotation = Quaternion(0.56098515, 0.56098616, 0.43045914, 0.4304591)
+bones/14/rotation = Quaternion(0.43045917, 0.4304592, 0.56098616, 0.5609852)
+bones/16/position = Vector3(0.011621188, -0.02, 0.34543592)
+bones/17/rotation = Quaternion(0.15090853, 0.16174251, 0.6266966, 0.7472064)
+bones/18/rotation = Quaternion(-0.6099533, -0.012750649, -0.019814815, 0.7920871)
+bones/19/rotation = Quaternion(0.09527637, 0.28373843, 0.84566605, 0.44188666)
+bones/20/rotation = Quaternion(-0.7747674, -0.010884016, -0.025181884, 0.6316509)
+bones/21/position = Vector3(-0.0239784, 0.285311, -0.245566)
+bones/21/rotation = Quaternion(0.20892051, 0.07515963, 0.4858681, 0.8453612)
+bones/22/rotation = Quaternion(-0.62856364, -0.013114717, -0.020331938, 0.77738184)
+bones/24/rotation = Quaternion(0.16992725, -0.17851019, -0.6184544, 0.7461723)
+bones/25/rotation = Quaternion(-0.65859836, 0.012106829, 0.02139514, 0.752093)
+bones/26/rotation = Quaternion(0.10178476, -0.2934816, -0.8546219, 0.4160889)
+bones/27/rotation = Quaternion(-0.8012491, 0.0102985855, 0.026042547, 0.59767514)
+bones/28/position = Vector3(0.0239784, 0.285311, -0.245566)
+bones/28/rotation = Quaternion(0.21951322, -0.08515484, -0.45834526, 0.8570195)
+bones/29/rotation = Quaternion(-0.657295, 0.01270718, 0.021261306, 0.75322634)
+bones/30/position = Vector3(0.4584, 0.1718, 0.0044344887)
+bones/30/rotation = Quaternion(0, 0, -0.6890807, 0.7246847)
+bones/31/rotation = Quaternion(-0.7071068, -1.0536698e-08, 1.0536698e-08, 0.7071068)
+bones/32/rotation = Quaternion(0.56098586, -0.56098586, -0.43045887, 0.43045887)
+bones/33/rotation = Quaternion(0.4304589, -0.4304589, -0.56098586, 0.56098586)
+bones/35/position = Vector3(0.2685, -0.383726, 0.0044344887)
+bones/35/rotation = Quaternion(0, 0, -0.93442947, 0.35614818)
+bones/36/rotation = Quaternion(-0.7071068, 3.743389e-23, 6.2803687e-16, 0.7071068)
+bones/37/rotation = Quaternion(0.56098586, -0.56098586, -0.43045887, 0.43045887)
+bones/38/rotation = Quaternion(0.4304589, -0.4304589, -0.56098586, 0.56098586)
+bones/40/rotation = Quaternion(9.967933e-09, 2.4383008e-08, -0.38695112, 0.9221003)
+bones/41/rotation = Quaternion(-0.7071068, -3.4421288e-07, 2.5465093e-07, 0.7071068)
+bones/42/rotation = Quaternion(-0.56098515, 0.56098616, 0.43045914, -0.4304591)
+bones/43/rotation = Quaternion(-0.43045917, 0.4304592, 0.56098616, -0.5609852)
+
+[node name="AnimationTree" parent="SubViewportContainer/SubViewport/BeetlebotSkin" index="1"]
+root_node = NodePath("../beetle_bot")
+
 [node name="AttackArea" type="Area2D" parent="." index="2"]
 position = Vector2(0, -6)
 
@@ -30,4 +80,17 @@ position = Vector2(0, -6)
 self_modulate = Color(1.6123802e-06, 0.6354196, 0.19626245, 1)
 polygon = PackedVector2Array(0, 0, 600, 300, 600, -300)
 
+[node name="Sprite2D" type="Sprite2D" parent="AttackArea" index="1"]
+z_index = -1
+position = Vector2(462.5, 7.000004)
+scale = Vector2(8.2265625, 2.84375)
+texture = ExtResource("5_shdat")
+
+[node name="AttackCooldownTimer" type="Timer" parent="." index="4"]
+wait_time = 0.3
+
 [connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+
+[editable path="SubViewportContainer/SubViewport/BeetlebotSkin"]
+[editable path="SubViewportContainer/SubViewport/BeetlebotSkin/beetle_bot"]

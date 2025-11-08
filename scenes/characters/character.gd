@@ -14,5 +14,5 @@ func handle_animation():
 	else:
 		model_3d.idle()
 
-func take_damage():
+func take_damage(instigator):
 	pass

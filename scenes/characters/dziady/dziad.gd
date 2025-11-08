@@ -5,13 +5,15 @@ class_name DZIAD
 var is_merged := false
 @onready var merge_area: Area2D = $MergeArea
 
+signal on_take_damage
+
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector(name + "_move_left", name + "_move_right", name + "_move_up", name + "_move_down")
-	if direction and !is_attacking:
+	if direction and can_move:
 		velocity = direction * SPEED
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+		velocity = velocity.move_toward(Vector2.ZERO, 400)
 
 	handle_animation()
 	move_and_slide()
@@ -32,10 +34,9 @@ func handle_animation():
 func attack():
 	pass
 	
-func take_damage():
-	if is_merged:
-		end_merge_with_other_dziad()
-
+func take_damage(instigator):
+	on_take_damage.emit()
+	
 func start_merge_with_other_dziad():
 	if is_merged: return
 	is_merged = true

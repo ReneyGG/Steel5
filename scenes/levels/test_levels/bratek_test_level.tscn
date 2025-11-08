@@ -46,7 +46,7 @@ expand_mode = 1
 zoom = Vector2(0.4, 0.4)
 
 [node name="Dziad_I" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("1_dfi1k")]
-position = Vector2(-1157, -163)
+position = Vector2(-1579, -629)
 other_dziad = NodePath("../Dziad_II")
 
 [node name="MergeArea" parent="Dziad_I" index="3"]
@@ -54,12 +54,11 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("2_x02r0")]
-position = Vector2(1416, 310)
+position = Vector2(-513, -779)
 other_dziad = NodePath("../Dziad_I")
 
 [node name="Enemy" parent="." instance=ExtResource("3_calfr")]
 position = Vector2(1003, -509)
-SPEED = 200.0
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)
