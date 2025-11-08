@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=16 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="Texture2D" uid="uid://b4gr0ndbp5hdo" path="res://scenes/levels/test_levels/steelwrks-lvl.png" id="1_tt4ag"]
 [ext_resource type="PackedScene" uid="uid://baf7wwkrbg72w" path="res://scenes/menu/pause/pause.tscn" id="2_4s4m6"]
 [ext_resource type="Texture2D" uid="uid://16j4e3jw6hog" path="res://Art/door.png" id="2_d68gh"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
+[ext_resource type="PackedScene" uid="uid://dvymbfbp88xdx" path="res://scenes/props/plate/plate.tscn" id="5_4s4m6"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="5_sa84b"]
 [ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="5_tg8vw"]
 [ext_resource type="Script" uid="uid://cc6hk8qmojo4p" path="res://scenes/levels/test_levels/camera_shake.gd" id="5_yulho"]
@@ -241,14 +242,21 @@ polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693,
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("5_tg8vw")]
-position = Vector2(-2208, 130)
+position = Vector2(666, -845)
 
 [node name="Orbs" type="Node2D" parent="."]
 
 [node name="Orb" parent="Orbs" instance=ExtResource("6_tg8vw")]
-position = Vector2(-112, -960)
+position = Vector2(-912, -426)
 
-[node name="Plates" type="Node2D" parent="."]
+[node name="Plates" parent="." instance=ExtResource("5_4s4m6")]
+position = Vector2(-612, 802)
+
+[node name="Plate1" parent="Plates" index="0"]
+position = Vector2(-1214, -734)
+
+[node name="Plate2" parent="Plates" index="1"]
+position = Vector2(1192, 243)
 
 [node name="CameraHandle" type="Node2D" parent="."]
 position = Vector2(-8158, 4571)
@@ -276,7 +284,7 @@ SPEED = 1000.0
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("5_sa84b")]
 position = Vector2(341, 101)
 other_dziad = NodePath("../Dziad_I")
-SPEED = 1500.0
+SPEED = 300.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -296,4 +304,7 @@ position = Vector2(-2610, 110)
 
 [connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Environment/Door/Exit" to="." method="_on_exit_body_entered"]
+[connection signal="plate_done" from="Plates" to="." method="_on_plates_plate_done"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Plates"]
