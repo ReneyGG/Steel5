@@ -31,8 +31,13 @@ func handle_animation():
 	
 func attack():
 	pass
+	
+func take_damage():
+	if is_merged:
+		end_merge_with_other_dziad()
 
 func start_merge_with_other_dziad():
+	if is_merged: return
 	is_merged = true
 	
 func end_merge_with_other_dziad():

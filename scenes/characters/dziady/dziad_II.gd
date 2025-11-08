@@ -1,6 +1,7 @@
 extends "res://scenes/characters/dziady/dziad.gd"
 
 @onready var attack_area: Area2D = $AttackArea
+@export var catapult_projectile: PackedScene
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(name + "_merge"):
@@ -26,7 +27,9 @@ func handle_aiming():
 	if direction != Vector2.ZERO:
 		model_3d.look_at(Vector3(-direction.x, 0, -direction.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
 		attack_area.look_at(attack_area.global_position + direction)
-		
+	if Input.is_action_just_pressed(name + "_attack") and !is_attacking:
+		attack()
+			
 func attack():
 	is_attacking = true
 	model_3d.attack()
@@ -37,13 +40,41 @@ func attack():
 	is_attacking = false
 
 func start_merge_with_other_dziad():
+	merge_area.monitoring = false
 	model_3d.idle()
 	#other_dziad.start_merge_with_other_dziad()
 	
 func end_merge_with_other_dziad():
-	super()
 	model_3d.reparent($SubViewportContainer/SubViewport)
+	var new_catapult_projectile = catapult_projectile.instantiate()
+	get_parent().get_parent().add_child(new_catapult_projectile)
+	var point_to_land = find_point_to_land()
+	var projectile_direction
+	var desired_distance
+	if point_to_land:
+		projectile_direction = global_position.direction_to(point_to_land.global_position)
+		desired_distance = global_position.distance_to(point_to_land.global_position)
+	else:
+		projectile_direction = global_position.direction_to(Vector2.ZERO)
+		desired_distance = global_position.distance_to(Vector2.ZERO)
+	var desired_angle_deg = 45
+	new_catapult_projectile.LaunchProjectile(self, global_position, projectile_direction, desired_distance, desired_angle_deg)
+	await new_catapult_projectile.landing
+	is_merged = false
+	merge_area.monitoring = true
+
+func find_point_to_land() -> Node2D:
+	var landing_points = get_tree().get_nodes_in_group("landing_points")
+	landing_points.sort_custom(sort_by_range)
+	return landing_points[0]
+	
+func sort_by_range(a: Node2D, b: Node2D):
+	if a.global_position.distance_to(global_position) > b.global_position.distance_to(global_position):
+		return true
+	return false
 
 func _on_merge_area_body_entered(body: Node2D) -> void:
+	if is_merged: return
 	if body == other_dziad:
+		other_dziad.start_merge_with_other_dziad()
 		start_merge_with_other_dziad()

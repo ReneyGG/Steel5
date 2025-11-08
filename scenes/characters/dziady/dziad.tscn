@@ -10,7 +10,8 @@ height = 912.0
 radius = 400.0
 
 [node name="Dziad" type="CharacterBody2D" groups=["dziady"]]
-collision_mask = 0
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_md4sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,8 +40,8 @@ size = 2.0
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0, 0)
 
 [node name="MergeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MergeArea"]
 shape = SubResource("CircleShape2D_lr52v")
-
-[connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]

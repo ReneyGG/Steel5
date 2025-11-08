@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7lljkenan5m7"]
+
+[ext_resource type="Script" uid="uid://bno60s0hcpmsw" path="res://scenes/catapult_projectile/catapult_projectile.gd" id="1_qydi5"]
+[ext_resource type="Texture2D" uid="uid://b1kkofdj6ov01" path="res://Art/icon.svg" id="2_1oud8"]
+
+[node name="CatapultProjectile" type="Node2D"]
+script = ExtResource("1_qydi5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1oud8")
