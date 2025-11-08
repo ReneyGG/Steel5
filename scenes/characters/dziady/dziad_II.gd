@@ -61,7 +61,7 @@ func attack():
 			
 func apply_damage():
 	for body in attack_area.get_overlapping_bodies():
-		if body is ENEMY:
+		if body is ENEMY or body.is_in_group("props"):
 			body.take_damage(self, 3000)
 
 func take_damage(instigator, knockback):
@@ -104,6 +104,7 @@ func end_merge_with_other_dziad():
 func launch_to_point(point):
 	model_3d.reparent($SubViewportContainer/SubViewport)
 	var new_catapult_projectile = catapult_projectile.instantiate()
+	new_catapult_projectile.should_splash = true
 	get_parent().get_parent().add_child(new_catapult_projectile)
 	var projectile_direction = global_position.direction_to(point)
 	var desired_distance = global_position.distance_to(point)
@@ -112,10 +113,6 @@ func launch_to_point(point):
 	await new_catapult_projectile.landing
 	is_merged = false
 	merge_area.set_deferred("monitoring", true)
-	#call_deferred("splash")
-	#splash()
-	#apply_damage()
-	apply_damage()
 	
 	
 
@@ -134,14 +131,3 @@ func _on_merge_area_body_entered(body: Node2D) -> void:
 	if body == other_dziad:
 		other_dziad.start_merge_with_other_dziad()
 		start_merge_with_other_dziad()
-
-func splash():
-	print('SSS')
-	for body in splash_area.get_overlapping_bodies():
-		print("HAHAHA")
-		if body is ENEMY:
-			body.take_damage(self, 8000)
-
-
-func _on_splash_area_body_entered(body: Node2D) -> void:
-	print(body)

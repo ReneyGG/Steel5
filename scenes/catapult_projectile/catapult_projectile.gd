@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var splash_area: Area2D = $SplashArea
+
 var initial_speed: float
 var throw_angle_degrees: float
 const gravity: float = 9.8
@@ -16,6 +18,7 @@ var is_launch: bool = false
 var projectile_object: DZIAD
 
 signal landing
+var should_splash = false
 
 func _process(delta):
 	time += delta * time_mult
@@ -30,7 +33,7 @@ func _process(delta):
 			
 			projectile_object.position.y = -z_axis # Move only the projectile along the y axis based on the simulated z-axis
 			return
-		explode()
+		explode(should_splash)
 
 func LaunchProjectile(dziad: DZIAD,initial_pos: Vector2, direction: Vector2, desired_distance: float, desired_angle_deg: float):
 	projectile_object = dziad
@@ -50,7 +53,16 @@ func LaunchProjectile(dziad: DZIAD,initial_pos: Vector2, direction: Vector2, des
 	is_launch = true
 
 
-func explode():
+func explode(should_splash:= false):
 	projectile_object.reparent(get_parent())
 	landing.emit()
+	if should_splash:
+		splash()
 	queue_free()
+	
+func splash():
+	print('SSS')
+	for body in splash_area.get_overlapping_bodies():
+		print("HAHAHA")
+		if body is ENEMY:
+			body.take_damage(self, 5000)

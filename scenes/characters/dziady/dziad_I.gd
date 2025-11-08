@@ -25,7 +25,7 @@ func attack():
 	is_attacking = true
 	model_3d.edge_grab()
 	for body in attack_area.get_overlapping_bodies():
-		if body is ENEMY:
+		if body is ENEMY or body.is_in_group("props"):
 			body.take_damage(self, 5000)
 	await get_tree().create_timer(.5).timeout
 	is_attacking = false
