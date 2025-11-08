@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=19 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="Texture2D" uid="uid://b4gr0ndbp5hdo" path="res://scenes/levels/test_levels/steelwrks-lvl.png" id="1_tt4ag"]
 [ext_resource type="PackedScene" uid="uid://baf7wwkrbg72w" path="res://scenes/menu/pause/pause.tscn" id="2_4s4m6"]
+[ext_resource type="PackedScene" uid="uid://2dum2dsmxn8w" path="res://scenes/menu/avatars/avatars.tscn" id="2_ay21j"]
 [ext_resource type="Texture2D" uid="uid://16j4e3jw6hog" path="res://Art/door.png" id="2_d68gh"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
 [ext_resource type="PackedScene" uid="uid://dvymbfbp88xdx" path="res://scenes/props/plate/plate.tscn" id="5_4s4m6"]
@@ -10,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="5_tg8vw"]
 [ext_resource type="Script" uid="uid://cc6hk8qmojo4p" path="res://scenes/levels/test_levels/camera_shake.gd" id="5_yulho"]
 [ext_resource type="PackedScene" uid="uid://dx52prcy661j0" path="res://scenes/props/orb/orb.tscn" id="6_tg8vw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hmuup"]
+viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_67da0"]
+viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j76wg"]
 size = Vector2(143.66663, 146.42087)
@@ -207,6 +214,17 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Restart"
 
+[node name="Avatars" parent="." instance=ExtResource("2_ay21j")]
+
+[node name="Dziad_I_Avatar" parent="Avatars/Control" index="2"]
+texture = SubResource("ViewportTexture_hmuup")
+
+[node name="Dziad_II_Avatar" parent="Avatars/Control" index="3"]
+texture = SubResource("ViewportTexture_67da0")
+
+[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
+texture = SubResource("ViewportTexture_hmuup")
+
 [node name="Pause" parent="." instance=ExtResource("2_4s4m6")]
 
 [node name="Environment" type="Node2D" parent="."]
@@ -286,6 +304,21 @@ position = Vector2(341, 101)
 other_dziad = NodePath("../Dziad_I")
 SPEED = 300.0
 
+[node name="Skeleton3D" parent="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
+bones/16/position = Vector3(-0.015980886, -0.02, 0.35556722)
+bones/17/rotation = Quaternion(0.161614, 0.17254345, 0.61860913, 0.74928796)
+bones/18/rotation = Quaternion(-0.66226757, -0.012054818, -0.02151431, 0.7488615)
+bones/19/rotation = Quaternion(0.09409632, 0.27880567, 0.8612515, 0.41431776)
+bones/20/rotation = Quaternion(-0.8012804, -0.010297916, -0.026043545, 0.5976333)
+bones/21/rotation = Quaternion(0.21460292, 0.08182372, 0.46696335, 0.85392964)
+bones/22/rotation = Quaternion(-0.6711528, -0.01249915, -0.021709545, 0.74089575)
+bones/24/rotation = Quaternion(0.1357995, -0.14951836, -0.62969816, 0.75012213)
+bones/25/rotation = Quaternion(-0.5943829, 0.0129399225, 0.019309038, 0.80384624)
+bones/26/rotation = Quaternion(0.08494719, -0.26653105, -0.848074, 0.45001757)
+bones/27/rotation = Quaternion(-0.7644044, 0.011099683, 0.024845045, 0.6441627)
+bones/28/rotation = Quaternion(0.18570237, -0.06360996, -0.48085037, 0.85454744)
+bones/29/rotation = Quaternion(-0.60122806, 0.013474852, 0.019447742, 0.79872715)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
@@ -307,4 +340,9 @@ position = Vector2(-2610, 110)
 [connection signal="plate_done" from="Plates" to="." method="_on_plates_plate_done"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
+[editable path="Avatars"]
 [editable path="Plates"]
+[editable path="Dziad_I"]
+[editable path="Dziad_II"]
+[editable path="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin"]
+[editable path="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot"]
