@@ -13,7 +13,9 @@ func _physics_process(delta: float) -> void:
 			launch_dziad()
 			
 func handle_animation():
-	if is_attacking: return
+	if is_attacking: 
+		model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
+		return
 	if abs(velocity) > Vector2.ZERO:
 		model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
 		if is_merged:

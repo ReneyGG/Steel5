@@ -3,9 +3,11 @@ extends "res://scenes/characters/dziady/dziad.gd"
 @onready var attack_area: Area2D = $AttackArea
 @export var catapult_projectile: PackedScene
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
-@onready var splash_area: Area2D = $SplashArea
 var can_attack:= true
 
+signal on_merge
+
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(name + "_merge"):
 		if is_merged:
@@ -80,10 +82,12 @@ func start_merge_with_other_dziad():
 	merge_area.set_deferred("monitoring", false)
 	#merge_area.monitoring = false
 	model_3d.idle()
+	on_merge.emit()
 	#other_dziad.start_merge_with_other_dziad()
 	
 func end_merge_with_other_dziad():
 	model_3d.reparent($SubViewportContainer/SubViewport)
+	model_3d.position = Vector3.ZERO
 	var new_catapult_projectile = catapult_projectile.instantiate()
 	get_parent().get_parent().add_child(new_catapult_projectile)
 	var point_to_land = find_point_to_land()
