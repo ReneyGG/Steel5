@@ -1,7 +1,7 @@
 extends "res://scenes/characters/dziady/dziad.gd"
 
 @onready var attack_area: Area2D = $AttackArea
-@onready var other_dziad_origin: Node3D = $SubViewportContainer/SubViewport/SubViewport/OtherDziadOrigin
+@onready var other_dziad_origin: Node3D = %OtherDziadOrigin
 @onready var launch_ray_cast: RayCast2D = $AttackArea/LaunchRayCast
 
 func _physics_process(delta: float) -> void:
@@ -11,6 +11,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(name + "_merge"):
 		if is_merged:
 			launch_dziad()
+			
+func handle_animation():
+	if is_attacking: return
+	if abs(velocity) > Vector2.ZERO:
+		model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
+		if is_merged:
+			model_3d.crouch_run()
+		else:
+			model_3d.run()
+	else:
+		if is_merged:
+			model_3d.crouch_idle()
+		else:
+			model_3d.idle()
 
 func launch_dziad():
 	var point
@@ -23,11 +37,11 @@ func launch_dziad():
 	
 func attack():
 	is_attacking = true
-	model_3d.edge_grab()
+	model_3d.attack()
 	for body in attack_area.get_overlapping_bodies():
 		if body is ENEMY or body.is_in_group("props"):
 			body.take_damage(self, 5000)
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(.6).timeout
 	is_attacking = false
 	
 func take_damage(instigator, knockback):
@@ -45,6 +59,7 @@ func start_merge_with_other_dziad():
 	super()
 	other_dziad.is_merged = true
 	other_dziad.model_3d.reparent(other_dziad_origin)
+	other_dziad.model_3d.position = Vector3.ZERO
 	other_dziad.call_deferred("reparent", self)
 	#other_dziad.reparent(self)
 	other_dziad.global_position = global_position
