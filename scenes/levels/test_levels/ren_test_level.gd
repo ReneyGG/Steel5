@@ -29,7 +29,7 @@ func exit():
 
 func _on_timer_timeout():
 	$CanvasLayer/Control/Water.show()
-	$Camera2D.apply_shake()
+	$CameraHandle/Camera2D.apply_shake()
 
 # Restart
 func _on_button_pressed():
