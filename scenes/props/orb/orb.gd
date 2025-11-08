@@ -24,6 +24,7 @@ func take_damage(instigator, _knockback):
 		return
 	
 func dead(_instigator):
+	$SubViewportContainer/SubViewport/MeshInstance3D.hide()
 	is_dead = true
 	death.emit()
 	$CollisionShape2D.disabled = true

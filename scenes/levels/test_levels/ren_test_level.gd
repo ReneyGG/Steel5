@@ -5,7 +5,7 @@ var orb_count := 0
 
 var enemy_check := false
 var orb_check := false
-var plate_check:= true
+var plate_check:= false
 
 func _ready():
 	Global.stage += 1
@@ -25,8 +25,10 @@ func _ready():
 		enemy_check = true
 	if orb_count == 0:
 		orb_check = true
+	if get_node_or_null("Plates") == null:
+		plate_check = true
 	$AnimationPlayer.play("enter")
-	$Timer.start(20 - Global.stage)
+	$Timer.start(25 - Global.stage)
 
 func _physics_process(_delta):
 	$CanvasLayer/Control/ColorRect/Time.text = str(int($Timer.time_left))
@@ -74,4 +76,8 @@ func _on_orb_death():
 	orb_count -= 1
 	if orb_count == 0:
 		orb_check = true
+	check_clear()
+
+func _on_plates_plate_done():
+	plate_check = true
 	check_clear()
