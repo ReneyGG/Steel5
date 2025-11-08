@@ -1,11 +1,30 @@
 extends Node2D
 
+var t = 0
+var ts = ["LEPIEJ NA PADZIE","GRA DLA DWÓCH","DZIADÓW DWÓCH"]
+
+var start := false
 
 func _on_button_start_pressed():
-	pass # Replace with function body.
+	start = true
+	$Timer.start()
 
 func _on_button_quit_pressed():
 	get_tree().quit()
 
 func _physics_process(_delta):
-	$Camera2D.position.y += 10
+	if start:
+		$Camera2D.position.y += 10
+
+func _on_timer_timeout():
+	$CanvasLayer/Control/ButtonOk.show()
+	$CanvasLayer/Control/Label.text = ts[t]
+
+func _on_button_ok_pressed():
+	t += 1
+	if t >= 3:
+		get_tree().change_scene_to_file("res://scenes/levels/test_levels/ren_test_level.tscn")
+	else:
+		$CanvasLayer/Control/ButtonOk.hide()
+		$CanvasLayer/Control/Label.text = ""
+		$Timer.start()

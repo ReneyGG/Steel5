@@ -16,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -25,12 +26,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 72
-text = "DWA DZIADY DWA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonOk" type="Button" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.5
+offset_top = -214.0
+offset_right = 49.5
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "OK"
+
 [node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(1940, 1080)
+repeat_size = Vector2(0, 1080)
+repeat_times = 2
 
 [node name="BGpipes" type="Sprite2D" parent="Parallax2D"]
 modulate = Color(0.2223823, 0.2223823, 0.2223823, 1)
@@ -74,5 +92,11 @@ text = "QUIT"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/Control/ButtonOk" to="." method="_on_button_ok_pressed"]
 [connection signal="pressed" from="ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
