@@ -61,8 +61,6 @@ func explode(should_splash:= false):
 	queue_free()
 	
 func splash():
-	print('SSS')
 	for body in splash_area.get_overlapping_bodies():
-		print("HAHAHA")
 		if body is ENEMY:
 			body.take_damage(self, 5000)
