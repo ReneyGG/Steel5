@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=16 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="Texture2D" uid="uid://b4gr0ndbp5hdo" path="res://scenes/levels/test_levels/steelwrks-lvl.png" id="1_tt4ag"]
 [ext_resource type="PackedScene" uid="uid://baf7wwkrbg72w" path="res://scenes/menu/pause/pause.tscn" id="2_4s4m6"]
 [ext_resource type="Texture2D" uid="uid://16j4e3jw6hog" path="res://Art/door.png" id="2_d68gh"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
+[ext_resource type="PackedScene" uid="uid://dvymbfbp88xdx" path="res://scenes/props/plate/plate.tscn" id="5_4s4m6"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="5_sa84b"]
+[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="5_tg8vw"]
 [ext_resource type="Script" uid="uid://cc6hk8qmojo4p" path="res://scenes/levels/test_levels/camera_shake.gd" id="5_yulho"]
-[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="6_ja4jy"]
+[ext_resource type="PackedScene" uid="uid://dx52prcy661j0" path="res://scenes/props/orb/orb.tscn" id="6_tg8vw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j76wg"]
 size = Vector2(143.66663, 146.42087)
@@ -17,14 +19,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("CameraHandle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-7614, 4292)]
+"values": [Vector2(-8158, 4571)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraHandle/Camera2D:ingame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_j76wg"]
@@ -34,45 +48,69 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("CameraHandle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-7614, 4292), Vector2(0, 0)]
+"values": [Vector2(-8158, 4571), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraHandle/Camera2D:ingame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_ja4jy"]
 resource_name = "exit"
-length = 0.25
+length = 0.3
 step = 0.05
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(7614, -4292)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.25),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"exit"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraHandle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(12865, -7402)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraHandle/Camera2D:ingame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ja4jy"]
@@ -174,6 +212,7 @@ text = "Restart"
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="Environment"]
+z_index = -1
 scale = Vector2(2, 2)
 texture = ExtResource("1_tt4ag")
 
@@ -202,17 +241,35 @@ polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693,
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("6_ja4jy")]
-position = Vector2(-2362, 24)
+[node name="Enemy" parent="Enemies" instance=ExtResource("5_tg8vw")]
+position = Vector2(666, -845)
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("6_ja4jy")]
-position = Vector2(59, 1403)
+[node name="Orbs" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-7614, 4292)
+[node name="Orb" parent="Orbs" instance=ExtResource("6_tg8vw")]
+position = Vector2(-912, -426)
+
+[node name="Plates" parent="." instance=ExtResource("5_4s4m6")]
+position = Vector2(-612, 802)
+
+[node name="Plate1" parent="Plates" index="0"]
+position = Vector2(-1214, -734)
+
+[node name="Plate2" parent="Plates" index="1"]
+position = Vector2(1192, 243)
+
+[node name="CameraHandle" type="Node2D" parent="."]
+position = Vector2(-8158, 4571)
+
+[node name="Camera2D" type="Camera2D" parent="CameraHandle" node_paths=PackedStringArray("dziad1", "dziad2")]
 zoom = Vector2(0.255, 0.255)
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("5_yulho")
-randomStrength = 100.0
+randomStrength = 80.0
+dziad1 = NodePath("../../Dziad_I")
+dziad2 = NodePath("../../Dziad_II")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -227,6 +284,7 @@ SPEED = 1000.0
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("5_sa84b")]
 position = Vector2(341, 101)
 other_dziad = NodePath("../Dziad_I")
+SPEED = 300.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -246,4 +304,7 @@ position = Vector2(-2610, 110)
 
 [connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Environment/Door/Exit" to="." method="_on_exit_body_entered"]
+[connection signal="plate_done" from="Plates" to="." method="_on_plates_plate_done"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Plates"]
