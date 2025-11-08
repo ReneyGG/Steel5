@@ -23,12 +23,6 @@ texture = SubResource("ViewportTexture_pefog")
 texture = SubResource("ViewportTexture_8s2i0")
 
 [node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -617.0
-offset_right = 0.0
-grow_horizontal = 0
 texture = SubResource("ViewportTexture_pefog")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -47,19 +41,19 @@ position = Vector2(-513, -779)
 other_dziad = NodePath("../Dziad_I")
 
 [node name="Skeleton3D" parent="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
-bones/16/position = Vector3(-0.016039921, -0.02, 0.35476312)
-bones/17/rotation = Quaternion(0.1625644, 0.17327006, 0.6184659, 0.7490329)
-bones/18/rotation = Quaternion(-0.66270006, -0.0120486375, -0.021528365, 0.7484785)
-bones/19/rotation = Quaternion(0.09480604, 0.2801221, 0.8608886, 0.4140222)
-bones/20/rotation = Quaternion(-0.80168134, -0.010288626, -0.026056604, 0.59709495)
-bones/21/rotation = Quaternion(0.21572866, 0.08240682, 0.46680257, 0.8536778)
-bones/22/rotation = Quaternion(-0.671617, -0.012492071, -0.02172456, 0.74047464)
-bones/24/rotation = Quaternion(0.13669565, -0.15021798, -0.62958604, 0.7499136)
-bones/25/rotation = Quaternion(-0.5948238, 0.012934668, 0.019323332, 0.80351967)
-bones/26/rotation = Quaternion(0.08566389, -0.26774552, -0.84776413, 0.4497443)
-bones/27/rotation = Quaternion(-0.7648032, 0.011091498, 0.024857996, 0.64368886)
-bones/28/rotation = Quaternion(0.18676463, -0.06418335, -0.48072612, 0.854343)
-bones/29/rotation = Quaternion(-0.60171163, 0.013468709, 0.019463392, 0.7983627)
+bones/16/position = Vector3(0.015681595, -0.02, 0.35892567)
+bones/17/rotation = Quaternion(0.13240917, 0.14690861, 0.63003755, 0.75095826)
+bones/18/rotation = Quaternion(-0.5936914, -0.012948127, -0.019286603, 0.80435747)
+bones/19/rotation = Quaternion(0.082105495, 0.2616767, 0.8494621, 0.45077518)
+bones/20/rotation = Quaternion(-0.76321524, -0.011123974, -0.024806412, 0.6455721)
+bones/21/rotation = Quaternion(0.18815611, 0.06312087, 0.49107713, 0.8482078)
+bones/22/rotation = Quaternion(-0.6130269, -0.013322512, -0.019829366, 0.78970087)
+bones/24/rotation = Quaternion(0.1574307, -0.16931295, -0.6193176, 0.7503297)
+bones/25/rotation = Quaternion(-0.65976495, 0.012090347, 0.021432966, 0.75106907)
+bones/26/rotation = Quaternion(0.09107962, -0.27326906, -0.8625557, 0.4159643)
+bones/27/rotation = Quaternion(-0.7992243, 0.010345225, 0.02597675, 0.6003822)
+bones/28/rotation = Quaternion(0.20379145, -0.07781773, -0.45740417, 0.8620875)
+bones/29/rotation = Quaternion(-0.65660137, 0.012717406, 0.0212389, 0.75383145)
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)
@@ -74,6 +68,13 @@ position = Vector2(-1722, 856)
 position = Vector2(1615, 964)
 
 [node name="Enemy" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(1917, -255)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(2342, -677)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(2594, -144)
 
 [connection signal="body_entered" from="Dziad_I/MergeArea" to="Dziad_I" method="_on_merge_area_body_entered"]
 
