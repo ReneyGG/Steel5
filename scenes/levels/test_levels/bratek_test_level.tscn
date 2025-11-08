@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="1_dfi1k"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="2_x02r0"]
-[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="3_calfr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_calfr"]
 viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x02r0"]
+viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
 
 [node name="BratekTestLevel" type="Node2D"]
 y_sort_enabled = true
@@ -31,15 +33,42 @@ grow_vertical = 0
 rotation = 0.5235988
 color = Color(0.31140205, 0.7755858, 0.67019284, 1)
 
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1056.0
+offset_right = 2057.9998
+offset_bottom = 427.0
+grow_vertical = 0
+rotation = -0.5235988
+color = Color(0.31140205, 0.7755858, 0.67019284, 1)
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = -1.5258789e-05
 offset_top = -617.0
 offset_right = 617.0
 grow_vertical = 0
 texture = SubResource("ViewportTexture_calfr")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -617.0
+offset_top = -617.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("ViewportTexture_x02r0")
 expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -57,6 +86,21 @@ collision_mask = 1
 position = Vector2(-513, -779)
 other_dziad = NodePath("../Dziad_I")
 
+[node name="Skeleton3D" parent="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
+bones/16/position = Vector3(0.016065683, -0.02, 0.3544122)
+bones/17/rotation = Quaternion(0.13708663, 0.15052322, 0.6295368, 0.7498223)
+bones/18/rotation = Quaternion(-0.59501654, -0.012932386, -0.019329583, 0.8033769)
+bones/19/rotation = Quaternion(0.0859766, 0.26827532, 0.8476285, 0.44962487)
+bones/20/rotation = Quaternion(-0.76497704, -0.011087925, -0.024863636, 0.6434819)
+bones/21/rotation = Quaternion(0.19378887, 0.06620277, 0.49057126, 0.8469965)
+bones/22/rotation = Quaternion(-0.6149465, -0.01329728, -0.01989147, 0.78820586)
+bones/24/rotation = Quaternion(0.162979, -0.17358701, -0.61840314, 0.7489212)
+bones/25/rotation = Quaternion(-0.6628886, 0.012045941, 0.021534493, 0.7483114)
+bones/26/rotation = Quaternion(0.09511556, -0.28069627, -0.8607296, 0.41389292)
+bones/27/rotation = Quaternion(-0.80185616, 0.010284571, 0.026062312, 0.59685993)
+bones/28/rotation = Quaternion(0.21028024, -0.0811292, -0.45629412, 0.86081123)
+bones/29/rotation = Quaternion(-0.65985096, 0.012669451, 0.02134399, 0.7509865)
+
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)
 
@@ -69,15 +113,9 @@ position = Vector2(-1722, 856)
 [node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(1615, 964)
 
-[node name="Enemy" parent="." instance=ExtResource("3_calfr")]
-position = Vector2(3650, -866)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_calfr")]
-position = Vector2(3044, -335)
-
-[node name="Enemy3" parent="." instance=ExtResource("3_calfr")]
-position = Vector2(2751, -1104)
-
 [connection signal="body_entered" from="Dziad_I/MergeArea" to="Dziad_I" method="_on_merge_area_body_entered"]
 
 [editable path="Dziad_I"]
+[editable path="Dziad_II"]
+[editable path="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin"]
+[editable path="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot"]

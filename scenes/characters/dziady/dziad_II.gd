@@ -42,7 +42,7 @@ func handle_animation():
 func handle_aiming():
 	direction = Input.get_vector(name + "_move_left", name + "_move_right", name + "_move_up", name + "_move_down")
 	if direction != Vector2.ZERO:
-		model_3d.look_at(Vector3(-direction.x, 0, -direction.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
+		model_3d.look_at(Vector3(-direction.x, model_3d.global_position.y, -direction.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
 		attack_area.look_at(attack_area.global_position + direction)
 	if Input.is_action_pressed(name + "_attack"):
 		attack()
@@ -102,7 +102,8 @@ func end_merge_with_other_dziad():
 	merge_area.set_deferred("monitoring", true)
 
 func launch_to_point(point):
-	model_3d.reparent($SubViewportContainer/SubViewport)
+	model_3d.reparent($SubViewportContainer/SubViewport/SubViewport)
+	model_3d.position = Vector3.ZERO
 	var new_catapult_projectile = catapult_projectile.instantiate()
 	new_catapult_projectile.should_splash = true
 	get_parent().get_parent().add_child(new_catapult_projectile)
@@ -110,8 +111,8 @@ func launch_to_point(point):
 	var desired_distance = global_position.distance_to(point)
 	var desired_angle_deg = 45
 	new_catapult_projectile.LaunchProjectile(self, global_position, projectile_direction, desired_distance, desired_angle_deg)
-	await new_catapult_projectile.landing
 	is_merged = false
+	await new_catapult_projectile.landing
 	merge_area.set_deferred("monitoring", true)
 	
 	

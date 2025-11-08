@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtwxbv8c5k3fb"]
+[gd_scene load_steps=6 format=3 uid="uid://dtwxbv8c5k3fb"]
 
 [ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_o4slm"]
 [ext_resource type="Script" uid="uid://ch2x83py2jhq4" path="res://scenes/characters/dziady/dziad_I.gd" id="2_lpjfw"]
 [ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://addons/gdquest_gobot/gobot_skin.tscn" id="3_lpjfw"]
+[ext_resource type="PackedScene" uid="uid://dmtdytll6quhc" path="res://Art/characters/dziad/Bonanza.tscn" id="4_4417r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpjfw"]
 radius = 150.0
 
 [node name="Dziad_I" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_o4slm")]
 script = ExtResource("2_lpjfw")
-model_3d = NodePath("SubViewportContainer/SubViewport/SubViewport/GobotSkin")
+model_3d = NodePath("SubViewportContainer/SubViewport/SubViewport/bonanza")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, -6)
@@ -25,9 +26,18 @@ size = Vector2i(1024, 1024)
 render_target_update_mode = 4
 
 [node name="GobotSkin" parent="SubViewportContainer/SubViewport/SubViewport" index="0" instance=ExtResource("3_lpjfw")]
+visible = false
 
 [node name="OtherDziadOrigin" type="Node3D" parent="SubViewportContainer/SubViewport/SubViewport" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="bonanza" parent="SubViewportContainer/SubViewport/SubViewport" index="2" instance=ExtResource("4_4417r")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/SubViewport" index="3"]
+transform = Transform3D(0.8660254, 1.131334e-08, -0.5, -9.052925e-09, 1, 6.9465536e-09, 0.5, -1.4894298e-09, 0.8660254, -1.1648321, 1, 2)
+projection = 1
+size = 1.215
 
 [node name="AttackArea" type="Area2D" parent="." index="2"]
 position = Vector2(0, -6)
