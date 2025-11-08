@@ -74,10 +74,14 @@ func take_damage(instigator, knockback):
 	can_move = false
 	velocity = knocback_direction * knockback
 	move_and_slide()
-	await get_tree().create_timer(.5).timeout
+	$SubViewportContainer.material.set("shader_parameter/active",true)
+	await get_tree().create_timer(.25).timeout
+	$SubViewportContainer.material.set("shader_parameter/active",false)
+	await get_tree().create_timer(.25).timeout
 	can_move = true
 	
 func dead(instigator):
+	$CollisionShape2D.disabled = true
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
 	if instigator == dziad_II:
@@ -85,13 +89,15 @@ func dead(instigator):
 	else:
 		velocity = knocback_direction * 5000
 	move_and_slide()
-	await get_tree().create_timer(.5).timeout
+	
+	$SubViewportContainer.material.set("shader_parameter/active",true)
+	await get_tree().create_timer(.25).timeout
+	$SubViewportContainer.material.set("shader_parameter/active",false)
+	await get_tree().create_timer(4.75).timeout
 	
 	model_3d.power_off()
 	is_dead = true
-	can_move = false
 	is_attacking = false
 	SPEED = 0
 	velocity = Vector2.ZERO
 	death.emit()
-	$CollisionShape2D.disabled = true

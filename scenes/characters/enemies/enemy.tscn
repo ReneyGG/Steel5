@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpi4g7pxfemab"]
+[gd_scene load_steps=7 format=3 uid="uid://cpi4g7pxfemab"]
 
 [ext_resource type="PackedScene" uid="uid://ctn3a4vogupjh" path="res://scenes/characters/character.tscn" id="1_w0ky3"]
 [ext_resource type="PackedScene" uid="uid://482rxnrhe64v" path="res://addons/gdquest_bee_bot/bee_bot_skin.tscn" id="2_blu3w"]
 [ext_resource type="Script" uid="uid://2j1ljk7g0fjv" path="res://scenes/characters/enemies/enemy.gd" id="2_nwhyh"]
+[ext_resource type="Shader" uid="uid://2arjap3ju0c7" path="res://shaders/splash.gdshader" id="3_qj54i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_blu3w"]
 radius = 123.47064
 
-[node name="Enemy" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_w0ky3")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj54i"]
+resource_local_to_scene = true
+shader = ExtResource("3_qj54i")
+shader_parameter/active = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[node name="Enemy" node_paths=PackedStringArray("model_3d") groups=["props"] instance=ExtResource("1_w0ky3")]
 script = ExtResource("2_nwhyh")
 health = 3
 SPEED = 300.0
@@ -17,6 +24,7 @@ model_3d = NodePath("SubViewportContainer/SubViewport/BeebotSkin")
 shape = SubResource("CircleShape2D_blu3w")
 
 [node name="SubViewportContainer" parent="." index="1"]
+material = SubResource("ShaderMaterial_qj54i")
 offset_top = -732.0
 offset_bottom = 292.0
 
