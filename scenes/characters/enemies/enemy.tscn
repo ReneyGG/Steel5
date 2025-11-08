@@ -24,3 +24,12 @@ own_world_3d = true
 
 [node name="BeebotSkin" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("2_blu3w")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.5, 0)
+
+[node name="AttackArea" type="Area2D" parent="." index="2"]
+position = Vector2(0, -6)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea" index="0"]
+self_modulate = Color(0.67059386, 0.5993934, 1, 1)
+polygon = PackedVector2Array(0, 0, 600, 300, 600, -300)

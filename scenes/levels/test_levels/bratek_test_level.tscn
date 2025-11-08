@@ -59,9 +59,7 @@ other_dziad = NodePath("../Dziad_I")
 
 [node name="Enemy" parent="." instance=ExtResource("3_calfr")]
 position = Vector2(1003, -509)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_calfr")]
-position = Vector2(-1018, 659)
+SPEED = 200.0
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)
