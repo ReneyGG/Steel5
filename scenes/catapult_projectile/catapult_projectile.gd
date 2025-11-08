@@ -13,8 +13,8 @@ var throw_direction: Vector2
 var z_axis = 0.0 # Simulate throwing the projectile on the z-axis by adding the z-axis to the y-axis
 var is_launch: bool = false
 
+@export var splash_effect: PackedScene
 @export var time_mult: float = 16.0
-@export var explode_effect_scene: PackedScene
 var projectile_object: DZIAD
 
 signal landing
@@ -53,14 +53,23 @@ func LaunchProjectile(dziad: DZIAD,initial_pos: Vector2, direction: Vector2, des
 	is_launch = true
 
 
+@warning_ignore("shadowed_variable")
 func explode(should_splash:= false):
 	projectile_object.reparent(get_parent())
 	landing.emit()
 	if should_splash:
 		splash()
+		
 	queue_free()
 	
+func spawn_splash_effect():
+	var new_splash_effect = splash_effect.instantiate()
+	add_sibling(new_splash_effect)
+	new_splash_effect.global_position = $Sprite2D.global_position
+	new_splash_effect.emitting = true
+	
 func splash():
+	spawn_splash_effect()
 	for body in splash_area.get_overlapping_bodies():
 		if body is ENEMY:
 			body.take_damage(self, 5000)

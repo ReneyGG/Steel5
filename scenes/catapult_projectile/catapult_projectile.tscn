@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7lljkenan5m7"]
+[gd_scene load_steps=5 format=3 uid="uid://b7lljkenan5m7"]
 
 [ext_resource type="Script" uid="uid://bno60s0hcpmsw" path="res://scenes/catapult_projectile/catapult_projectile.gd" id="1_qydi5"]
 [ext_resource type="Texture2D" uid="uid://b1kkofdj6ov01" path="res://Art/icon.svg" id="2_1oud8"]
+[ext_resource type="PackedScene" uid="uid://d4ia0tj7b3apv" path="res://scenes/effects/landing_splash/landing_splash.tscn" id="2_bgwhg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qydi5"]
 radius = 1000.0
 
 [node name="CatapultProjectile" type="Node2D"]
 script = ExtResource("1_qydi5")
+splash_effect = ExtResource("2_bgwhg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1oud8")

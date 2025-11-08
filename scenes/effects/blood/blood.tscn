@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1w52o2udy2qb"]
+
+[ext_resource type="Texture2D" uid="uid://b1kkofdj6ov01" path="res://Art/icon.svg" id="1_l8o2f"]
+
+[node name="Blood" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_l8o2f")

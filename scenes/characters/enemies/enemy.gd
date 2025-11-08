@@ -9,6 +9,7 @@ var attack_range: float = 400
 var is_dead:= false
 @onready var attack_area: Area2D = $AttackArea
 @export var health: int = 3
+@export var blood_pool: PackedScene
 var stunned:= false
 
 signal death
@@ -62,6 +63,11 @@ func attack():
 			#break
 	#await get_tree().create_timer(1).timeout
 	is_attacking = false
+	
+func drop_blood():
+	var new_blood_pool = blood_pool.instantiate()
+	add_sibling(new_blood_pool)
+	new_blood_pool.global_position = global_position
 
 func take_damage(instigator, knockback):
 	is_attacking = false
@@ -69,6 +75,7 @@ func take_damage(instigator, knockback):
 	on_take_damage.emit()
 	if instigator != dziad_I:
 		health -= 1
+		drop_blood()
 	if health <= 0:
 		dead(instigator)
 		return

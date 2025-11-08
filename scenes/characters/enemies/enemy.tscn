@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpi4g7pxfemab"]
+[gd_scene load_steps=8 format=3 uid="uid://cpi4g7pxfemab"]
 
 [ext_resource type="PackedScene" uid="uid://ctn3a4vogupjh" path="res://scenes/characters/character.tscn" id="1_w0ky3"]
 [ext_resource type="PackedScene" uid="uid://482rxnrhe64v" path="res://addons/gdquest_bee_bot/bee_bot_skin.tscn" id="2_blu3w"]
 [ext_resource type="Script" uid="uid://2j1ljk7g0fjv" path="res://scenes/characters/enemies/enemy.gd" id="2_nwhyh"]
+[ext_resource type="PackedScene" uid="uid://c1w52o2udy2qb" path="res://scenes/effects/blood/blood.tscn" id="3_ihb4b"]
 [ext_resource type="Shader" uid="uid://2arjap3ju0c7" path="res://shaders/splash.gdshader" id="3_qj54i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_blu3w"]
@@ -17,6 +18,7 @@ shader_parameter/tint = Color(1, 1, 1, 1)
 [node name="Enemy" node_paths=PackedStringArray("model_3d") groups=["props"] instance=ExtResource("1_w0ky3")]
 script = ExtResource("2_nwhyh")
 health = 3
+blood_pool = ExtResource("3_ihb4b")
 SPEED = 300.0
 model_3d = NodePath("SubViewportContainer/SubViewport/BeebotSkin")
 
