@@ -65,9 +65,10 @@ func attack():
 func take_damage(instigator):
 	is_attacking = false
 	if is_dead: return
-	health -= 1
+	if instigator == dziad_II:
+		health -= 1
 	if health <= 0:
-		dead()
+		dead(instigator)
 		return
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
@@ -79,7 +80,16 @@ func take_damage(instigator):
 	await get_tree().create_timer(.5).timeout
 	can_move = true
 	
-func dead():
+func dead(instigator):
+	var knocback_direction = instigator.global_position.direction_to(global_position)
+	can_move = false
+	if instigator == dziad_II:
+		velocity = knocback_direction * 3000
+	else:
+		velocity = knocback_direction * 5000
+	move_and_slide()
+	await get_tree().create_timer(.5).timeout
+	
 	model_3d.power_off()
 	is_dead = true
 	can_move = false
