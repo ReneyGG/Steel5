@@ -7,7 +7,9 @@ func _physics_process(delta: float) -> void:
 		if is_merged:
 			end_merge_with_other_dziad()
 			other_dziad.end_merge_with_other_dziad()
-	if is_merged: return
+	if is_merged:
+		handle_aiming()
+		return
 	super(delta)
 	if direction != Vector2.ZERO:
 		attack_area.look_at(attack_area.global_position + direction)
@@ -18,7 +20,13 @@ func handle_animation():
 		model_3d.walk()
 	else:
 		model_3d.idle()
-
+		
+func handle_aiming():
+	direction = Input.get_vector(name + "_move_left", name + "_move_right", name + "_move_up", name + "_move_down")
+	if direction != Vector2.ZERO:
+		model_3d.look_at(Vector3(-direction.x, 0, -direction.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
+		attack_area.look_at(attack_area.global_position + direction)
+		
 func attack():
 	is_attacking = true
 	model_3d.attack()

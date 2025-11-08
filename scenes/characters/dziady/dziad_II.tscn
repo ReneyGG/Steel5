@@ -25,4 +25,5 @@ offset_bottom = 117.0
 position = Vector2(0, -6)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea" index="0"]
+self_modulate = Color(1.6123802e-06, 0.6354196, 0.19626245, 1)
 polygon = PackedVector2Array(0, 0, 600, 300, 600, -300)
