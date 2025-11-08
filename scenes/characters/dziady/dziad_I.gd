@@ -32,10 +32,14 @@ func launch_dziad():
 		point = launch_ray_cast.get_collision_point()
 	else:
 		point = $AttackArea/LaunchRayCast/LandingSpot.global_position
-			
+	
 	other_dziad.launch_to_point(point)
+	is_merged = false
 	
 func attack():
+	if is_merged:
+		launch_dziad()
+		return
 	is_attacking = true
 	model_3d.attack()
 	for body in attack_area.get_overlapping_bodies():

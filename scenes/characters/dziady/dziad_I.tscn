@@ -34,6 +34,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="bonanza" parent="SubViewportContainer/SubViewport/SubViewport" index="2" instance=ExtResource("4_4417r")]
 
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/SubViewport" index="3"]
+transform = Transform3D(0.8660254, 1.131334e-08, -0.5, -9.052925e-09, 1, 6.9465536e-09, 0.5, -1.4894298e-09, 0.8660254, -1.1648321, 1, 2)
+projection = 1
+size = 1.215
+
 [node name="AttackArea" type="Area2D" parent="." index="2"]
 position = Vector2(0, -6)
 

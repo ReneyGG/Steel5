@@ -13,7 +13,7 @@ radius = 248.78
 script = ExtResource("2_7ehhd")
 catapult_projectile = ExtResource("3_7sv5s")
 SPEED = 100.0
-model_3d = NodePath("SubViewportContainer/SubViewport/BeetlebotSkin")
+model_3d = NodePath("SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, -5)
@@ -23,55 +23,32 @@ shape = SubResource("CircleShape2D_57s4p")
 offset_top = -907.0
 offset_bottom = 117.0
 
-[node name="BeetlebotSkin" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_57s4p")]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer/SubViewport" index="0"]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+render_target_update_mode = 4
 
-[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
-bones/1/position = Vector3(-0.4584, 0.1718, 0.0044344887)
-bones/1/rotation = Quaternion(0, 0, 0.6890807, 0.7246847)
-bones/2/rotation = Quaternion(-0.7071068, 1.0536698e-08, -1.0536698e-08, 0.7071068)
-bones/3/rotation = Quaternion(0.56098586, 0.56098586, 0.43045887, 0.43045887)
-bones/4/rotation = Quaternion(0.4304589, 0.4304589, 0.56098586, 0.56098586)
-bones/6/position = Vector3(-0.2685, -0.383726, 0.0044344887)
-bones/6/rotation = Quaternion(0, 0, 0.93442947, 0.35614818)
-bones/7/rotation = Quaternion(-0.7071068, -3.743389e-23, -6.2803687e-16, 0.7071068)
-bones/8/rotation = Quaternion(0.56098586, 0.56098586, 0.43045887, 0.43045887)
-bones/9/rotation = Quaternion(0.4304589, 0.4304589, 0.56098586, 0.56098586)
-bones/11/rotation = Quaternion(9.967933e-09, -2.4383008e-08, 0.38695112, 0.9221003)
-bones/12/rotation = Quaternion(-0.7071068, 3.4421288e-07, -2.5465093e-07, 0.7071068)
-bones/13/rotation = Quaternion(0.56098515, 0.56098616, 0.43045914, 0.4304591)
-bones/14/rotation = Quaternion(0.43045917, 0.4304592, 0.56098616, 0.5609852)
-bones/16/position = Vector3(0.005638037, -0.02, 0.34958464)
-bones/17/rotation = Quaternion(0.15134633, 0.16263737, 0.6253061, 0.74808806)
-bones/18/rotation = Quaternion(-0.6210367, -0.012611095, -0.020174863, 0.78342044)
-bones/19/rotation = Quaternion(0.09345338, 0.28007418, 0.8495894, 0.43706158)
-bones/20/rotation = Quaternion(-0.78000194, -0.010772405, -0.025351996, 0.6251707)
-bones/21/position = Vector3(-0.0239784, 0.285311, -0.245566)
-bones/21/rotation = Quaternion(0.20792145, 0.07538175, 0.48239887, 0.84757155)
-bones/22/rotation = Quaternion(-0.63732, -0.012993757, -0.020615116, 0.77021396)
-bones/24/rotation = Quaternion(0.16057838, -0.1707992, -0.6213489, 0.74764156)
-bones/25/rotation = Quaternion(-0.644678, 0.012299585, 0.020942906, 0.76406837)
-bones/26/rotation = Quaternion(0.09662584, -0.28464365, -0.8540423, 0.42456254)
-bones/27/rotation = Quaternion(-0.7928774, 0.010489337, 0.02577049, 0.6087457)
-bones/28/position = Vector3(0.0239784, 0.285311, -0.245566)
-bones/28/rotation = Quaternion(0.20977485, -0.07940267, -0.46384105, 0.8570538)
-bones/29/rotation = Quaternion(-0.6449306, 0.012886383, 0.020861333, 0.76384765)
-bones/30/position = Vector3(0.4584, 0.1718, 0.0044344887)
-bones/30/rotation = Quaternion(0, 0, -0.6890807, 0.7246847)
-bones/31/rotation = Quaternion(-0.7071068, -1.0536698e-08, 1.0536698e-08, 0.7071068)
-bones/32/rotation = Quaternion(0.56098586, -0.56098586, -0.43045887, 0.43045887)
-bones/33/rotation = Quaternion(0.4304589, -0.4304589, -0.56098586, 0.56098586)
-bones/35/position = Vector3(0.2685, -0.383726, 0.0044344887)
-bones/35/rotation = Quaternion(0, 0, -0.93442947, 0.35614818)
-bones/36/rotation = Quaternion(-0.7071068, 3.743389e-23, 6.2803687e-16, 0.7071068)
-bones/37/rotation = Quaternion(0.56098586, -0.56098586, -0.43045887, 0.43045887)
-bones/38/rotation = Quaternion(0.4304589, -0.4304589, -0.56098586, 0.56098586)
-bones/40/rotation = Quaternion(9.967933e-09, 2.4383008e-08, -0.38695112, 0.9221003)
-bones/41/rotation = Quaternion(-0.7071068, -3.4421288e-07, 2.5465093e-07, 0.7071068)
-bones/42/rotation = Quaternion(-0.56098515, 0.56098616, 0.43045914, -0.4304591)
-bones/43/rotation = Quaternion(-0.43045917, 0.4304592, 0.56098616, -0.5609852)
+[node name="BeetlebotSkin" parent="SubViewportContainer/SubViewport/SubViewport" index="0" instance=ExtResource("3_57s4p")]
 
-[node name="AnimationTree" parent="SubViewportContainer/SubViewport/BeetlebotSkin" index="1"]
-root_node = NodePath("../beetle_bot")
+[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
+bones/16/position = Vector3(0.010687519, -0.02, 0.3455428)
+bones/17/rotation = Quaternion(0.15159965, 0.16236675, 0.62639487, 0.7471841)
+bones/18/rotation = Quaternion(-0.61196625, -0.0127256, -0.019880207, 0.7905316)
+bones/19/rotation = Quaternion(0.09547024, 0.28400123, 0.84604186, 0.44095567)
+bones/20/rotation = Quaternion(-0.77584946, -0.010861084, -0.02521706, 0.6303203)
+bones/21/rotation = Quaternion(0.20948838, 0.07558861, 0.48523465, 0.8455463)
+bones/22/rotation = Quaternion(-0.6302498, -0.013091644, -0.020386457, 0.7760144)
+bones/24/rotation = Quaternion(0.1690875, -0.17778581, -0.6188166, 0.7462357)
+bones/25/rotation = Quaternion(-0.6567178, 0.012133308, 0.021334024, 0.75373703)
+bones/26/rotation = Quaternion(0.10145578, -0.29295486, -0.8542828, 0.4172351)
+bones/27/rotation = Quaternion(-0.80020344, 0.010322727, 0.026008537, 0.59907556)
+bones/28/rotation = Quaternion(0.21872564, -0.0846361, -0.45911738, 0.8568588)
+bones/29/rotation = Quaternion(-0.65568054, 0.0127309, 0.02120909, 0.7546331)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/SubViewport" index="1"]
+transform = Transform3D(0.8660254, 4.3667856e-09, 0.5, -9.052925e-09, 1, 6.9465536e-09, -0.5, -1.05423545e-08, 0.8660254, 0.8351679, 0.56385064, 2)
+projection = 1
+size = 1.215
 
 [node name="AttackArea" type="Area2D" parent="." index="2"]
 position = Vector2(0, -6)
@@ -92,5 +69,5 @@ wait_time = 0.3
 [connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
 
-[editable path="SubViewportContainer/SubViewport/BeetlebotSkin"]
-[editable path="SubViewportContainer/SubViewport/BeetlebotSkin/beetle_bot"]
+[editable path="SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin"]
+[editable path="SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot"]
