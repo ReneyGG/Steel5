@@ -9,6 +9,7 @@ radius = 123.47064
 
 [node name="Enemy" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_w0ky3")]
 script = ExtResource("2_nwhyh")
+health = 3
 SPEED = 300.0
 model_3d = NodePath("SubViewportContainer/SubViewport/BeebotSkin")
 
