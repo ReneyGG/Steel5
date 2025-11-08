@@ -15,15 +15,21 @@ func _physics_process(_delta):
 	$CanvasLayer/Control/ColorRect/Time.text = str(int($Timer.time_left))
 
 func _on_exit_body_entered(_body):
-	if $Environment/Door.flip_h and not $CanvasLayer/Control/Water.visible:
-		$Timer.paused = true
-		$AnimationPlayer.play("exit")
+	if not $Environment/Door.flip_h:
+		return
+	if $CanvasLayer/Control/Water.visible:
+		return
+	if not $Dziad_I.other_dziad.is_merged:
+		return
+	$Timer.paused = true
+	$AnimationPlayer.play("exit")
 
 func exit():
 	get_tree().reload_current_scene()
 
 func _on_timer_timeout():
 	$CanvasLayer/Control/Water.show()
+	$Camera2D.apply_shake()
 
 # Restart
 func _on_button_pressed():

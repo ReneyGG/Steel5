@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=14 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="Texture2D" uid="uid://b4gr0ndbp5hdo" path="res://scenes/levels/test_levels/steelwrks-lvl.png" id="1_tt4ag"]
+[ext_resource type="PackedScene" uid="uid://baf7wwkrbg72w" path="res://scenes/menu/pause/pause.tscn" id="2_4s4m6"]
 [ext_resource type="Texture2D" uid="uid://16j4e3jw6hog" path="res://Art/door.png" id="2_d68gh"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="5_sa84b"]
+[ext_resource type="Script" uid="uid://cc6hk8qmojo4p" path="res://scenes/levels/test_levels/camera_shake.gd" id="5_yulho"]
 [ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="6_ja4jy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j76wg"]
@@ -167,6 +169,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Restart"
 
+[node name="Pause" parent="." instance=ExtResource("2_4s4m6")]
+
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="Environment"]
@@ -207,6 +211,8 @@ position = Vector2(59, 1403)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-7614, 4292)
 zoom = Vector2(0.255, 0.255)
+script = ExtResource("5_yulho")
+randomStrength = 100.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -227,13 +233,16 @@ wait_time = 10.0
 one_shot = true
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
-position = Vector2(-1238, -793)
+position = Vector2(-124, -1021)
 
 [node name="LandingPoint2" type="Node2D" parent="." groups=["landing_points"]]
-position = Vector2(147, 1392)
+position = Vector2(62, 1385)
 
 [node name="LandingPoint3" type="Node2D" parent="." groups=["landing_points"]]
-position = Vector2(2189, 338)
+position = Vector2(2463, 227)
+
+[node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
+position = Vector2(-2610, 110)
 
 [connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Environment/Door/Exit" to="." method="_on_exit_body_entered"]
