@@ -33,6 +33,7 @@ func attack():
 	pass
 
 func start_merge_with_other_dziad():
+	if is_merged: return
 	is_merged = true
 	
 func end_merge_with_other_dziad():
