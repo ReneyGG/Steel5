@@ -67,3 +67,17 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = SubResource("ViewportTexture_x02r0")
 expand_mode = 1
+
+[node name="Dziad_I_Avatar_Alt" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -1.5258789e-05
+offset_top = -617.0
+offset_right = 617.0
+grow_vertical = 0
+texture = SubResource("ViewportTexture_calfr")
+expand_mode = 1
+flip_h = true

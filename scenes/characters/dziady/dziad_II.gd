@@ -6,6 +6,7 @@ extends "res://scenes/characters/dziady/dziad.gd"
 var can_attack:= true
 
 signal on_merge
+signal on_end_merge
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
@@ -86,6 +87,7 @@ func start_merge_with_other_dziad():
 	#other_dziad.start_merge_with_other_dziad()
 	
 func end_merge_with_other_dziad():
+	on_end_merge.emit()
 	model_3d.reparent($SubViewportContainer/SubViewport)
 	model_3d.position = Vector3.ZERO
 	var new_catapult_projectile = catapult_projectile.instantiate()
@@ -106,6 +108,7 @@ func end_merge_with_other_dziad():
 	merge_area.set_deferred("monitoring", true)
 
 func launch_to_point(point):
+	on_end_merge.emit()
 	model_3d.reparent($SubViewportContainer/SubViewport/SubViewport)
 	model_3d.position = Vector3.ZERO
 	var new_catapult_projectile = catapult_projectile.instantiate()
