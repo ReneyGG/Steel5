@@ -1,14 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpa3nmrt5ysnp"]
+[gd_scene load_steps=7 format=3 uid="uid://cpa3nmrt5ysnp"]
 
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="1_dfi1k"]
 [ext_resource type="PackedScene" uid="uid://2dum2dsmxn8w" path="res://scenes/menu/avatars/avatars.tscn" id="1_pefog"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="2_x02r0"]
 [ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="3_calfr"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_pefog"]
+viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8s2i0"]
+viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
+
 [node name="BratekTestLevel" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Avatars" parent="." instance=ExtResource("1_pefog")]
+
+[node name="Dziad_I_Avatar" parent="Avatars/Control" index="2"]
+texture = SubResource("ViewportTexture_pefog")
+
+[node name="Dziad_II_Avatar" parent="Avatars/Control" index="3"]
+texture = SubResource("ViewportTexture_8s2i0")
+
+[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -617.0
+offset_right = 0.0
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_pefog")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.4, 0.4)
@@ -26,19 +47,19 @@ position = Vector2(-513, -779)
 other_dziad = NodePath("../Dziad_I")
 
 [node name="Skeleton3D" parent="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
-bones/16/position = Vector3(0.015650747, -0.02, 0.3590347)
-bones/17/rotation = Quaternion(0.13231358, 0.14683703, 0.6300427, 0.75098497)
-bones/18/rotation = Quaternion(-0.5936794, -0.01294827, -0.019286215, 0.80436635)
-bones/19/rotation = Quaternion(0.082018144, 0.2615253, 0.8495136, 0.45078176)
-bones/20/rotation = Quaternion(-0.7632115, -0.011124048, -0.024806287, 0.64557654)
-bones/21/rotation = Quaternion(0.18803483, 0.063057646, 0.49107486, 0.8482406)
-bones/22/rotation = Quaternion(-0.61303985, -0.013322341, -0.019829784, 0.7896908)
-bones/24/rotation = Quaternion(0.15728079, -0.16919564, -0.61934733, 0.75036293)
-bones/25/rotation = Quaternion(-0.6596471, 0.012092016, 0.021429142, 0.7511728)
-bones/26/rotation = Quaternion(0.09097638, -0.27308285, -0.86258924, 0.4160397)
-bones/27/rotation = Quaternion(-0.79913706, 0.010347229, 0.02597391, 0.6004983)
-bones/28/rotation = Quaternion(0.20362052, -0.077727206, -0.45744798, 0.8621128)
-bones/29/rotation = Quaternion(-0.6564864, 0.012719098, 0.021235177, 0.75393164)
+bones/16/position = Vector3(-0.016039921, -0.02, 0.35476312)
+bones/17/rotation = Quaternion(0.1625644, 0.17327006, 0.6184659, 0.7490329)
+bones/18/rotation = Quaternion(-0.66270006, -0.0120486375, -0.021528365, 0.7484785)
+bones/19/rotation = Quaternion(0.09480604, 0.2801221, 0.8608886, 0.4140222)
+bones/20/rotation = Quaternion(-0.80168134, -0.010288626, -0.026056604, 0.59709495)
+bones/21/rotation = Quaternion(0.21572866, 0.08240682, 0.46680257, 0.8536778)
+bones/22/rotation = Quaternion(-0.671617, -0.012492071, -0.02172456, 0.74047464)
+bones/24/rotation = Quaternion(0.13669565, -0.15021798, -0.62958604, 0.7499136)
+bones/25/rotation = Quaternion(-0.5948238, 0.012934668, 0.019323332, 0.80351967)
+bones/26/rotation = Quaternion(0.08566389, -0.26774552, -0.84776413, 0.4497443)
+bones/27/rotation = Quaternion(-0.7648032, 0.011091498, 0.024857996, 0.64368886)
+bones/28/rotation = Quaternion(0.18676463, -0.06418335, -0.48072612, 0.854343)
+bones/29/rotation = Quaternion(-0.60171163, 0.013468709, 0.019463392, 0.7983627)
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)
@@ -56,6 +77,7 @@ position = Vector2(1615, 964)
 
 [connection signal="body_entered" from="Dziad_I/MergeArea" to="Dziad_I" method="_on_merge_area_body_entered"]
 
+[editable path="Avatars"]
 [editable path="Dziad_I"]
 [editable path="Dziad_II"]
 [editable path="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin"]
