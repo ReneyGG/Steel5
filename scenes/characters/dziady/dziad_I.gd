@@ -22,6 +22,7 @@ func start_merge_with_other_dziad():
 	other_dziad.is_merged = true
 	other_dziad.model_3d.reparent(other_dziad_origin)
 	other_dziad.reparent(self)
+	other_dziad.position = position
 
 func end_merge_with_other_dziad():
 	super()

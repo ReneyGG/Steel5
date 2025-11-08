@@ -10,6 +10,7 @@ height = 912.0
 radius = 400.0
 
 [node name="Dziad" type="CharacterBody2D" groups=["dziady"]]
+collision_mask = 0
 script = ExtResource("1_md4sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
