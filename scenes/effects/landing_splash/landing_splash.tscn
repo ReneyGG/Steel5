@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4ia0tj7b3apv"]
+
+[ext_resource type="Texture2D" uid="uid://b1kkofdj6ov01" path="res://Art/icon.svg" id="1_bjam0"]
+[ext_resource type="Script" uid="uid://ksko7h1gk0s0" path="res://scenes/effects/landing_splash/landing_splash.gd" id="2_6nfaj"]
+
+[sub_resource type="Curve" id="Curve_bjam0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6nfaj"]
+curve = SubResource("Curve_bjam0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6nfaj"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+spread = 180.0
+initial_velocity_min = 471.43
+initial_velocity_max = 671.43
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_6nfaj")
+
+[node name="LandingSplash" type="GPUParticles2D"]
+emitting = false
+amount = 16
+texture = ExtResource("1_bjam0")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6nfaj")
+script = ExtResource("2_6nfaj")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
