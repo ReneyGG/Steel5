@@ -242,8 +242,9 @@ polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693,
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_ja4jy")]
 position = Vector2(-2362, 24)
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("6_ja4jy")]
-position = Vector2(59, 1403)
+[node name="Orbs" type="Node2D" parent="."]
+
+[node name="Buttons" type="Node2D" parent="."]
 
 [node name="CameraHandle" type="Node2D" parent="."]
 position = Vector2(-8158, 4571)
