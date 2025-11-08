@@ -30,6 +30,7 @@ func handle_animation():
 func attack():
 	pass
 	
+@warning_ignore("unused_parameter")
 func take_damage(instigator, knockback):
 	on_take_damage.emit()
 	
