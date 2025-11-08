@@ -30,7 +30,7 @@ func handle_animation():
 func attack():
 	pass
 	
-func take_damage(instigator):
+func take_damage(instigator, knockback):
 	on_take_damage.emit()
 	
 func start_merge_with_other_dziad():

@@ -26,17 +26,17 @@ func attack():
 	model_3d.edge_grab()
 	for body in attack_area.get_overlapping_bodies():
 		if body is ENEMY:
-			body.take_damage(self)
+			body.take_damage(self, 5000)
 	await get_tree().create_timer(.5).timeout
 	is_attacking = false
 	
-func take_damage(instigator):
-	super(instigator)
+func take_damage(instigator, knockback):
+	super(instigator, knockback)
 	if is_merged:
 		end_merge_with_other_dziad()
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
-	velocity = knocback_direction * 5000
+	velocity = knocback_direction * knockback
 	move_and_slide()
 	await get_tree().create_timer(.5).timeout
 	can_move = true

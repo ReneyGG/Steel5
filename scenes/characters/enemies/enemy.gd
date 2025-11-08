@@ -57,12 +57,12 @@ func attack():
 	model_3d.attack()
 	for body in attack_area.get_overlapping_bodies():
 		if body is DZIAD:
-			body.take_damage(self)
+			body.take_damage(self, 5000)
 			#break
 	#await get_tree().create_timer(1).timeout
 	is_attacking = false
 
-func take_damage(instigator):
+func take_damage(instigator, knockback):
 	is_attacking = false
 	if is_dead: return
 	if instigator == dziad_II:
@@ -72,10 +72,7 @@ func take_damage(instigator):
 		return
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
-	if instigator == dziad_II:
-		velocity = knocback_direction * 3000
-	else:
-		velocity = knocback_direction * 5000
+	velocity = knocback_direction * knockback
 	move_and_slide()
 	await get_tree().create_timer(.5).timeout
 	can_move = true

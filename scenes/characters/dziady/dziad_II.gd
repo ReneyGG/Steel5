@@ -3,6 +3,7 @@ extends "res://scenes/characters/dziady/dziad.gd"
 @onready var attack_area: Area2D = $AttackArea
 @export var catapult_projectile: PackedScene
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
+@onready var splash_area: Area2D = $SplashArea
 var can_attack:= true
 
 func _physics_process(delta: float) -> void:
@@ -61,16 +62,16 @@ func attack():
 func apply_damage():
 	for body in attack_area.get_overlapping_bodies():
 		if body is ENEMY:
-			body.take_damage(self)
+			body.take_damage(self, 3000)
 
-func take_damage(instigator):
-	super(instigator)
+func take_damage(instigator, knockback):
+	super(instigator, knockback)
 	if is_merged:
 		end_merge_with_other_dziad()
 	else:
 		var knocback_direction = instigator.global_position.direction_to(global_position)
 		can_move = false
-		velocity = knocback_direction * 5000
+		velocity = knocback_direction * knockback
 		move_and_slide()
 		await get_tree().create_timer(.5).timeout
 		can_move = true
@@ -111,6 +112,11 @@ func launch_to_point(point):
 	await new_catapult_projectile.landing
 	is_merged = false
 	merge_area.set_deferred("monitoring", true)
+	#call_deferred("splash")
+	#splash()
+	#apply_damage()
+	apply_damage()
+	
 	
 
 func find_point_to_land() -> Node2D:
@@ -129,6 +135,13 @@ func _on_merge_area_body_entered(body: Node2D) -> void:
 		other_dziad.start_merge_with_other_dziad()
 		start_merge_with_other_dziad()
 
-#
-#func _on_attack_cooldown_timer_timeout() -> void:
-	#can_attack = true
+func splash():
+	print('SSS')
+	for body in splash_area.get_overlapping_bodies():
+		print("HAHAHA")
+		if body is ENEMY:
+			body.take_damage(self, 8000)
+
+
+func _on_splash_area_body_entered(body: Node2D) -> void:
+	print(body)
