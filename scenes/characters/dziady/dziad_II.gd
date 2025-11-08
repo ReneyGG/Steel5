@@ -61,7 +61,7 @@ func attack():
 			
 func apply_damage():
 	for body in attack_area.get_overlapping_bodies():
-		if body is ENEMY:
+		if body is ENEMY or body.is_in_group("props"):
 			body.take_damage(self, 3000)
 
 func take_damage(instigator, knockback):
