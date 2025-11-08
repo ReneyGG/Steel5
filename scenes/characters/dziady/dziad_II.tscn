@@ -31,19 +31,19 @@ render_target_update_mode = 4
 [node name="BeetlebotSkin" parent="SubViewportContainer/SubViewport/SubViewport" index="0" instance=ExtResource("3_57s4p")]
 
 [node name="Skeleton3D" parent="SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
-bones/16/position = Vector3(-0.010627515, -0.02, 0.3455613)
-bones/17/rotation = Quaternion(0.16902024, 0.17772898, 0.6188418, 0.74624354)
-bones/18/rotation = Quaternion(-0.6565909, -0.012135077, -0.021329943, 0.7538476)
-bones/19/rotation = Quaternion(0.10142449, 0.29290247, 0.8542666, 0.4173128)
-bones/20/rotation = Quaternion(-0.80013096, -0.010324398, -0.02600618, 0.5991724)
-bones/21/rotation = Quaternion(0.22471978, 0.0863688, 0.46937773, 0.8495446)
-bones/22/rotation = Quaternion(-0.66761845, -0.012552925, -0.021595214, 0.7440844)
-bones/24/rotation = Quaternion(0.15163116, -0.16239679, -0.6263773, 0.74718606)
-bones/25/rotation = Quaternion(-0.6121208, 0.012723691, 0.019885218, 0.79041183)
-bones/26/rotation = Quaternion(0.09547253, -0.28400064, -0.846071, 0.44089982)
-bones/27/rotation = Quaternion(-0.77591354, 0.010859724, 0.025219142, 0.63024145)
-bones/28/rotation = Quaternion(0.20307934, -0.07370567, -0.47533295, 0.8528686)
-bones/29/rotation = Quaternion(-0.617651, 0.013261563, 0.01997888, 0.78608674)
+bones/16/position = Vector3(0.010965037, -0.02, 0.3648974)
+bones/17/rotation = Quaternion(0.12968776, 0.14526963, 0.62933177, 0.75234264)
+bones/18/rotation = Quaternion(-0.60057145, -0.012865619, -0.019510075, 0.79922956)
+bones/19/rotation = Quaternion(0.078266025, 0.25452048, 0.8534555, 0.44800404)
+bones/20/rotation = Quaternion(-0.7658117, -0.011070787, -0.024890793, 0.6424877)
+bones/21/rotation = Quaternion(0.18366241, 0.06132026, 0.48886725, 0.850598)
+bones/22/rotation = Quaternion(-0.61820036, -0.013254309, -0.019996718, 0.78565437)
+bones/24/rotation = Quaternion(0.1469822, -0.16086751, -0.6219544, 0.75212413)
+bones/25/rotation = Quaternion(-0.64722127, 0.012264924, 0.0210255, 0.7619135)
+bones/26/rotation = Quaternion(0.08460524, -0.26215184, -0.8629028, 0.42369473)
+bones/27/rotation = Quaternion(-0.7911032, 0.010529084, 0.025712833, 0.61105126)
+bones/28/rotation = Quaternion(0.19245793, -0.071349904, -0.46221665, 0.8626848)
+bones/29/rotation = Quaternion(-0.64508325, 0.012884215, 0.020866282, 0.76371866)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/SubViewport" index="1"]
 transform = Transform3D(0.8660254, 4.3667856e-09, 0.5, -9.052925e-09, 1, 6.9465536e-09, -0.5, -1.05423545e-08, 0.8660254, 0.8351679, 0.56385064, 2)

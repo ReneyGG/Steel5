@@ -88,6 +88,7 @@ func start_merge_with_other_dziad():
 	
 func end_merge_with_other_dziad():
 	on_end_merge.emit()
+	$CollisionShape2D.disabled = true
 	model_3d.reparent($SubViewportContainer/SubViewport)
 	model_3d.position = Vector3.ZERO
 	var new_catapult_projectile = catapult_projectile.instantiate()
@@ -104,11 +105,13 @@ func end_merge_with_other_dziad():
 	var desired_angle_deg = 45
 	new_catapult_projectile.LaunchProjectile(self, global_position, projectile_direction, desired_distance, desired_angle_deg)
 	await new_catapult_projectile.landing
+	$CollisionShape2D.disabled = false
 	is_merged = false
 	merge_area.set_deferred("monitoring", true)
 
 func launch_to_point(point):
 	on_end_merge.emit()
+	$CollisionShape2D.disabled = true
 	model_3d.reparent($SubViewportContainer/SubViewport/SubViewport)
 	model_3d.position = Vector3.ZERO
 	var new_catapult_projectile = catapult_projectile.instantiate()
@@ -120,6 +123,7 @@ func launch_to_point(point):
 	new_catapult_projectile.LaunchProjectile(self, global_position, projectile_direction, desired_distance, desired_angle_deg)
 	is_merged = false
 	await new_catapult_projectile.landing
+	$CollisionShape2D.disabled = false
 	merge_area.set_deferred("monitoring", true)
 	
 	

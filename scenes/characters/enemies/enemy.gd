@@ -67,7 +67,7 @@ func take_damage(instigator, knockback):
 	is_attacking = false
 	if is_dead: return
 	on_take_damage.emit()
-	if instigator == dziad_II:
+	if instigator != dziad_I:
 		health -= 1
 	if health <= 0:
 		dead(instigator)
