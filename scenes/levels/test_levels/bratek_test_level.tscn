@@ -57,9 +57,6 @@ collision_mask = 1
 position = Vector2(-513, -779)
 other_dziad = NodePath("../Dziad_I")
 
-[node name="Enemy" parent="." instance=ExtResource("3_calfr")]
-position = Vector2(1003, -509)
-
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)
 
@@ -71,6 +68,15 @@ position = Vector2(-1722, 856)
 
 [node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(1615, 964)
+
+[node name="Enemy" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(3650, -866)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(3044, -335)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(2751, -1104)
 
 [connection signal="body_entered" from="Dziad_I/MergeArea" to="Dziad_I" method="_on_merge_area_body_entered"]
 
