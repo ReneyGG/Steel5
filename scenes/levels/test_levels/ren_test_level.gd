@@ -15,7 +15,7 @@ func _physics_process(_delta):
 	$CanvasLayer/Control/ColorRect/Time.text = str(int($Timer.time_left))
 
 func _on_exit_body_entered(_body):
-	if $Environment/Door.flip_h:
+	if $Environment/Door.flip_h and not $CanvasLayer/Control/Water.visible:
 		$Timer.paused = true
 		$AnimationPlayer.play("exit")
 

@@ -179,8 +179,8 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_d68gh")
 
 [node name="Exit" type="Area2D" parent="Environment/Door"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Door/Exit"]
 position = Vector2(-51, 171)
@@ -199,7 +199,10 @@ polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693,
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_ja4jy")]
-position = Vector2(-2351, -59)
+position = Vector2(-2362, 24)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("6_ja4jy")]
+position = Vector2(59, 1403)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-7614, 4292)
@@ -212,20 +215,25 @@ libraries = {
 
 [node name="Dziad_I" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("2_tt4ag")]
 position = Vector2(-433, 95)
-collision_layer = 3
-collision_mask = 3
 other_dziad = NodePath("../Dziad_II")
 SPEED = 1000.0
 
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("5_sa84b")]
 position = Vector2(341, 101)
-collision_layer = 3
-collision_mask = 3
 other_dziad = NodePath("../Dziad_I")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
+position = Vector2(-1238, -793)
+
+[node name="LandingPoint2" type="Node2D" parent="." groups=["landing_points"]]
+position = Vector2(147, 1392)
+
+[node name="LandingPoint3" type="Node2D" parent="." groups=["landing_points"]]
+position = Vector2(2189, 338)
 
 [connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Environment/Door/Exit" to="." method="_on_exit_body_entered"]
