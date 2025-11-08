@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxxyey5y24qba"]
+[gd_scene load_steps=6 format=3 uid="uid://bxxyey5y24qba"]
 
 [ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_lxsgr"]
 [ext_resource type="Script" uid="uid://02ns6nc8jmnv" path="res://scenes/characters/dziady/dziad_II.gd" id="2_7ehhd"]
+[ext_resource type="PackedScene" uid="uid://b7lljkenan5m7" path="res://scenes/catapult_projectile/catapult_projectile.tscn" id="3_7sv5s"]
 [ext_resource type="PackedScene" uid="uid://bpjqcswabdtyb" path="res://addons/gdquest_beetle_bot/beetlebot_skin.tscn" id="3_57s4p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57s4p"]
@@ -9,6 +10,7 @@ radius = 248.78
 
 [node name="Dziad_II" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_lxsgr")]
 script = ExtResource("2_7ehhd")
+catapult_projectile = ExtResource("3_7sv5s")
 model_3d = NodePath("SubViewportContainer/SubViewport/BeetlebotSkin")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -27,3 +29,5 @@ position = Vector2(0, -6)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea" index="0"]
 self_modulate = Color(1.6123802e-06, 0.6354196, 0.19626245, 1)
 polygon = PackedVector2Array(0, 0, 600, 300, 600, -300)
+
+[connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]

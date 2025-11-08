@@ -6,6 +6,7 @@ var dziad_I : DZIAD
 var dziad_II : DZIAD
 var focus_dziad: DZIAD = dziad_I
 var attack_range: float = 400
+@onready var attack_area: Area2D = $AttackArea
 
 signal death
 
@@ -17,6 +18,8 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	find_first_dziad()
+	if direction != Vector2.ZERO:
+		attack_area.look_at(attack_area.global_position + direction)
 	if !is_attacking and can_move:
 		handle_movement()
 		handle_animation()
@@ -44,6 +47,10 @@ func attack():
 	velocity = Vector2.ZERO
 	model_3d.attack()
 	await get_tree().create_timer(1).timeout
+	for body in attack_area.get_overlapping_bodies():
+		if body is DZIAD:
+			body.take_damage()
+			break
 	is_attacking = false
 
 func take_damage():
