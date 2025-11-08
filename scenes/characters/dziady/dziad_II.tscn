@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxxyey5y24qba"]
+[gd_scene load_steps=8 format=3 uid="uid://bxxyey5y24qba"]
 
 [ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_lxsgr"]
 [ext_resource type="Script" uid="uid://02ns6nc8jmnv" path="res://scenes/characters/dziady/dziad_II.gd" id="2_7ehhd"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57s4p"]
 radius = 248.78
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shdat"]
+radius = 1000.0
 
 [node name="Dziad_II" node_paths=PackedStringArray("model_3d") instance=ExtResource("1_lxsgr")]
 script = ExtResource("2_7ehhd")
@@ -40,21 +43,21 @@ bones/11/rotation = Quaternion(9.967933e-09, -2.4383008e-08, 0.38695112, 0.92210
 bones/12/rotation = Quaternion(-0.7071068, 3.4421288e-07, -2.5465093e-07, 0.7071068)
 bones/13/rotation = Quaternion(0.56098515, 0.56098616, 0.43045914, 0.4304591)
 bones/14/rotation = Quaternion(0.43045917, 0.4304592, 0.56098616, 0.5609852)
-bones/16/position = Vector3(0.013795083, -0.02, 0.34659985)
-bones/17/rotation = Quaternion(0.14773439, 0.15906416, 0.6276146, 0.74764496)
-bones/18/rotation = Quaternion(-0.60448945, -0.012817952, -0.01963734, 0.79626787)
-bones/19/rotation = Quaternion(0.09358277, 0.28100443, 0.845377, 0.44454068)
-bones/20/rotation = Quaternion(-0.771581, -0.010951107, -0.02507833, 0.6355422)
+bones/16/position = Vector3(-0.008289546, -0.02, 0.36441606)
+bones/17/rotation = Quaternion(0.145584, 0.15952708, 0.6228094, 0.75197405)
+bones/18/rotation = Quaternion(-0.6421271, -0.01233416, -0.020860052, 0.7662152)
+bones/19/rotation = Quaternion(0.08431333, 0.26208016, 0.8614802, 0.4266819)
+bones/20/rotation = Quaternion(-0.78843886, -0.01058836, -0.025626168, 0.6144879)
 bones/21/position = Vector3(-0.0239784, 0.285311, -0.245566)
-bones/21/rotation = Quaternion(0.20575024, 0.07313904, 0.48759434, 0.84532195)
-bones/22/rotation = Quaternion(-0.623834, -0.013178881, -0.020178907, 0.7811852)
-bones/24/rotation = Quaternion(0.17026132, -0.17895195, -0.6178627, 0.7464804)
-bones/25/rotation = Quaternion(-0.66228116, 0.012054615, 0.0215148, 0.74884945)
-bones/26/rotation = Quaternion(0.10132395, -0.29244605, -0.8560905, 0.41390562)
-bones/27/rotation = Quaternion(-0.8029852, 0.010258301, 0.02609904, 0.5953389)
+bones/21/rotation = Quaternion(0.19782206, 0.071915366, 0.47470504, 0.854605)
+bones/22/rotation = Quaternion(-0.65305734, -0.012769257, -0.021124134, 0.7569062)
+bones/24/rotation = Quaternion(0.13246956, -0.14771084, -0.62839776, 0.75216335)
+bones/25/rotation = Quaternion(-0.6068805, 0.012788631, 0.019715043, 0.7944456)
+bones/26/rotation = Quaternion(0.07952718, -0.25628546, -0.85435474, 0.44505197)
+bones/27/rotation = Quaternion(-0.7693299, 0.010998071, 0.025005138, 0.6382675)
 bones/28/position = Vector3(0.0239784, 0.285311, -0.245566)
-bones/28/rotation = Quaternion(0.21942487, -0.08539452, -0.456791, 0.8578476)
-bones/29/rotation = Quaternion(-0.6602949, 0.012662798, 0.021358317, 0.750596)
+bones/28/rotation = Quaternion(0.1798253, -0.061651748, -0.47675377, 0.8582353)
+bones/29/rotation = Quaternion(-0.6107169, 0.013352751, 0.01975457, 0.79149)
 bones/30/position = Vector3(0.4584, 0.1718, 0.0044344887)
 bones/30/rotation = Quaternion(0, 0, -0.6890807, 0.7246847)
 bones/31/rotation = Quaternion(-0.7071068, -1.0536698e-08, 1.0536698e-08, 0.7071068)
@@ -86,10 +89,16 @@ position = Vector2(462.5, 7.000004)
 scale = Vector2(8.2265625, 2.84375)
 texture = ExtResource("5_shdat")
 
-[node name="AttackCooldownTimer" type="Timer" parent="." index="4"]
+[node name="SplashArea" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SplashArea" index="0"]
+shape = SubResource("CircleShape2D_shdat")
+
+[node name="AttackCooldownTimer" type="Timer" parent="." index="5"]
 wait_time = 0.3
 
 [connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]
+[connection signal="body_entered" from="SplashArea" to="." method="_on_splash_area_body_entered"]
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
 
 [editable path="SubViewportContainer/SubViewport/BeetlebotSkin"]

@@ -2,28 +2,41 @@ extends "res://scenes/characters/dziady/dziad.gd"
 
 @onready var attack_area: Area2D = $AttackArea
 @onready var other_dziad_origin: Node3D = $SubViewportContainer/SubViewport/SubViewport/OtherDziadOrigin
+@onready var launch_ray_cast: RayCast2D = $AttackArea/LaunchRayCast
 
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if direction != Vector2.ZERO:
 		attack_area.look_at(attack_area.global_position + direction)
+	if Input.is_action_just_pressed(name + "_merge"):
+		if is_merged:
+			launch_dziad()
 
+func launch_dziad():
+	var point
+	if launch_ray_cast.is_colliding():
+		point = launch_ray_cast.get_collision_point()
+	else:
+		point = $AttackArea/LaunchRayCast/LandingSpot.global_position
+			
+	other_dziad.launch_to_point(point)
+	
 func attack():
 	is_attacking = true
 	model_3d.edge_grab()
 	for body in attack_area.get_overlapping_bodies():
 		if body is ENEMY:
-			body.take_damage(self)
+			body.take_damage(self, 5000)
 	await get_tree().create_timer(.5).timeout
 	is_attacking = false
 	
-func take_damage(instigator):
-	super(instigator)
+func take_damage(instigator, knockback):
+	super(instigator, knockback)
 	if is_merged:
 		end_merge_with_other_dziad()
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
-	velocity = knocback_direction * 5000
+	velocity = knocback_direction * knockback
 	move_and_slide()
 	await get_tree().create_timer(.5).timeout
 	can_move = true
