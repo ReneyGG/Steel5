@@ -191,7 +191,7 @@ shape = SubResource("RectangleShape2D_j76wg")
 [node name="Walls" type="StaticBody2D" parent="Environment"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Walls"]
-polygon = PackedVector2Array(-3600, 68, -534, -1450, 383, -1479, 3751, 301, 3757, -2138, -3822, -2145)
+polygon = PackedVector2Array(-3600, 68, -534, -1450, 383, -1479, 3751, 307, 3757, -2138, -3822, -2145)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Environment/Walls"]
 polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693, 2117)
