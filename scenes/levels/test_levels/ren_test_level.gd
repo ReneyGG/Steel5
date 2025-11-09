@@ -29,7 +29,9 @@ func _ready():
 		plate_check = true
 	check_clear()
 	$AnimationPlayer.play("enter")
-	$Timer.start(60 - Global.stage)
+	$Timer.start(30 - Global.stage)
+	$TimerMinus.start(30 - Global.stage - 5)
+	$Pass.play()
 
 func _physics_process(_delta):
 	$GameplayUI/Control/ColorRect/Time.text = str(int($Timer.time_left))
@@ -51,8 +53,11 @@ func exit():
 		get_tree().change_scene_to_file("res://scenes/levels/levels/level"+str(randi_range(5,10))+".tscn")
 
 func _on_timer_timeout():
+	$GameOver.play()
 	$GameplayUI/Control/Water.show()
+	$GameplayUI/Control/Water/WaterAnim.play("default")
 	$CameraHandle/Camera2D.apply_shake()
+	get_tree().paused = true
 
 # Restart
 func _on_button_pressed():
@@ -65,6 +70,7 @@ func _on_impact():
 func check_clear():
 	if enemy_check and orb_check and plate_check:
 		$Environment/Door.position.y = -1000.0
+		$Door.play()
 
 func _on_enemy_death():
 	if $GameplayUI/Control/Water.visible:
@@ -92,3 +98,6 @@ func _on_quit_button_pressed():
 func _on_restart_button_pressed():
 	Global.stage = 0
 	get_tree().change_scene_to_file("res://scenes/levels/levels/level1.tscn")
+
+func _on_timer_minus_timeout():
+	$Alarm.play()

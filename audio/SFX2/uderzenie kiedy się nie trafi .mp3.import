@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0a4fn6s2x7e4"
+path="res://.godot/imported/uderzenie kiedy się nie trafi .mp3-19c83e231d867b5d8a1fa66e3c5d5c4a.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX2/uderzenie kiedy się nie trafi .mp3"
+dest_files=["res://.godot/imported/uderzenie kiedy się nie trafi .mp3-19c83e231d867b5d8a1fa66e3c5d5c4a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -11,18 +11,19 @@ viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport"
 
 [node name="RenTestLevel" instance=ExtResource("1_x5eej")]
 
-[node name="Dziad_I_Avatar" parent="Avatars/Control" index="2"]
+[node name="Dziad_I_Avatar" parent="Avatars/Control" index="4"]
 texture = SubResource("ViewportTexture_fqdqp")
 
-[node name="Dziad_II_Avatar" parent="Avatars/Control" index="3"]
+[node name="Dziad_II_Avatar" parent="Avatars/Control" index="5"]
 texture = SubResource("ViewportTexture_mkafi")
 
-[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
+[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="6"]
 texture = SubResource("ViewportTexture_fqdqp")
 
 [node name="Enemy" parent="Enemies" index="0" instance=ExtResource("2_72ctf")]
 position = Vector2(544, -301)
 
+[editable path="GameplayUI"]
 [editable path="Avatars"]
 [editable path="Dziad_I"]
 [editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]

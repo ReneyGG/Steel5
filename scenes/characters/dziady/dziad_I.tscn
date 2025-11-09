@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtwxbv8c5k3fb"]
+[gd_scene load_steps=8 format=3 uid="uid://dtwxbv8c5k3fb"]
 
 [ext_resource type="PackedScene" uid="uid://foq2dvqle1t2" path="res://scenes/characters/dziady/dziad.tscn" id="1_o4slm"]
 [ext_resource type="Script" uid="uid://ch2x83py2jhq4" path="res://scenes/characters/dziady/dziad_I.gd" id="2_lpjfw"]
 [ext_resource type="AudioStream" uid="uid://dn0iag00qsdym" path="res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/rzucam bonanza.mp3" id="4_0ffop"]
+[ext_resource type="AudioStream" uid="uid://b0a4fn6s2x7e4" path="res://audio/SFX2/uderzenie kiedy się nie trafi .mp3" id="4_068i1"]
 [ext_resource type="PackedScene" uid="uid://dmtdytll6quhc" path="res://Art/characters/dziad/Bonanza.tscn" id="4_4417r"]
 [ext_resource type="AudioStream" uid="uid://du4iqbfiw1k34" path="res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/no co jest bonanza.mp3" id="5_0ffop"]
 
@@ -189,6 +190,9 @@ target_position = Vector2(2000, 0)
 
 [node name="LandingSpot" type="Node2D" parent="AttackArea/LaunchRayCast" index="0"]
 position = Vector2(2000, 0)
+
+[node name="OnAttackAudioPlayer" parent="." index="5"]
+stream = ExtResource("4_068i1")
 
 [node name="OnDziadLaunchPlayer" type="AudioStreamPlayer2D" parent="." index="6"]
 stream = ExtResource("4_0ffop")
