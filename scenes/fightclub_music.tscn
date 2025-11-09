@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4vcopbprvpq5"]
+
+[ext_resource type="AudioStream" uid="uid://beb1b8cderk1t" path="res://audio/FIGHT CLUB DŁUGI.mp3" id="1_jy5te"]
+
+[node name="FightclubMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_jy5te")

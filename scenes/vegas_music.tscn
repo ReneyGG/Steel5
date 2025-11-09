@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq45dv1ytl88w"]
+
+[ext_resource type="AudioStream" uid="uid://c71jvyqqd5x2y" path="res://audio/VEGAS MENU MUSIC.mp3" id="1_2xcdj"]
+
+[node name="VegasMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_2xcdj")

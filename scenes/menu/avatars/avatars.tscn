@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://2dum2dsmxn8w"]
+[gd_scene load_steps=5 format=3 uid="uid://2dum2dsmxn8w"]
 
 [ext_resource type="Script" uid="uid://2xib3nb51e40" path="res://scenes/menu/avatars/avatars.gd" id="1_gv38h"]
+[ext_resource type="Texture2D" uid="uid://cnsgjegchq6p3" path="res://scenes/characters/steelwrks-portretyspace.png" id="2_h05qf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_calfr"]
 viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
@@ -21,6 +22,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -32,6 +34,7 @@ rotation = 0.5235988
 color = Color(0.31140205, 0.7755858, 0.67019284, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -42,6 +45,29 @@ offset_bottom = 427.0
 grow_vertical = 0
 rotation = -0.5235988
 color = Color(0.31140205, 0.7755858, 0.67019284, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h05qf")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h05qf")
+expand_mode = 1
+flip_h = true
 
 [node name="Dziad_I_Avatar" type="TextureRect" parent="Control"]
 layout_mode = 1

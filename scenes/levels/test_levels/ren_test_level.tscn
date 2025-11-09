@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=30 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="PackedScene" uid="uid://baf7wwkrbg72w" path="res://scenes/menu/pause/pause.tscn" id="2_4s4m6"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://bb1lvbpufxcqm" path="res://Art/Map/steelwrks-lvl7.png" id="9_upvwv"]
 [ext_resource type="Texture2D" uid="uid://dk0ijitn4naw2" path="res://Art/Map/steelwrks-lvl8.png" id="10_2r5rj"]
 [ext_resource type="Texture2D" uid="uid://1e7svdt57ges" path="res://Art/Map/steelwrks-lvl11MULTIPLY.png" id="13_n5hib"]
+[ext_resource type="AudioStream" uid="uid://cp5ykugmpmfa4" path="res://audio/SFX2/death screen.mp3" id="17_w11et"]
+[ext_resource type="AudioStream" uid="uid://lwhpfaw6j044" path="res://audio/SFX2/dźwięk odliczania pojedynczy.mp3" id="18_ci51t"]
+[ext_resource type="AudioStream" uid="uid://cllesjduebw20" path="res://audio/SFX2/otwieranie metalowych drzwi.mp3" id="19_f240k"]
+[ext_resource type="AudioStream" uid="uid://dg82ga4hrcapy" path="res://audio/SFX/JACKPOT PRZEJŚCIE DO KOLEJNEGO POKOJU OBOJE MÓWIĄ.mp3" id="20_nxdar"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hmuup"]
 viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
@@ -140,18 +144,19 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_j76wg")
 
-[node name="GameplayUI" parent="." instance=ExtResource("2_57xj2")]
-
 [node name="Avatars" parent="." instance=ExtResource("2_ay21j")]
 
-[node name="Dziad_I_Avatar" parent="Avatars/Control" index="2"]
+[node name="Dziad_I_Avatar" parent="Avatars/Control" index="4"]
 texture = SubResource("ViewportTexture_hmuup")
 
-[node name="Dziad_II_Avatar" parent="Avatars/Control" index="3"]
+[node name="Dziad_II_Avatar" parent="Avatars/Control" index="5"]
 texture = SubResource("ViewportTexture_67da0")
 
-[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
+[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="6"]
 texture = SubResource("ViewportTexture_hmuup")
+
+[node name="GameplayUI" parent="." instance=ExtResource("2_57xj2")]
+process_mode = 3
 
 [node name="Pause" parent="." instance=ExtResource("2_4s4m6")]
 
@@ -218,10 +223,13 @@ polygon = PackedVector2Array(-3441, 240, -562, -1304, 271, -1297, 3448, 370, 345
 polygon = PackedVector2Array(-3455, -21, 160, 1842, 1182, 1275, 1514, 1432, 2321.7778, 914.6667, 2347.5557, -238.22223, 3455, -184, 3461, 1946, -3442, 1959)
 
 [node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Orbs" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="CameraHandle" type="Node2D" parent="."]
+process_mode = 3
 position = Vector2(-8158, 4571)
 
 [node name="Camera2D" type="Camera2D" parent="CameraHandle" node_paths=PackedStringArray("dziad1", "dziad2")]
@@ -253,6 +261,9 @@ SPEED = 300.0
 wait_time = 10.0
 one_shot = true
 
+[node name="TimerMinus" type="Timer" parent="."]
+one_shot = true
+
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-78, -910)
 
@@ -265,13 +276,27 @@ position = Vector2(1812, 162)
 [node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-2206, 123)
 
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("17_w11et")
+
+[node name="Alarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ci51t")
+
+[node name="Door" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_f240k")
+
+[node name="Pass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_nxdar")
+
 [connection signal="pressed" from="GameplayUI/Control/Water/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="GameplayUI/Control/Water/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="body_entered" from="Environment/Exit" to="." method="_on_exit_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerMinus" to="." method="_on_timer_minus_timeout"]
 
-[editable path="GameplayUI"]
 [editable path="Avatars"]
+[editable path="GameplayUI"]
 [editable path="Dziad_I"]
 [editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]
 [editable path="Dziad_II"]

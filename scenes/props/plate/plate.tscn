@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvymbfbp88xdx"]
+[gd_scene load_steps=10 format=3 uid="uid://dvymbfbp88xdx"]
 
 [ext_resource type="Script" uid="uid://b1nflnk5kb3tp" path="res://scenes/props/plate/plate.gd" id="1_tp4cv"]
 [ext_resource type="Texture2D" uid="uid://o4kng1kqka6v" path="res://scenes/props/plate/steelwrks-button-red.png" id="2_7sygn"]
 [ext_resource type="Script" uid="uid://bfqmtxurbmqaq" path="res://scenes/props/plate/indivdual.gd" id="2_anbrx"]
 [ext_resource type="Texture2D" uid="uid://c04etj70t7hyq" path="res://scenes/props/plate/steelwrks-button-green.png" id="3_anbrx"]
 [ext_resource type="Texture2D" uid="uid://3wkfmymu5dhe" path="res://scenes/props/plate/steelwrks-button-pisscolor.png" id="4_ltq57"]
+[ext_resource type="AudioStream" uid="uid://dg1cacia13hf8" path="res://audio/SFX2/kilkanie w guzik na ziemi.mp3" id="6_fnlxt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ltq57"]
 animations = [{
@@ -76,6 +77,9 @@ sprite_frames = SubResource("SpriteFrames_fnlxt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plate2"]
 position = Vector2(0, -109.5)
 shape = SubResource("RectangleShape2D_tp4cv")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fnlxt")
 
 [connection signal="body_entered" from="Plate1" to="." method="_on_plate_body_entered"]
 [connection signal="body_entered" from="Plate2" to="." method="_on_plate_body_entered"]
