@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuwpxxuxvxjbn"]
+[gd_scene load_steps=15 format=3 uid="uid://cuwpxxuxvxjbn"]
 
 [ext_resource type="Script" uid="uid://w3ghtqp1o4lq" path="res://scenes/menu/main/main.gd" id="1_7p0ll"]
-[ext_resource type="Texture2D" uid="uid://cx4qf4msvt2jm" path="res://scenes/menu/main/lv.png" id="1_46tb7"]
+[ext_resource type="Texture2D" uid="uid://dvmanpat78oge" path="res://scenes/menu/main/vegas/tlo.png" id="3_2aon3"]
 [ext_resource type="Texture2D" uid="uid://dvf7a60o3nndv" path="res://scenes/menu/main/pipes.png" id="3_pjtpf"]
+[ext_resource type="Texture2D" uid="uid://du0lq04sldno5" path="res://scenes/menu/main/vegas/za las vegas.png" id="4_eiyjf"]
+[ext_resource type="Texture2D" uid="uid://bd81fyutt4mmm" path="res://scenes/menu/main/vegas/las vegas.png" id="5_7jaud"]
+[ext_resource type="Texture2D" uid="uid://c5i24htap7x54" path="res://scenes/menu/main/vegas/przed las vegas.png" id="6_kngg4"]
+[ext_resource type="Script" uid="uid://b3nwq363mx2u2" path="res://scenes/menu/main/perspective.gd" id="7_7cofh"]
+[ext_resource type="Texture2D" uid="uid://nyxvgckarlin" path="res://scenes/menu/main/vegas/pod przyciski.png" id="7_o331w"]
+[ext_resource type="Texture2D" uid="uid://c35untir1b1xj" path="res://scenes/menu/main/vegas/wyjscie off.png" id="8_lljob"]
+[ext_resource type="Texture2D" uid="uid://c3uuu3i3lg0sm" path="res://scenes/menu/main/vegas/wyjscie on.png" id="9_7cofh"]
+[ext_resource type="Texture2D" uid="uid://cp6e2jp7oskum" path="res://scenes/menu/main/vegas/autorzy off.png" id="10_38ro6"]
+[ext_resource type="Texture2D" uid="uid://dfel5oxminpx5" path="res://scenes/menu/main/vegas/autorzy on.png" id="11_hhw8d"]
+[ext_resource type="Texture2D" uid="uid://bm7bifryj2cru" path="res://scenes/menu/main/vegas/start off.png" id="12_cvkj3"]
+[ext_resource type="Texture2D" uid="uid://r84nddum7cxi" path="res://scenes/menu/main/vegas/start on.png" id="13_6nquc"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_7p0ll")
@@ -57,40 +68,69 @@ scale = Vector2(1.9460001, 1.8576332)
 texture = ExtResource("3_pjtpf")
 
 [node name="VegasStart" type="Node2D" parent="."]
+position = Vector2(0, 29)
 
-[node name="BGvegas" type="Sprite2D" parent="."]
-scale = Vector2(1.825, 1.825)
-texture = ExtResource("1_46tb7")
+[node name="Bg" type="Sprite2D" parent="VegasStart"]
+position = Vector2(0, -29)
+texture = ExtResource("3_2aon3")
 
-[node name="ButtonStart" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 72
-text = "START"
+[node name="SignBack" type="Sprite2D" parent="VegasStart"]
+texture = ExtResource("4_eiyjf")
+script = ExtResource("7_7cofh")
+diff = 3.0
 
-[node name="ButtonQuit" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -90.5
-offset_top = 106.0
-offset_right = 90.5
-offset_bottom = 213.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 72
-text = "QUIT"
+[node name="Sign" type="Sprite2D" parent="VegasStart"]
+texture = ExtResource("5_7jaud")
+script = ExtResource("7_7cofh")
+diff = 1.75
+
+[node name="MenuSign" type="Sprite2D" parent="VegasStart"]
+texture = ExtResource("7_o331w")
+script = ExtResource("7_7cofh")
+diff = -1.5
+
+[node name="WyjscieButton" type="TextureButton" parent="VegasStart/MenuSign"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -806.0
+offset_top = -1035.0
+offset_right = -511.0
+offset_bottom = -917.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_lljob")
+texture_hover = ExtResource("9_7cofh")
+
+[node name="AutorzyButton" type="TextureButton" parent="VegasStart/MenuSign"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -804.0
+offset_top = -934.0
+offset_right = -512.0
+offset_bottom = -852.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_38ro6")
+texture_hover = ExtResource("11_hhw8d")
+
+[node name="StartButton" type="TextureButton" parent="VegasStart/MenuSign"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -553.0
+offset_top = -873.0
+offset_right = -178.0
+offset_bottom = -725.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("12_cvkj3")
+texture_hover = ExtResource("13_6nquc")
+
+[node name="SignFront" type="Sprite2D" parent="VegasStart"]
+texture = ExtResource("6_kngg4")
+script = ExtResource("7_7cofh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -99,6 +139,6 @@ wait_time = 3.0
 one_shot = true
 
 [connection signal="pressed" from="CanvasLayer/Control/ButtonOk" to="." method="_on_button_ok_pressed"]
-[connection signal="pressed" from="ButtonStart" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="VegasStart/MenuSign/WyjscieButton" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="VegasStart/MenuSign/StartButton" to="." method="_on_button_start_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
