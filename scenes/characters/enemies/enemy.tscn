@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpi4g7pxfemab"]
+[gd_scene load_steps=9 format=3 uid="uid://cpi4g7pxfemab"]
 
 [ext_resource type="PackedScene" uid="uid://ctn3a4vogupjh" path="res://scenes/characters/character.tscn" id="1_w0ky3"]
-[ext_resource type="PackedScene" uid="uid://482rxnrhe64v" path="res://addons/gdquest_bee_bot/bee_bot_skin.tscn" id="2_blu3w"]
 [ext_resource type="Script" uid="uid://2j1ljk7g0fjv" path="res://scenes/characters/enemies/enemy.gd" id="2_nwhyh"]
 [ext_resource type="PackedScene" uid="uid://c1w52o2udy2qb" path="res://scenes/effects/blood/blood.tscn" id="3_ihb4b"]
 [ext_resource type="Shader" uid="uid://2arjap3ju0c7" path="res://shaders/splash.gdshader" id="3_qj54i"]
+[ext_resource type="PackedScene" uid="uid://cg7vvlcvajta8" path="res://Art/characters/enemy/enemy_model.tscn" id="5_8e52f"]
+[ext_resource type="AudioStream" uid="uid://biotqaajqf5sx" path="res://audio/cute-animal-squeak-3-188099.mp3" id="6_ksqmq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_blu3w"]
 radius = 123.47064
@@ -20,7 +21,7 @@ script = ExtResource("2_nwhyh")
 health = 3
 blood_pool = ExtResource("3_ihb4b")
 SPEED = 300.0
-model_3d = NodePath("SubViewportContainer/SubViewport/BeebotSkin")
+model_3d = NodePath("SubViewportContainer/SubViewport/enemy_model")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_blu3w")
@@ -33,8 +34,7 @@ offset_bottom = 292.0
 [node name="SubViewport" parent="SubViewportContainer" index="0"]
 own_world_3d = true
 
-[node name="BeebotSkin" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("2_blu3w")]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.5, 0)
+[node name="enemy_model" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("5_8e52f")]
 
 [node name="AttackArea" type="Area2D" parent="." index="2"]
 position = Vector2(0, -6)
@@ -44,3 +44,6 @@ collision_mask = 4
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea" index="0"]
 self_modulate = Color(0.67059386, 0.5993934, 1, 1)
 polygon = PackedVector2Array(0, 0, 600, 300, 600, -300)
+
+[node name="OnDeathAudioPlayer" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("6_ksqmq")

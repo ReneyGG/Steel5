@@ -46,6 +46,8 @@ func attack():
 		launch_dziad()
 		return
 	is_attacking = true
+	on_attack_audio_player.pitch_scale = randf_range(.8, 1.2)
+	on_attack_audio_player.play()
 	model_3d.attack()
 	await get_tree().create_timer(.6).timeout
 	is_attacking = false

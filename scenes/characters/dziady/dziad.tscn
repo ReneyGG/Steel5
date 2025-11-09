@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://foq2dvqle1t2"]
+[gd_scene load_steps=6 format=3 uid="uid://foq2dvqle1t2"]
 
 [ext_resource type="Script" uid="uid://debvq8imgqowm" path="res://scenes/characters/dziady/dziad.gd" id="1_md4sw"]
+[ext_resource type="AudioStream" uid="uid://cd8h1p414iial" path="res://audio/woodhit.mp3" id="2_53b1x"]
+[ext_resource type="AudioStream" uid="uid://308bxw2o5l26" path="res://audio/swing-whoosh-9-198502.mp3" id="3_f531p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wujf3"]
 radius = 161.0
@@ -45,3 +47,9 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MergeArea"]
 shape = SubResource("CircleShape2D_lr52v")
+
+[node name="OnHitAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_53b1x")
+
+[node name="OnAttackAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f531p")

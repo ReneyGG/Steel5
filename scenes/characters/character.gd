@@ -7,6 +7,8 @@ var can_move := true
 var is_attacking: = false
 var direction := Vector2.ZERO
 
+@onready var on_hit_audio_player: AudioStreamPlayer2D = $OnHitAudioPlayer
+
 func handle_animation():
 	if abs(velocity) > Vector2.ZERO:
 		model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
@@ -16,4 +18,5 @@ func handle_animation():
 
 @warning_ignore("unused_parameter")
 func take_damage(instigator, knockback):
-	pass
+	on_hit_audio_player.pitch_scale = randf_range(.8, 1.2)
+	on_hit_audio_player.play()

@@ -2,6 +2,8 @@ extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 signal on_attack_trigger
+signal on_attack_start
+
 var next_hand_attack_is_left:= true
 
 func idle():
@@ -22,3 +24,6 @@ func attack():
 	
 func trigger_attack():
 	on_attack_trigger.emit()
+
+func start_attack():
+	on_attack_start.emit()

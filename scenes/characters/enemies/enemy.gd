@@ -8,6 +8,7 @@ var focus_dziad: DZIAD = dziad_I
 var attack_range: float = 400
 var is_dead:= false
 @onready var attack_area: Area2D = $AttackArea
+@onready var on_death_audio_player: AudioStreamPlayer2D = $OnDeathAudioPlayer
 @export var health: int = 3
 @export var blood_pool: PackedScene
 var stunned:= false
@@ -42,6 +43,7 @@ func handle_movement():
 		if global_position.distance_to(focus_dziad.global_position) <= attack_range:
 			attack()
 		else:
+			model_3d.run()
 			direction = global_position.direction_to(focus_dziad.global_position)
 			velocity = direction * SPEED
 	else:
@@ -61,7 +63,7 @@ func attack():
 		if body is DZIAD:
 			body.take_damage(self, 5000)
 			#break
-	#await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1).timeout
 	is_attacking = false
 	
 func drop_blood():
@@ -70,6 +72,7 @@ func drop_blood():
 	new_blood_pool.global_position = global_position
 
 func take_damage(instigator, knockback):
+	super(instigator, knockback)
 	is_attacking = false
 	if is_dead: return
 	on_take_damage.emit()
@@ -90,6 +93,9 @@ func take_damage(instigator, knockback):
 	can_move = true
 	
 func dead(instigator):
+	model_3d.death()
+	on_death_audio_player.pitch_scale = randf_range(.8, 1.2)
+	on_death_audio_player.play()
 	$CollisionShape2D.disabled = true
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
@@ -104,7 +110,6 @@ func dead(instigator):
 	$SubViewportContainer.material.set("shader_parameter/active",false)
 	await get_tree().create_timer(4.75).timeout
 	
-	model_3d.power_off()
 	is_dead = true
 	is_attacking = false
 	SPEED = 0
