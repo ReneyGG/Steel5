@@ -28,13 +28,13 @@ func _ready():
 	if get_node_or_null("Plates") == null:
 		plate_check = true
 	$AnimationPlayer.play("enter")
-	$Timer.start(25 - Global.stage)
+	$Timer.start(60 - Global.stage)
 
 func _physics_process(_delta):
 	$CanvasLayer/Control/ColorRect/Time.text = str(int($Timer.time_left))
 
 func _on_exit_body_entered(_body):
-	if not $Environment/Door.flip_h:
+	if $Environment/Door.position.y >= -500.0:
 		return
 	if $CanvasLayer/Control/Water.visible:
 		return
@@ -60,7 +60,7 @@ func _on_impact():
 
 func check_clear():
 	if enemy_check and orb_check and plate_check:
-		$Environment/Door.flip_h = true
+		$Environment/Door.position.y = -1000.0
 
 func _on_enemy_death():
 	if $CanvasLayer/Control/Water.visible:

@@ -1,16 +1,25 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=30 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
-[ext_resource type="Texture2D" uid="uid://b4gr0ndbp5hdo" path="res://scenes/levels/test_levels/steelwrks-lvl.png" id="1_tt4ag"]
 [ext_resource type="PackedScene" uid="uid://baf7wwkrbg72w" path="res://scenes/menu/pause/pause.tscn" id="2_4s4m6"]
 [ext_resource type="PackedScene" uid="uid://2dum2dsmxn8w" path="res://scenes/menu/avatars/avatars.tscn" id="2_ay21j"]
-[ext_resource type="Texture2D" uid="uid://16j4e3jw6hog" path="res://Art/door.png" id="2_d68gh"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
+[ext_resource type="Texture2D" uid="uid://d2pys7iniv8qu" path="res://Art/Map/steelwrks-lvl2.png" id="4_q126j"]
 [ext_resource type="PackedScene" uid="uid://dvymbfbp88xdx" path="res://scenes/props/plate/plate.tscn" id="5_4s4m6"]
+[ext_resource type="Texture2D" uid="uid://dxeiubmeccayb" path="res://Art/Map/steelwrks-lvl1.png" id="5_dkj6l"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="5_sa84b"]
 [ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="5_tg8vw"]
 [ext_resource type="Script" uid="uid://cc6hk8qmojo4p" path="res://scenes/levels/test_levels/camera_shake.gd" id="5_yulho"]
+[ext_resource type="Texture2D" uid="uid://bmg0gyu17fy1v" path="res://Art/Map/steelwrks-lvl4.png" id="6_12h4o"]
+[ext_resource type="Texture2D" uid="uid://dsw511eqd8yvy" path="res://Art/Map/steelwrks-lvl3multiply.png" id="6_nxdar"]
 [ext_resource type="PackedScene" uid="uid://dx52prcy661j0" path="res://scenes/props/orb/orb.tscn" id="6_tg8vw"]
+[ext_resource type="Texture2D" uid="uid://cbvwgyvix486j" path="res://Art/Map/steelwrks-lvl5.png" id="7_h78id"]
+[ext_resource type="Texture2D" uid="uid://cg0pu3238fq7s" path="res://Art/Map/steelwrks-lvl6MULTIPLY.png" id="8_tdmgw"]
+[ext_resource type="Texture2D" uid="uid://bb1lvbpufxcqm" path="res://Art/Map/steelwrks-lvl7.png" id="9_upvwv"]
+[ext_resource type="Texture2D" uid="uid://dk0ijitn4naw2" path="res://Art/Map/steelwrks-lvl8.png" id="10_2r5rj"]
+[ext_resource type="Texture2D" uid="uid://cpummie6p0skp" path="res://Art/Map/steelwrks-lvl9.png" id="11_3toma"]
+[ext_resource type="Texture2D" uid="uid://d0w26gsrprhho" path="res://Art/Map/steelwrks-lvl10vividlight.png" id="12_gq46q"]
+[ext_resource type="Texture2D" uid="uid://1e7svdt57ges" path="res://Art/Map/steelwrks-lvl11MULTIPLY.png" id="13_n5hib"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hmuup"]
 viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
@@ -18,8 +27,12 @@ viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_67da0"]
 viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q126j"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dkj6l"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j76wg"]
-size = Vector2(143.66663, 146.42087)
+size = Vector2(290.15915, 146.42087)
 
 [sub_resource type="Animation" id="Animation_sa84b"]
 length = 0.001
@@ -229,33 +242,67 @@ texture = SubResource("ViewportTexture_hmuup")
 
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="Floor" type="Sprite2D" parent="Environment"]
-z_index = -1
+[node name="Map" type="Node2D" parent="Environment"]
 scale = Vector2(2, 2)
-texture = ExtResource("1_tt4ag")
+
+[node name="Floor" type="Sprite2D" parent="Environment/Map"]
+texture = ExtResource("4_q126j")
+
+[node name="Exit" type="Sprite2D" parent="Environment/Map"]
+texture = ExtResource("5_dkj6l")
+
+[node name="Multiply" type="Sprite2D" parent="Environment/Map"]
+texture = ExtResource("6_nxdar")
+
+[node name="Walls" type="Sprite2D" parent="Environment/Map"]
+texture = ExtResource("6_12h4o")
+
+[node name="Trash" type="Sprite2D" parent="Environment/Map"]
+texture = ExtResource("7_h78id")
+
+[node name="Multiply2" type="Sprite2D" parent="Environment/Map"]
+material = SubResource("CanvasItemMaterial_q126j")
+texture = ExtResource("8_tdmgw")
+
+[node name="Vignette" type="Sprite2D" parent="Environment/Map"]
+texture = ExtResource("10_2r5rj")
+
+[node name="Pipes" type="Sprite2D" parent="Environment/Map"]
+texture = ExtResource("11_3toma")
+
+[node name="Vivid" type="Sprite2D" parent="Environment/Map"]
+visible = false
+material = SubResource("CanvasItemMaterial_dkj6l")
+texture = ExtResource("12_gq46q")
+
+[node name="Multiply3" type="Sprite2D" parent="Environment/Map"]
+visible = false
+texture = ExtResource("13_n5hib")
 
 [node name="Door" type="Sprite2D" parent="Environment"]
-position = Vector2(2170, -1218)
-scale = Vector2(3, 3)
-texture = ExtResource("2_d68gh")
+scale = Vector2(2, 2)
+texture = ExtResource("9_upvwv")
 
-[node name="Exit" type="Area2D" parent="Environment/Door"]
+[node name="Exit" type="Area2D" parent="Environment"]
+position = Vector2(1910.0001, -926.6667)
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Door/Exit"]
-position = Vector2(-51, 171)
-rotation = 0.5534427
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Exit"]
+position = Vector2(-36.11117, 126.1111)
+rotation = 0.47556525
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_j76wg")
 
 [node name="Walls" type="StaticBody2D" parent="Environment"]
+scale = Vector2(1.125, 1.125)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Walls"]
-polygon = PackedVector2Array(-3600, 68, -534, -1450, 383, -1479, 3751, 307, 3757, -2138, -3822, -2145)
+polygon = PackedVector2Array(-3441, 240, -562, -1304, 271, -1297, 3448, 370, 3454, -1935, -3428, -1929)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Environment/Walls"]
-polygon = PackedVector2Array(-3600, 61, 290, 2053, 3751, 300, 3764, 2132, -3693, 2117)
+polygon = PackedVector2Array(-3455, -21, 160, 1842, 1182, 1275, 1514, 1432, 2321.7778, 914.6667, 2347.5557, -238.22223, 3455, -184, 3461, 1946, -3442, 1959)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -305,38 +352,38 @@ other_dziad = NodePath("../Dziad_I")
 SPEED = 300.0
 
 [node name="Skeleton3D" parent="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
-bones/16/position = Vector3(-0.015980886, -0.02, 0.35556722)
-bones/17/rotation = Quaternion(0.161614, 0.17254345, 0.61860913, 0.74928796)
-bones/18/rotation = Quaternion(-0.66226757, -0.012054818, -0.02151431, 0.7488615)
-bones/19/rotation = Quaternion(0.09409632, 0.27880567, 0.8612515, 0.41431776)
-bones/20/rotation = Quaternion(-0.8012804, -0.010297916, -0.026043545, 0.5976333)
-bones/21/rotation = Quaternion(0.21460292, 0.08182372, 0.46696335, 0.85392964)
-bones/22/rotation = Quaternion(-0.6711528, -0.01249915, -0.021709545, 0.74089575)
-bones/24/rotation = Quaternion(0.1357995, -0.14951836, -0.62969816, 0.75012213)
-bones/25/rotation = Quaternion(-0.5943829, 0.0129399225, 0.019309038, 0.80384624)
-bones/26/rotation = Quaternion(0.08494719, -0.26653105, -0.848074, 0.45001757)
-bones/27/rotation = Quaternion(-0.7644044, 0.011099683, 0.024845045, 0.6441627)
-bones/28/rotation = Quaternion(0.18570237, -0.06360996, -0.48085037, 0.85454744)
-bones/29/rotation = Quaternion(-0.60122806, 0.013474852, 0.019447742, 0.79872715)
+bones/16/position = Vector3(-0.0005053504, -0.02, 0.35568112)
+bones/17/rotation = Quaternion(0.14959991, 0.16185758, 0.62414736, 0.7495746)
+bones/18/rotation = Quaternion(-0.630947, -0.0124829095, -0.020496842, 0.77545464)
+bones/19/rotation = Quaternion(0.089872986, 0.2731426, 0.85454386, 0.43251687)
+bones/20/rotation = Quaternion(-0.7841966, -0.010681485, -0.02548831, 0.6198967)
+bones/21/rotation = Quaternion(0.20414945, 0.07416626, 0.4790384, 0.85049677)
+bones/22/rotation = Quaternion(-0.6448481, -0.012887594, -0.02085867, 0.7639173)
+bones/24/rotation = Quaternion(0.14878811, -0.16113526, -0.624495, 0.74960226)
+bones/25/rotation = Quaternion(-0.62882286, 0.012510621, 0.020427812, 0.7771796)
+bones/26/rotation = Quaternion(0.0895866, -0.27275005, -0.8541322, 0.4336356)
+bones/27/rotation = Quaternion(-0.7830384, 0.010706693, 0.02545067, 0.6213603)
+bones/28/rotation = Quaternion(0.19722337, -0.0720425, -0.46960676, 0.8575445)
+bones/29/rotation = Quaternion(-0.6306208, 0.01308655, 0.020398496, 0.7757127)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
-position = Vector2(-124, -1021)
+position = Vector2(-78, -910)
 
 [node name="LandingPoint2" type="Node2D" parent="." groups=["landing_points"]]
-position = Vector2(62, 1385)
+position = Vector2(140, 1281)
 
 [node name="LandingPoint3" type="Node2D" parent="." groups=["landing_points"]]
-position = Vector2(2463, 227)
+position = Vector2(1812, 162)
 
 [node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
-position = Vector2(-2610, 110)
+position = Vector2(-2206, 123)
 
 [connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
-[connection signal="body_entered" from="Environment/Door/Exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_entered" from="Environment/Exit" to="." method="_on_exit_body_entered"]
 [connection signal="plate_done" from="Plates" to="." method="_on_plates_plate_done"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
