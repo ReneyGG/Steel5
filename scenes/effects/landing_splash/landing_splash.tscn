@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d4ia0tj7b3apv"]
 
-[ext_resource type="Texture2D" uid="uid://b1kkofdj6ov01" path="res://Art/icon.svg" id="1_bjam0"]
+[ext_resource type="Texture2D" uid="uid://bbavds204f0fn" path="res://Art/vfx/dust.png" id="1_6nfaj"]
 [ext_resource type="Script" uid="uid://ksko7h1gk0s0" path="res://scenes/effects/landing_splash/landing_splash.gd" id="2_6nfaj"]
 
 [sub_resource type="Curve" id="Curve_bjam0"]
@@ -23,7 +23,7 @@ scale_curve = SubResource("CurveTexture_6nfaj")
 [node name="LandingSplash" type="GPUParticles2D"]
 emitting = false
 amount = 16
-texture = ExtResource("1_bjam0")
+texture = ExtResource("1_6nfaj")
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0

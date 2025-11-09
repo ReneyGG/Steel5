@@ -35,8 +35,9 @@ func handle_animation():
 			model_3d.idle()
 			
 func launch_dziad():
-	on_dziad_launch_player.stream = load(["res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/leci bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/rzucam bonanza.mp3"].pick_random())
-	on_dziad_launch_player.play()
+	#on_dziad_launch_player.stream = load(["res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/leci bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/rzucam bonanza.mp3"].pick_random())
+	#on_dziad_launch_player.play()
+	play_sound(["res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/leci bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/rzucam bonanza.mp3"].pick_random())
 	var point
 	if launch_ray_cast.is_colliding():
 		point = launch_ray_cast.get_collision_point()
@@ -65,10 +66,12 @@ func apply_damage():
 func take_damage(instigator, knockback):
 	super(instigator, knockback)
 	if !is_merged:
-		on_take_damage_player.stream = load(["res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ahh bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/raaah bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ugh bonanza.mp3"].pick_random())
-		on_take_damage_player.play()
+		#on_take_damage_player.stream = load(["res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ahh bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/raaah bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ugh bonanza.mp3"].pick_random())
+		#on_take_damage_player.play()
+		play_sound(["res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ahh bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/raaah bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ugh bonanza.mp3"].pick_random())
 	if is_merged:
-		on_end_merge_player.play()
+		#on_end_merge_player.play()
+		play_sound("res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/no co jest bonanza.mp3")
 		end_merge_with_other_dziad()
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false

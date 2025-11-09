@@ -43,6 +43,7 @@ self_modulate = Color(1.6123802e-06, 0.6354196, 0.19626245, 1)
 polygon = PackedVector2Array(0, 0, 1000, 300, 1000, -300)
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackArea" index="1"]
+visible = false
 z_index = -1
 position = Vector2(462.5, 7.000004)
 scale = Vector2(8.2265625, 2.84375)

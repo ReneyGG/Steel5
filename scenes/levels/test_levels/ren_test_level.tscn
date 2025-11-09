@@ -351,21 +351,6 @@ position = Vector2(341, 101)
 other_dziad = NodePath("../Dziad_I")
 SPEED = 300.0
 
-[node name="Skeleton3D" parent="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot/Armature" index="0"]
-bones/16/position = Vector3(-0.0005053504, -0.02, 0.35568112)
-bones/17/rotation = Quaternion(0.14959991, 0.16185758, 0.62414736, 0.7495746)
-bones/18/rotation = Quaternion(-0.630947, -0.0124829095, -0.020496842, 0.77545464)
-bones/19/rotation = Quaternion(0.089872986, 0.2731426, 0.85454386, 0.43251687)
-bones/20/rotation = Quaternion(-0.7841966, -0.010681485, -0.02548831, 0.6198967)
-bones/21/rotation = Quaternion(0.20414945, 0.07416626, 0.4790384, 0.85049677)
-bones/22/rotation = Quaternion(-0.6448481, -0.012887594, -0.02085867, 0.7639173)
-bones/24/rotation = Quaternion(0.14878811, -0.16113526, -0.624495, 0.74960226)
-bones/25/rotation = Quaternion(-0.62882286, 0.012510621, 0.020427812, 0.7771796)
-bones/26/rotation = Quaternion(0.0895866, -0.27275005, -0.8541322, 0.4336356)
-bones/27/rotation = Quaternion(-0.7830384, 0.010706693, 0.02545067, 0.6213603)
-bones/28/rotation = Quaternion(0.19722337, -0.0720425, -0.46960676, 0.8575445)
-bones/29/rotation = Quaternion(-0.6306208, 0.01308655, 0.020398496, 0.7757127)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
@@ -390,6 +375,5 @@ position = Vector2(-2206, 123)
 [editable path="Avatars"]
 [editable path="Plates"]
 [editable path="Dziad_I"]
+[editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]
 [editable path="Dziad_II"]
-[editable path="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin"]
-[editable path="Dziad_II/SubViewportContainer/SubViewport/SubViewport/BeetlebotSkin/beetle_bot"]
