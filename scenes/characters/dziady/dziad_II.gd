@@ -157,3 +157,10 @@ func _on_merge_area_body_entered(body: Node2D) -> void:
 	if body == other_dziad:
 		other_dziad.start_merge_with_other_dziad()
 		start_merge_with_other_dziad()
+
+
+func _on_dialog_timer_timeout() -> void:
+	if !other_dziad.main_audio_player.playing:
+		play_sound(["res://audio/SFX/Kotylion/losowe kwestie Kotylion/dziwnie widzieć świat z poziomu kurzu kotylion.mp3", "res://audio/SFX/Kotylion/losowe kwestie Kotylion/moje pięści mają dwa imiona kotylion.mp3", "res://audio/SFX/Kotylion/losowe kwestie Kotylion/piona rick, a sorry kotylion.mp3", "res://audio/SFX/Kotylion/losowe kwestie Kotylion/woda po pas, szkoda, że go nie mam kotylion.mp3"].pick_random())
+	dialog_timer.wait_time = randf_range(8,12)
+	dialog_timer.start()

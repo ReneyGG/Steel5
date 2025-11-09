@@ -150,7 +150,6 @@ bones/117/rotation = Quaternion(0.050652098, 0.60598135, 0.78586465, -0.11241750
 bones/118/rotation = Quaternion(-0.050652124, 0.6059813, 0.78586465, 0.11241771)
 bones/121/position = Vector3(0, 0, 0)
 bones/121/rotation = Quaternion(0, 0, 0, 1)
-bones/126/rotation = Quaternion(0, 0, 0, 1)
 bones/127/rotation = Quaternion(0, 0, 0, 1)
 bones/127/scale = Vector3(1, 1, 1)
 bones/128/rotation = Quaternion(0.9764829, 0.011721348, -0.0025876567, -0.21526028)
@@ -160,7 +159,6 @@ bones/131/rotation = Quaternion(1.9094482e-06, -0.019056737, 0.99981844, -3.5514
 bones/132/position = Vector3(0.3112944, 0.42061874, 0.67498595)
 bones/132/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
 bones/135/position = Vector3(0, 0, 0)
-bones/137/rotation = Quaternion(0, 0, 0, 1)
 bones/141/rotation = Quaternion(0, 0, 0, 1)
 bones/142/rotation = Quaternion(0.9764829, -0.011721348, 0.0025876567, -0.21526028)
 bones/144/rotation = Quaternion(0.9764829, -0.0117213465, 0.0025876854, 0.21526042)
@@ -197,5 +195,7 @@ stream = ExtResource("4_0ffop")
 
 [node name="OnEndMergePlayer" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource("5_0ffop")
+
+[connection signal="timeout" from="DialogTimer" to="." method="_on_dialog_timer_timeout"]
 
 [editable path="SubViewportContainer/SubViewport/SubViewport/bonanza"]

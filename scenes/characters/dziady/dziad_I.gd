@@ -86,3 +86,10 @@ func start_merge_with_other_dziad():
 	other_dziad.model_3d.position = Vector3.ZERO
 	other_dziad.call_deferred("reparent", self)
 	other_dziad.global_position = global_position
+
+
+func _on_dialog_timer_timeout() -> void:
+	if !other_dziad.main_audio_player.playing:
+		play_sound(["res://audio/SFX/Bonanza/kwestie losowe bonanza/chodź, nie ma czasu bonanza.mp3", "res://audio/SFX/Bonanza/kwestie losowe bonanza/Na ruletkę bonanza.mp3", "res://audio/SFX/Bonanza/kwestie losowe bonanza/vegas vegas vegas bonanza.mp3", "res://audio/SFX/Bonanza/kwestie losowe bonanza/Welcome in a Vegas bonanza.mp3", "res://audio/SFX/Bonanza/kwestie losowe bonanza/witamy w vegas szczury bonanza.mp3", "res://audio/SFX/Bonanza/kwestie losowe bonanza/Wódka i zakąska bonanza.mp3"].pick_random())
+	dialog_timer.wait_time = randf_range(8,12)
+	dialog_timer.start()

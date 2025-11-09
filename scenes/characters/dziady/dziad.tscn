@@ -59,3 +59,7 @@ stream = ExtResource("3_f531p")
 [node name="OnMergePlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="MainAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="DialogTimer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
