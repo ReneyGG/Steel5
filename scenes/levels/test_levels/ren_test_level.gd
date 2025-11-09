@@ -85,3 +85,7 @@ func _on_plates_plate_done():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+func _on_restart_button_pressed():
+	Global.stage = 0
+	get_tree().change_scene_to_file("res://scenes/levels/levels/level1.tscn")

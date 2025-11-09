@@ -113,7 +113,7 @@ func dead(instigator):
 	$SubViewportContainer.material.set("shader_parameter/active",true)
 	await get_tree().create_timer(.25).timeout
 	$SubViewportContainer.material.set("shader_parameter/active",false)
-	await get_tree().create_timer(4.75).timeout
+	#await get_tree().create_timer(4.75).timeout
 	
 	is_dead = true
 	is_attacking = false

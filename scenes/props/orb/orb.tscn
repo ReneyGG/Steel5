@@ -1,10 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx52prcy661j0"]
+[gd_scene load_steps=13 format=3 uid="uid://dx52prcy661j0"]
 
 [ext_resource type="Script" uid="uid://dgs3mjjj5gu81" path="res://scenes/props/orb/orb.gd" id="1_gckvc"]
+[ext_resource type="Texture2D" uid="uid://drm3shua7c3i3" path="res://scenes/props/orb/steelwrks-skrzynka-1stage.png" id="2_ysfm6"]
+[ext_resource type="Texture2D" uid="uid://d2pbc1aoqo4ak" path="res://scenes/props/orb/steelwrks-skrzynka-2stage.png" id="3_83nuh"]
+[ext_resource type="Texture2D" uid="uid://cgjoh70p0sxed" path="res://scenes/props/orb/steelwrks-skrzynka-3stage.png" id="4_4wpcf"]
+[ext_resource type="Texture2D" uid="uid://djpi4jgeq441s" path="res://scenes/props/orb/steelwrks-skrzynka-bzz1.png" id="5_mb7w7"]
+[ext_resource type="Texture2D" uid="uid://e6t00fskyhj4" path="res://scenes/props/orb/steelwrks-skrzynka-bzz2.png" id="6_rvjfv"]
+[ext_resource type="Texture2D" uid="uid://cfp4d4hcsc4fh" path="res://scenes/props/orb/steelwrks-skrzynka-bzz3.png" id="7_cfatn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gckvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ysfm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_83nuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4wpcf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k14jj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mb7w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rvjfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cfatn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwcl7"]
 radius = 68.0
-height = 296.0
+height = 366.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxxjy"]
 albedo_color = Color(1, 0, 0.7607843, 1)
@@ -18,12 +58,24 @@ height = 1.091
 [node name="Orb" type="StaticBody2D" groups=["props"]]
 script = ExtResource("1_gckvc")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(66, -208)
+sprite_frames = SubResource("SpriteFrames_gckvc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(-805, 372)
+sprite_frames = SubResource("SpriteFrames_k14jj")
+autoplay = "default"
+frame_progress = 0.8385776
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -27)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bwcl7")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
 offset_left = -512.0
 offset_top = -732.0
 offset_right = 512.0
@@ -35,7 +87,7 @@ own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1024, 1024)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96, 0)
