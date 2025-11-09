@@ -99,8 +99,8 @@ func take_damage(instigator, knockback):
 	
 func dead(instigator):
 	model_3d.death()
-	on_death_audio_player.pitch_scale = randf_range(.8, 1.2)
-	on_death_audio_player.play()
+	#on_death_audio_player.pitch_scale = randf_range(.8, 1.2)
+	#on_death_audio_player.play()
 	$CollisionShape2D.disabled = true
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false

@@ -5,6 +5,8 @@ class_name DZIAD
 var is_merged := false
 @onready var merge_area: Area2D = $MergeArea
 @onready var on_attack_audio_player: AudioStreamPlayer2D = $OnAttackAudioPlayer
+@onready var on_take_damage_player: AudioStreamPlayer2D = $OnTakeDamagePlayer
+@onready var main_audio_player: AudioStreamPlayer2D = $MainAudioPlayer
 
 signal on_take_damage
 
@@ -41,3 +43,7 @@ func start_merge_with_other_dziad():
 	
 func end_merge_with_other_dziad():
 	is_merged = false
+	
+func play_sound(sound_path):
+	main_audio_player.stream = load(sound_path)
+	main_audio_player.play()
