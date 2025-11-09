@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbmbiy256nsc3"
+path="res://.godot/imported/POJEDYNCZY KROK BONANZA.mp3-54e130a87190a36a7c09452ea131aec2.mp3str"
+
+[deps]
+
+source_file="res://audio/bonanza/POJEDYNCZY KROK BONANZA.mp3"
+dest_files=["res://.godot/imported/POJEDYNCZY KROK BONANZA.mp3-54e130a87190a36a7c09452ea131aec2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

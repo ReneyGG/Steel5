@@ -6,7 +6,7 @@ extends "res://scenes/characters/dziady/dziad.gd"
 
 func _ready() -> void:
 	model_3d.on_attack_trigger.connect(apply_damage)
-
+	
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if direction != Vector2.ZERO:
@@ -30,7 +30,7 @@ func handle_animation():
 			model_3d.crouch_idle()
 		else:
 			model_3d.idle()
-
+			
 func launch_dziad():
 	var point
 	if launch_ray_cast.is_colliding():
