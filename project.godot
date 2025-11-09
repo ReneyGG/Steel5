@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Steel5"
-run/main_scene="uid://cpa3nmrt5ysnp"
+run/main_scene="uid://cuwpxxuxvxjbn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Art/icon.svg"
