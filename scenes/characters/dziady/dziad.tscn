@@ -53,3 +53,9 @@ stream = ExtResource("2_53b1x")
 
 [node name="OnAttackAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_f531p")
+
+[node name="OnTakeDamagePlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="OnMergePlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="MainAudioPlayer" type="AudioStreamPlayer2D" parent="."]

@@ -3,6 +3,7 @@ extends "res://scenes/characters/dziady/dziad.gd"
 @onready var attack_area: Area2D = $AttackArea
 @export var catapult_projectile: PackedScene
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
+@onready var on_merge_player: AudioStreamPlayer2D = $OnMergePlayer
 var can_attack:= true
 
 signal on_merge
@@ -76,6 +77,10 @@ func apply_damage():
 
 func take_damage(instigator, knockback):
 	super(instigator, knockback)
+	if !is_merged:
+		#on_take_damage_player.stream = load(["res://audio/SFX/Kotylion/kwestie przy uderzeniach przeciwnika albo jak on dostaje hita/krzyk 1 kotylion.mp3", "res://audio/SFX/Kotylion/kwestie przy uderzeniach przeciwnika albo jak on dostaje hita/krzyk 2 kotylion.mp3", "res://audio/SFX/Kotylion/kwestie przy uderzeniach przeciwnika albo jak on dostaje hita/krzyk 3 kotylion.mp3"].pick_random())
+		#on_take_damage_player.play()
+		play_sound(["res://audio/SFX/Kotylion/kwestie przy uderzeniach przeciwnika albo jak on dostaje hita/krzyk 1 kotylion.mp3", "res://audio/SFX/Kotylion/kwestie przy uderzeniach przeciwnika albo jak on dostaje hita/krzyk 2 kotylion.mp3", "res://audio/SFX/Kotylion/kwestie przy uderzeniach przeciwnika albo jak on dostaje hita/krzyk 3 kotylion.mp3"].pick_random())
 	if is_merged:
 		end_merge_with_other_dziad()
 	else:
@@ -88,6 +93,9 @@ func take_damage(instigator, knockback):
 		
 func start_merge_with_other_dziad():
 	is_merged = true
+	#on_merge_player.stream = load(["res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/opa kotylion.mp3", "res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/skok kotylion.mp3", "res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/uważaj kotylion.mp3", "res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/wskakuje kotylion.mp3"].pick_random())
+	#on_merge_player.play()
+	play_sound(["res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/opa kotylion.mp3", "res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/skok kotylion.mp3", "res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/uważaj kotylion.mp3", "res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/wskakuje kotylion.mp3"].pick_random())
 	merge_area.set_deferred("monitoring", false)
 	on_merge.emit()
 	model_3d.idle()
