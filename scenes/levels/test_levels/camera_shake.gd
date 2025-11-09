@@ -17,8 +17,8 @@ func _process(delta):
 		return
 	position = (dziad1.position + dziad2.position)/2
 	var distance = dziad1.position.distance_to(dziad2.position)
-	var off = -0.00003*distance+0.365
-	var zoom_off = clamp(off, 0.18, 0.255)
+	var off = -0.00003*distance+0.465
+	var zoom_off = clamp(off, 0.28, 0.355)
 	zoom = Vector2(zoom_off, zoom_off)
 	if shake_strength > 0:
 		shake_strength = lerp(shake_strength,0.0,shakeFade * delta)
