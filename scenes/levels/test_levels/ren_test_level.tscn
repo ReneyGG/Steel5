@@ -1,24 +1,20 @@
-[gd_scene load_steps=30 format=3 uid="uid://cjw3p12ayi6fr"]
+[gd_scene load_steps=26 format=3 uid="uid://cjw3p12ayi6fr"]
 
 [ext_resource type="Script" uid="uid://dco5vlp2aavuf" path="res://scenes/levels/test_levels/ren_test_level.gd" id="1_j76wg"]
 [ext_resource type="PackedScene" uid="uid://baf7wwkrbg72w" path="res://scenes/menu/pause/pause.tscn" id="2_4s4m6"]
+[ext_resource type="PackedScene" uid="uid://b3kujsid141x8" path="res://scenes/levels/test_levels/gameplay_ui.tscn" id="2_57xj2"]
 [ext_resource type="PackedScene" uid="uid://2dum2dsmxn8w" path="res://scenes/menu/avatars/avatars.tscn" id="2_ay21j"]
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="2_tt4ag"]
 [ext_resource type="Texture2D" uid="uid://d2pys7iniv8qu" path="res://Art/Map/steelwrks-lvl2.png" id="4_q126j"]
-[ext_resource type="PackedScene" uid="uid://dvymbfbp88xdx" path="res://scenes/props/plate/plate.tscn" id="5_4s4m6"]
 [ext_resource type="Texture2D" uid="uid://dxeiubmeccayb" path="res://Art/Map/steelwrks-lvl1.png" id="5_dkj6l"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="5_sa84b"]
-[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="5_tg8vw"]
 [ext_resource type="Script" uid="uid://cc6hk8qmojo4p" path="res://scenes/levels/test_levels/camera_shake.gd" id="5_yulho"]
 [ext_resource type="Texture2D" uid="uid://bmg0gyu17fy1v" path="res://Art/Map/steelwrks-lvl4.png" id="6_12h4o"]
 [ext_resource type="Texture2D" uid="uid://dsw511eqd8yvy" path="res://Art/Map/steelwrks-lvl3multiply.png" id="6_nxdar"]
-[ext_resource type="PackedScene" uid="uid://dx52prcy661j0" path="res://scenes/props/orb/orb.tscn" id="6_tg8vw"]
 [ext_resource type="Texture2D" uid="uid://cbvwgyvix486j" path="res://Art/Map/steelwrks-lvl5.png" id="7_h78id"]
 [ext_resource type="Texture2D" uid="uid://cg0pu3238fq7s" path="res://Art/Map/steelwrks-lvl6MULTIPLY.png" id="8_tdmgw"]
 [ext_resource type="Texture2D" uid="uid://bb1lvbpufxcqm" path="res://Art/Map/steelwrks-lvl7.png" id="9_upvwv"]
 [ext_resource type="Texture2D" uid="uid://dk0ijitn4naw2" path="res://Art/Map/steelwrks-lvl8.png" id="10_2r5rj"]
-[ext_resource type="Texture2D" uid="uid://cpummie6p0skp" path="res://Art/Map/steelwrks-lvl9.png" id="11_3toma"]
-[ext_resource type="Texture2D" uid="uid://d0w26gsrprhho" path="res://Art/Map/steelwrks-lvl10vividlight.png" id="12_gq46q"]
 [ext_resource type="Texture2D" uid="uid://1e7svdt57ges" path="res://Art/Map/steelwrks-lvl11MULTIPLY.png" id="13_n5hib"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hmuup"]
@@ -27,9 +23,9 @@ viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_67da0"]
 viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q126j"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nxdar"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dkj6l"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q126j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j76wg"]
 size = Vector2(290.15915, 146.42087)
@@ -143,89 +139,7 @@ _data = {
 [node name="RenTestLevel" type="Node2D"]
 script = ExtResource("1_j76wg")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -227.0
-offset_right = 227.0
-offset_bottom = 100.0
-grow_horizontal = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Time" type="Label" parent="CanvasLayer/Control/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "000"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -138.0
-offset_bottom = 100.0
-grow_horizontal = 0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Stage" type="Label" parent="CanvasLayer/Control/ColorRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Water" type="ColorRect" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.2, 0.3372549, 1, 0.47843137)
-
-[node name="Button" type="Button" parent="CanvasLayer/Control/Water"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -48.0
-offset_right = 116.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Restart"
+[node name="GameplayUI" parent="." instance=ExtResource("2_57xj2")]
 
 [node name="Avatars" parent="." instance=ExtResource("2_ay21j")]
 
@@ -252,6 +166,7 @@ texture = ExtResource("4_q126j")
 texture = ExtResource("5_dkj6l")
 
 [node name="Multiply" type="Sprite2D" parent="Environment/Map"]
+material = SubResource("CanvasItemMaterial_nxdar")
 texture = ExtResource("6_nxdar")
 
 [node name="Walls" type="Sprite2D" parent="Environment/Map"]
@@ -261,22 +176,18 @@ texture = ExtResource("6_12h4o")
 texture = ExtResource("7_h78id")
 
 [node name="Multiply2" type="Sprite2D" parent="Environment/Map"]
+modulate = Color(0.6, 0.6, 0.6, 0.5137255)
 material = SubResource("CanvasItemMaterial_q126j")
 texture = ExtResource("8_tdmgw")
 
 [node name="Vignette" type="Sprite2D" parent="Environment/Map"]
+position = Vector2(-9.000076, 10.749959)
+scale = Vector2(1.0158854, 1.0155091)
 texture = ExtResource("10_2r5rj")
 
-[node name="Pipes" type="Sprite2D" parent="Environment/Map"]
-texture = ExtResource("11_3toma")
-
-[node name="Vivid" type="Sprite2D" parent="Environment/Map"]
-visible = false
-material = SubResource("CanvasItemMaterial_dkj6l")
-texture = ExtResource("12_gq46q")
-
 [node name="Multiply3" type="Sprite2D" parent="Environment/Map"]
-visible = false
+position = Vector2(-8.9999695, 10.750046)
+scale = Vector2(1.3545139, 1.3540124)
 texture = ExtResource("13_n5hib")
 
 [node name="Door" type="Sprite2D" parent="Environment"]
@@ -306,22 +217,7 @@ polygon = PackedVector2Array(-3455, -21, 160, 1842, 1182, 1275, 1514, 1432, 2321
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("5_tg8vw")]
-position = Vector2(666, -845)
-
 [node name="Orbs" type="Node2D" parent="."]
-
-[node name="Orb" parent="Orbs" instance=ExtResource("6_tg8vw")]
-position = Vector2(-912, -426)
-
-[node name="Plates" parent="." instance=ExtResource("5_4s4m6")]
-position = Vector2(-612, 802)
-
-[node name="Plate1" parent="Plates" index="0"]
-position = Vector2(-1214, -734)
-
-[node name="Plate2" parent="Plates" index="1"]
-position = Vector2(1192, 243)
 
 [node name="CameraHandle" type="Node2D" parent="."]
 position = Vector2(-8158, 4571)
@@ -342,12 +238,12 @@ libraries = {
 }
 
 [node name="Dziad_I" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("2_tt4ag")]
-position = Vector2(-433, 95)
+position = Vector2(-2109, 424)
 other_dziad = NodePath("../Dziad_II")
 SPEED = 1000.0
 
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("5_sa84b")]
-position = Vector2(341, 101)
+position = Vector2(-791, 1082)
 other_dziad = NodePath("../Dziad_I")
 SPEED = 300.0
 
@@ -367,13 +263,10 @@ position = Vector2(1812, 162)
 [node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-2206, 123)
 
-[connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Environment/Exit" to="." method="_on_exit_body_entered"]
-[connection signal="plate_done" from="Plates" to="." method="_on_plates_plate_done"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Avatars"]
-[editable path="Plates"]
 [editable path="Dziad_I"]
 [editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]
 [editable path="Dziad_II"]

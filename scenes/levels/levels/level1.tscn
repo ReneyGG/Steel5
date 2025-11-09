@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://di815umqkm73e"]
+
+[ext_resource type="PackedScene" uid="uid://cjw3p12ayi6fr" path="res://scenes/levels/test_levels/ren_test_level.tscn" id="1_e2bdy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fqdqp"]
+viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mkafi"]
+viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
+
+[node name="RenTestLevel" instance=ExtResource("1_e2bdy")]
+
+[node name="Dziad_I_Avatar" parent="Avatars/Control" index="2"]
+texture = SubResource("ViewportTexture_fqdqp")
+
+[node name="Dziad_II_Avatar" parent="Avatars/Control" index="3"]
+texture = SubResource("ViewportTexture_mkafi")
+
+[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
+texture = SubResource("ViewportTexture_fqdqp")
+
+[editable path="Avatars"]
+[editable path="Dziad_I"]
+[editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]
+[editable path="Dziad_II"]
