@@ -10,6 +10,7 @@ signal on_end_merge
 
 func _ready() -> void:
 	model_3d.on_attack_trigger.connect(apply_damage)
+	model_3d.on_attack_start.connect(play_attack_sound)
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:	
@@ -64,6 +65,9 @@ func handle_aiming():
 func attack():
 	model_3d.attack()
 
+func play_attack_sound():
+	on_attack_audio_player.pitch_scale = randf_range(.8, 1.2)
+	on_attack_audio_player.play()
 			
 func apply_damage():
 	for body in attack_area.get_overlapping_bodies():

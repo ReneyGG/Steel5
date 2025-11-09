@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctn3a4vogupjh"]
+[gd_scene load_steps=5 format=3 uid="uid://ctn3a4vogupjh"]
 
 [ext_resource type="Script" uid="uid://2ase4ldakkp4" path="res://scenes/characters/character.gd" id="1_x31xa"]
+[ext_resource type="AudioStream" uid="uid://cd8h1p414iial" path="res://audio/woodhit.mp3" id="2_1bdar"]
+[ext_resource type="AudioStream" uid="uid://308bxw2o5l26" path="res://audio/swing-whoosh-9-198502.mp3" id="3_e22cc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wujf3"]
 radius = 161.0
@@ -34,3 +36,9 @@ size = 2.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0, 0)
 sky_mode = 1
+
+[node name="OnHitAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1bdar")
+
+[node name="OnAttackAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e22cc")

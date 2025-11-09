@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4oncpyosmfhi"
+path="res://.godot/imported/opa kotylion.mp3-ea2550ffb6dbf181c8c327eb3bca139f.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Kotylion/wskakiwanie na plecy Kotylion/opa kotylion.mp3"
+dest_files=["res://.godot/imported/opa kotylion.mp3-ea2550ffb6dbf181c8c327eb3bca139f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

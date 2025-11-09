@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dg82ga4hrcapy"
+path="res://.godot/imported/JACKPOT PRZEJŚCIE DO KOLEJNEGO POKOJU OBOJE MÓWIĄ.mp3-dff28e7b6745886e4ffd4bcc5e2fd690.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/JACKPOT PRZEJŚCIE DO KOLEJNEGO POKOJU OBOJE MÓWIĄ.mp3"
+dest_files=["res://.godot/imported/JACKPOT PRZEJŚCIE DO KOLEJNEGO POKOJU OBOJE MÓWIĄ.mp3-dff28e7b6745886e4ffd4bcc5e2fd690.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

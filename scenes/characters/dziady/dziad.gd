@@ -4,6 +4,7 @@ class_name DZIAD
 @export var other_dziad: DZIAD
 var is_merged := false
 @onready var merge_area: Area2D = $MergeArea
+@onready var on_attack_audio_player: AudioStreamPlayer2D = $OnAttackAudioPlayer
 
 signal on_take_damage
 

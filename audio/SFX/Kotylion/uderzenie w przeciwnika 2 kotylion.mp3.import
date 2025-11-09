@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5kdn2m7kypij"
+path="res://.godot/imported/uderzenie w przeciwnika 2 kotylion.mp3-e5f554e8c04d899b431caf95f7f6a4cd.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Kotylion/uderzenie w przeciwnika 2 kotylion.mp3"
+dest_files=["res://.godot/imported/uderzenie w przeciwnika 2 kotylion.mp3-e5f554e8c04d899b431caf95f7f6a4cd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

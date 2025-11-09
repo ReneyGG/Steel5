@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8g33bq2hwi0a"
+path="res://.godot/imported/chodzenie bonanza.mp3-181b2f0efb58572e41aff042607b1eca.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Bonanza/chodzenie bonanza.mp3"
+dest_files=["res://.godot/imported/chodzenie bonanza.mp3-181b2f0efb58572e41aff042607b1eca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

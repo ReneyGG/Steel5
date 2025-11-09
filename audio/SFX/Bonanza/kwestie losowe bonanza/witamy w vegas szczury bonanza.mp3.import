@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c13u25n7ap7wo"
+path="res://.godot/imported/witamy w vegas szczury bonanza.mp3-8bd7811ccc07067f7f541e228fe8af1a.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Bonanza/kwestie losowe bonanza/witamy w vegas szczury bonanza.mp3"
+dest_files=["res://.godot/imported/witamy w vegas szczury bonanza.mp3-8bd7811ccc07067f7f541e228fe8af1a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

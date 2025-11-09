@@ -6,7 +6,7 @@ extends "res://scenes/characters/dziady/dziad.gd"
 
 func _ready() -> void:
 	model_3d.on_attack_trigger.connect(apply_damage)
-
+	
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if direction != Vector2.ZERO:
@@ -17,7 +17,8 @@ func _physics_process(delta: float) -> void:
 			
 func handle_animation():
 	if is_attacking: 
-		model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
+		if model_3d.global_position != Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)):
+			model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
 		return
 	if abs(velocity) > Vector2.ZERO:
 		model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
@@ -30,7 +31,7 @@ func handle_animation():
 			model_3d.crouch_idle()
 		else:
 			model_3d.idle()
-
+			
 func launch_dziad():
 	var point
 	if launch_ray_cast.is_colliding():
@@ -46,6 +47,8 @@ func attack():
 		launch_dziad()
 		return
 	is_attacking = true
+	on_attack_audio_player.pitch_scale = randf_range(.8, 1.2)
+	on_attack_audio_player.play()
 	model_3d.attack()
 	await get_tree().create_timer(.6).timeout
 	is_attacking = false
