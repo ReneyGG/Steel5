@@ -63,7 +63,6 @@ func take_damage(instigator, knockback):
 
 func start_merge_with_other_dziad():
 	super()
-	other_dziad.is_merged = true
 	other_dziad.model_3d.reparent(other_dziad_origin)
 	other_dziad.model_3d.position = Vector3.ZERO
 	other_dziad.call_deferred("reparent", self)
