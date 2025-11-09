@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://du4iqbfiw1k34"
+path="res://.godot/imported/no co jest bonanza.mp3-1c92894a19d9e1b66043c5106f48f60b.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/no co jest bonanza.mp3"
+dest_files=["res://.godot/imported/no co jest bonanza.mp3-1c92894a19d9e1b66043c5106f48f60b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

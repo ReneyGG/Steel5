@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyns6ifbonw67"
+path="res://.godot/imported/vegas vegas vegas bonanza.mp3-8b0649704c8f6d86c89382f98e4f4abe.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Bonanza/kwestie losowe bonanza/vegas vegas vegas bonanza.mp3"
+dest_files=["res://.godot/imported/vegas vegas vegas bonanza.mp3-8b0649704c8f6d86c89382f98e4f4abe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

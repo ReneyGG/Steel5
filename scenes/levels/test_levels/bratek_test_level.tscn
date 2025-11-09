@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpa3nmrt5ysnp"]
+[gd_scene load_steps=7 format=3 uid="uid://cpa3nmrt5ysnp"]
 
 [ext_resource type="PackedScene" uid="uid://dtwxbv8c5k3fb" path="res://scenes/characters/dziady/dziad_I.tscn" id="1_dfi1k"]
 [ext_resource type="PackedScene" uid="uid://2dum2dsmxn8w" path="res://scenes/menu/avatars/avatars.tscn" id="1_pefog"]
 [ext_resource type="PackedScene" uid="uid://bxxyey5y24qba" path="res://scenes/characters/dziady/dziad_II.tscn" id="2_x02r0"]
+[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="3_calfr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pefog"]
 viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
@@ -30,6 +31,7 @@ zoom = Vector2(0.4, 0.4)
 [node name="Dziad_I" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("1_dfi1k")]
 position = Vector2(-1579, -629)
 other_dziad = NodePath("../Dziad_II")
+SPEED = 600.0
 
 [node name="MergeArea" parent="Dziad_I" index="3"]
 collision_layer = 1
@@ -38,6 +40,7 @@ collision_mask = 1
 [node name="Dziad_II" parent="." node_paths=PackedStringArray("other_dziad") instance=ExtResource("2_x02r0")]
 position = Vector2(-513, -779)
 other_dziad = NodePath("../Dziad_I")
+SPEED = 300.0
 
 [node name="LandingPoint" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-1706, -840)
@@ -51,7 +54,11 @@ position = Vector2(-1722, 856)
 [node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(1615, 964)
 
-[connection signal="body_entered" from="Dziad_I/MergeArea" to="Dziad_I" method="_on_merge_area_body_entered"]
+[node name="Enemy" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(1565, -466)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_calfr")]
+position = Vector2(1073, 552)
 
 [editable path="Avatars"]
 [editable path="Dziad_I"]

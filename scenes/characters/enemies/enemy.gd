@@ -72,7 +72,12 @@ func drop_blood():
 	new_blood_pool.global_position = global_position
 
 func take_damage(instigator, knockback):
-	super(instigator, knockback)
+	if instigator == dziad_I:
+		on_hit_audio_player.stream = load(["res://audio/kotylion/uderzenie w przeciwnika 2 kotylion.mp3", "res://audio/kotylion/uderzenie w przeciwnika kotylion.mp3"].pick_random())
+	else:
+		on_hit_audio_player.stream = load("res://audio/bonanza/uderzanie w przeciwnika nogą.mp3")
+	on_hit_audio_player.pitch_scale = randf_range(.8, 1.2)
+	on_hit_audio_player.play()
 	is_attacking = false
 	if is_dead: return
 	on_take_damage.emit()
