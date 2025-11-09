@@ -4,6 +4,9 @@ extends "res://scenes/characters/dziady/dziad.gd"
 @onready var other_dziad_origin: Node3D = %OtherDziadOrigin
 @onready var launch_ray_cast: RayCast2D = $AttackArea/LaunchRayCast
 
+func _ready() -> void:
+	model_3d.on_attack_trigger.connect(apply_damage)
+
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if direction != Vector2.ZERO:
@@ -44,11 +47,13 @@ func attack():
 		return
 	is_attacking = true
 	model_3d.attack()
+	await get_tree().create_timer(.6).timeout
+	is_attacking = false
+	
+func apply_damage():
 	for body in attack_area.get_overlapping_bodies():
 		if body is ENEMY or body.is_in_group("props"):
 			body.take_damage(self, 5000)
-	await get_tree().create_timer(.6).timeout
-	is_attacking = false
 	
 func take_damage(instigator, knockback):
 	super(instigator, knockback)
@@ -66,5 +71,4 @@ func start_merge_with_other_dziad():
 	other_dziad.model_3d.reparent(other_dziad_origin)
 	other_dziad.model_3d.position = Vector3.ZERO
 	other_dziad.call_deferred("reparent", self)
-	#other_dziad.reparent(self)
 	other_dziad.global_position = global_position
