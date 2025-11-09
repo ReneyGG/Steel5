@@ -3,6 +3,8 @@ extends "res://scenes/characters/dziady/dziad.gd"
 @onready var attack_area: Area2D = $AttackArea
 @onready var other_dziad_origin: Node3D = %OtherDziadOrigin
 @onready var launch_ray_cast: RayCast2D = $AttackArea/LaunchRayCast
+@onready var on_dziad_launch_player: AudioStreamPlayer2D = $OnDziadLaunchPlayer
+@onready var on_end_merge_player: AudioStreamPlayer2D = $OnEndMergePlayer
 
 func _ready() -> void:
 	model_3d.on_attack_trigger.connect(apply_damage)
@@ -33,6 +35,8 @@ func handle_animation():
 			model_3d.idle()
 			
 func launch_dziad():
+	on_dziad_launch_player.stream = load(["res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/leci bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/rzucam bonanza.mp3"].pick_random())
+	on_dziad_launch_player.play()
 	var point
 	if launch_ray_cast.is_colliding():
 		point = launch_ray_cast.get_collision_point()
@@ -60,7 +64,11 @@ func apply_damage():
 	
 func take_damage(instigator, knockback):
 	super(instigator, knockback)
+	if !is_merged:
+		on_take_damage_player.stream = load(["res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ahh bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/raaah bonanza.mp3", "res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/ugh bonanza.mp3"].pick_random())
+		on_take_damage_player.play()
 	if is_merged:
+		on_end_merge_player.play()
 		end_merge_with_other_dziad()
 	var knocback_direction = instigator.global_position.direction_to(global_position)
 	can_move = false
