@@ -54,3 +54,4 @@ wait_time = 0.3
 
 [connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="DialogTimer" to="." method="_on_dialog_timer_timeout"]

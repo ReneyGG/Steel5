@@ -7,6 +7,7 @@ var is_merged := false
 @onready var on_attack_audio_player: AudioStreamPlayer2D = $OnAttackAudioPlayer
 @onready var on_take_damage_player: AudioStreamPlayer2D = $OnTakeDamagePlayer
 @onready var main_audio_player: AudioStreamPlayer2D = $MainAudioPlayer
+@onready var dialog_timer: Timer = $DialogTimer
 
 signal on_take_damage
 
