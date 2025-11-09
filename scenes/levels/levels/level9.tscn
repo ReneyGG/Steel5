@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci8gp6cwuayyq"]
+
+[ext_resource type="PackedScene" uid="uid://cjw3p12ayi6fr" path="res://scenes/levels/test_levels/ren_test_level.tscn" id="1_dnpwg"]
+[ext_resource type="PackedScene" uid="uid://dx52prcy661j0" path="res://scenes/props/orb/orb.tscn" id="2_cimg1"]
+[ext_resource type="PackedScene" uid="uid://cpi4g7pxfemab" path="res://scenes/characters/enemies/enemy.tscn" id="2_kagvc"]
+[ext_resource type="PackedScene" uid="uid://dvymbfbp88xdx" path="res://scenes/props/plate/plate.tscn" id="4_al7g0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fqdqp"]
+viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mkafi"]
+viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
+
+[node name="RenTestLevel" instance=ExtResource("1_dnpwg")]
+
+[node name="Dziad_I_Avatar" parent="Avatars/Control" index="2"]
+texture = SubResource("ViewportTexture_fqdqp")
+
+[node name="Dziad_II_Avatar" parent="Avatars/Control" index="3"]
+texture = SubResource("ViewportTexture_mkafi")
+
+[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
+texture = SubResource("ViewportTexture_fqdqp")
+
+[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("2_kagvc")]
+position = Vector2(-1660, -404)
+
+[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource("2_kagvc")]
+position = Vector2(-572, -936)
+
+[node name="Enemy3" parent="Enemies" index="2" instance=ExtResource("2_kagvc")]
+position = Vector2(817, 975)
+
+[node name="Enemy4" parent="Enemies" index="3" instance=ExtResource("2_kagvc")]
+position = Vector2(2127, 379)
+
+[node name="Orbs" parent="." index="5"]
+y_sort_enabled = true
+
+[node name="Orb2" parent="Orbs" index="0" instance=ExtResource("2_cimg1")]
+
+[node name="Plates" parent="." index="15" instance=ExtResource("4_al7g0")]
+
+[node name="Plate1" parent="Plates" index="0"]
+position = Vector2(-791, 132)
+
+[node name="Plate2" parent="Plates" index="1"]
+position = Vector2(829, 123)
+
+[connection signal="plate_done" from="Plates" to="." method="_on_plates_plate_done"]
+
+[editable path="GameplayUI"]
+[editable path="Avatars"]
+[editable path="Dziad_I"]
+[editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]
+[editable path="Dziad_II"]
+[editable path="Plates"]
