@@ -81,3 +81,6 @@ func _on_orb_death():
 func _on_plates_plate_done():
 	plate_check = true
 	check_clear()
+
+func _on_quit_button_pressed():
+	get_tree().quit()

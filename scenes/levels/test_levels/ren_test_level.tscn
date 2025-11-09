@@ -209,7 +209,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.2, 0.3372549, 1, 0.47843137)
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Water"]
+[node name="RestartButton" type="Button" parent="CanvasLayer/Control/Water"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -224,6 +224,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Restart"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/Water"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="Avatars" parent="." instance=ExtResource("2_ay21j")]
 
@@ -363,7 +368,8 @@ position = Vector2(1812, 162)
 [node name="LandingPoint4" type="Node2D" parent="." groups=["landing_points"]]
 position = Vector2(-2206, 123)
 
-[connection signal="pressed" from="CanvasLayer/Control/Water/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Water/RestartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Water/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="body_entered" from="Environment/Exit" to="." method="_on_exit_body_entered"]
 [connection signal="plate_done" from="Plates" to="." method="_on_plates_plate_done"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
