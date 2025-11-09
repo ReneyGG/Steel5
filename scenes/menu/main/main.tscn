@@ -56,6 +56,8 @@ position = Vector2(2.9999156, 1089.5)
 scale = Vector2(1.9460001, 1.8576332)
 texture = ExtResource("3_pjtpf")
 
+[node name="VegasStart" type="Node2D" parent="."]
+
 [node name="BGvegas" type="Sprite2D" parent="."]
 scale = Vector2(1.825, 1.825)
 texture = ExtResource("1_46tb7")
