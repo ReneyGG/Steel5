@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dyua6i3hvwv3i"
+path="res://.godot/imported/klikanie guzika.mp3-43ac5158b2a29ce81d7d0bde9cd659fd.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/klikanie guzika.mp3"
+dest_files=["res://.godot/imported/klikanie guzika.mp3-43ac5158b2a29ce81d7d0bde9cd659fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

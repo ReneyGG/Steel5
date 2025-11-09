@@ -1,7 +1,11 @@
 extends Node3D
 
+@onready var walk_audio_player: AudioStreamPlayer = $WalkAudioPlayer
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 signal on_attack_trigger
+signal on_attack_start
+
 var next_hand_attack_is_left:= true
 
 func idle():
@@ -22,3 +26,10 @@ func attack():
 	
 func trigger_attack():
 	on_attack_trigger.emit()
+
+func start_attack():
+	on_attack_start.emit()
+
+func play_step_sound():
+	walk_audio_player.pitch_scale = randf_range(.9, 1.1)
+	walk_audio_player.play()

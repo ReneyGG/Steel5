@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6dxx7plsd8l0"
+path="res://.godot/imported/raaah bonanza.mp3-3670cbe310e0f3dda9bc9781d0792a22.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Bonanza/kwestie przy uderzeniach lub jak dostaje od przeciwnika/raaah bonanza.mp3"
+dest_files=["res://.godot/imported/raaah bonanza.mp3-3670cbe310e0f3dda9bc9781d0792a22.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

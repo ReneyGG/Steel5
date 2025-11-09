@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0exst0a8g2pf"
+path="res://.godot/imported/Wódka i zakąska bonanza.mp3-2a6281eb836ab0357f20e592474241f9.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Bonanza/kwestie losowe bonanza/Wódka i zakąska bonanza.mp3"
+dest_files=["res://.godot/imported/Wódka i zakąska bonanza.mp3-2a6281eb836ab0357f20e592474241f9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

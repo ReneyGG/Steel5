@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dn0iag00qsdym"
+path="res://.godot/imported/rzucam bonanza.mp3-66f16e5e7390b81cd32a2334407827d1.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Bonanza/kwestie przy rzucie bonanza/rzucam bonanza.mp3"
+dest_files=["res://.godot/imported/rzucam bonanza.mp3-66f16e5e7390b81cd32a2334407827d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

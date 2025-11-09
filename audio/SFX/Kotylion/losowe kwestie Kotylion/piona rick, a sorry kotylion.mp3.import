@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://by6v7cfvr7bkc"
+path="res://.godot/imported/piona rick, a sorry kotylion.mp3-d68e6ce536e7f6ab264ab0049c1b73c7.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Kotylion/losowe kwestie Kotylion/piona rick, a sorry kotylion.mp3"
+dest_files=["res://.godot/imported/piona rick, a sorry kotylion.mp3-d68e6ce536e7f6ab264ab0049c1b73c7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
