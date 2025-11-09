@@ -20,9 +20,11 @@ func take_damage(instigator, _knockback):
 	if is_dead: return
 	on_take_damage.emit()
 	if instigator == dziad_II:
+		$Hit.play()
 		health -= 1
 		$AnimatedSprite2D.frame = 1
 	if health <= 0:
+		$Destroy.play()
 		$AnimatedSprite2D.frame = 2
 		$AnimatedSprite2D/AnimatedSprite2D.show()
 		dead(instigator)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx52prcy661j0"]
+[gd_scene load_steps=15 format=3 uid="uid://dx52prcy661j0"]
 
 [ext_resource type="Script" uid="uid://dgs3mjjj5gu81" path="res://scenes/props/orb/orb.gd" id="1_gckvc"]
 [ext_resource type="Texture2D" uid="uid://drm3shua7c3i3" path="res://scenes/props/orb/steelwrks-skrzynka-1stage.png" id="2_ysfm6"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://djpi4jgeq441s" path="res://scenes/props/orb/steelwrks-skrzynka-bzz1.png" id="5_mb7w7"]
 [ext_resource type="Texture2D" uid="uid://e6t00fskyhj4" path="res://scenes/props/orb/steelwrks-skrzynka-bzz2.png" id="6_rvjfv"]
 [ext_resource type="Texture2D" uid="uid://cfp4d4hcsc4fh" path="res://scenes/props/orb/steelwrks-skrzynka-bzz3.png" id="7_cfatn"]
+[ext_resource type="AudioStream" uid="uid://dtfubapvl2yiy" path="res://audio/SFX2/uderzanie w metalową szafkę nogą.mp3" id="8_4wpcf"]
+[ext_resource type="AudioStream" uid="uid://bxecbphjk6apr" path="res://audio/SFX2/niszczenie się szafki elektrycznej.mp3" id="9_mb7w7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gckvc"]
 animations = [{
@@ -102,3 +104,9 @@ size = 2.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0, 0)
 sky_mode = 1
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4wpcf")
+
+[node name="Destroy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mb7w7")

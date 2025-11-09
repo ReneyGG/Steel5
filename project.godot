@@ -19,6 +19,8 @@ config/icon="res://Art/icon.svg"
 [autoload]
 
 Global="*res://scenes/levels/Global.gd"
+FightclubMusic="*res://scenes/fightclub_music.tscn"
+VegasMusic="*res://scenes/vegas_music.tscn"
 
 [display]
 
@@ -27,6 +29,7 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

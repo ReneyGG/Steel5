@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cp5ykugmpmfa4"
+path="res://.godot/imported/death screen.mp3-48935675d2906ac02f7067f86c51a0c0.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX2/death screen.mp3"
+dest_files=["res://.godot/imported/death screen.mp3-48935675d2906ac02f7067f86c51a0c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

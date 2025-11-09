@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://baf7wwkrbg72w"]
+[gd_scene load_steps=9 format=3 uid="uid://baf7wwkrbg72w"]
 
 [ext_resource type="Script" uid="uid://dns6xnle632oj" path="res://scenes/menu/pause/pause.gd" id="1_ughln"]
+[ext_resource type="Texture2D" uid="uid://ct74loqdqo853" path="res://scenes/menu/pause/wznow_of.png" id="2_y2kqq"]
+[ext_resource type="Texture2D" uid="uid://bvpmmqgojjivv" path="res://scenes/menu/pause/wznow_on.png" id="3_n52mc"]
+[ext_resource type="Script" uid="uid://jgh7l7e4ugtw" path="res://scenes/menu/button.gd" id="4_0dsav"]
+[ext_resource type="AudioStream" uid="uid://bncgvbrb48j2d" path="res://audio/SFX/hover.mp3" id="4_q6qx0"]
+[ext_resource type="Texture2D" uid="uid://b6o5nvlnisc28" path="res://scenes/menu/pause/wyjdz_of.png" id="4_wasx6"]
+[ext_resource type="AudioStream" uid="uid://dyua6i3hvwv3i" path="res://audio/SFX/klikanie guzika.mp3" id="5_0dsav"]
+[ext_resource type="Texture2D" uid="uid://rs7sq106okis" path="res://scenes/menu/pause/wyjdz_on.png" id="5_q6qx0"]
 
 [node name="Pause" type="CanvasLayer"]
 process_mode = 3
@@ -24,37 +31,53 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.30588236)
 
-[node name="ButtonResume" type="Button" parent="Control"]
+[node name="ButtonResume" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = -152.0
-offset_right = 131.0
-offset_bottom = -56.0
+offset_left = -365.5
+offset_top = -233.0
+offset_right = 365.5
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "RESUME"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_y2kqq")
+texture_hover = ExtResource("3_n52mc")
+script = ExtResource("4_0dsav")
 
-[node name="ButtonQuit" type="Button" parent="Control"]
+[node name="Hover" type="AudioStreamPlayer" parent="Control/ButtonResume"]
+stream = ExtResource("4_q6qx0")
+
+[node name="Click" type="AudioStreamPlayer" parent="Control/ButtonResume"]
+stream = ExtResource("5_0dsav")
+
+[node name="ButtonQuit" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = 37.0
-offset_right = 131.0
-offset_bottom = 133.0
+offset_left = -365.5
+offset_top = 34.0
+offset_right = 365.5
+offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "QUIT"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_wasx6")
+texture_hover = ExtResource("5_q6qx0")
+script = ExtResource("4_0dsav")
+
+[node name="Hover" type="AudioStreamPlayer" parent="Control/ButtonQuit"]
+stream = ExtResource("4_q6qx0")
+
+[node name="Click" type="AudioStreamPlayer" parent="Control/ButtonQuit"]
+stream = ExtResource("5_0dsav")
 
 [connection signal="pressed" from="Control/ButtonResume" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/ButtonQuit" to="." method="_on_menu_button_pressed"]

@@ -19,6 +19,7 @@ texture = SubResource("ViewportTexture_mkafi")
 [node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
 texture = SubResource("ViewportTexture_fqdqp")
 
+[editable path="GameplayUI"]
 [editable path="Avatars"]
 [editable path="Dziad_I"]
 [editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]
