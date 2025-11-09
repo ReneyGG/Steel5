@@ -64,7 +64,7 @@ sprite_frames = SubResource("SpriteFrames_gckvc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
-position = Vector2(-805, 372)
+position = Vector2(59, -79)
 sprite_frames = SubResource("SpriteFrames_k14jj")
 autoplay = "default"
 frame_progress = 0.8385776

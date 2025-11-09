@@ -44,6 +44,7 @@ animations = [{
 }]
 
 [node name="Plates" type="Node2D"]
+z_index = -1
 script = ExtResource("1_tp4cv")
 
 [node name="Plate1" type="Area2D" parent="."]
