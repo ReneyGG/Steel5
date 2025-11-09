@@ -8,8 +8,11 @@ var can_attack:= true
 signal on_merge
 signal on_end_merge
 
+func _ready() -> void:
+	model_3d.on_attack_trigger.connect(apply_damage)
+
 @warning_ignore("unused_parameter")
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	if Input.is_action_just_pressed(name + "_merge"):
 		if is_merged:
 			end_merge_with_other_dziad()
@@ -36,9 +39,10 @@ func _physics_process(delta: float) -> void:
 		attack_area.look_at(attack_area.global_position + direction)
 
 func handle_animation():
+	if is_attacking: return
 	if abs(velocity) > Vector2.ZERO:
 		model_3d.look_at(Vector3(-velocity.x, 0, -velocity.y).rotated(Vector3(0,1,0), deg_to_rad(45)))
-		model_3d.walk()
+		model_3d.run()
 	else:
 		model_3d.idle()
 		
@@ -51,15 +55,14 @@ func handle_aiming():
 		attack()
 		is_attacking = true
 	else:
+		if velocity != Vector2.ZERO and !is_merged:
+			model_3d.run()
+		else:
+			model_3d.idle()
 		is_attacking = false
 			
 func attack():
-	if can_attack:
-		can_attack = false
-		model_3d.attack()
-		apply_damage()
-		await get_tree().create_timer(.3).timeout
-		can_attack = true
+	model_3d.attack()
 
 			
 func apply_damage():
@@ -80,11 +83,10 @@ func take_damage(instigator, knockback):
 		can_move = true
 		
 func start_merge_with_other_dziad():
+	is_merged = true
 	merge_area.set_deferred("monitoring", false)
-	#merge_area.monitoring = false
-	model_3d.idle()
 	on_merge.emit()
-	#other_dziad.start_merge_with_other_dziad()
+	model_3d.idle()
 	
 func end_merge_with_other_dziad():
 	on_end_merge.emit()
