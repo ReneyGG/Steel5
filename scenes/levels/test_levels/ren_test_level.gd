@@ -45,7 +45,10 @@ func _on_exit_body_entered(_body):
 	$AnimationPlayer.play("exit")
 
 func exit():
-	get_tree().change_scene_to_file("res://scenes/levels/levels/level"+str(Global.stage+1)+".tscn")
+	if Global.stage+1 < 4:
+		get_tree().change_scene_to_file("res://scenes/levels/levels/level"+str(Global.stage+1)+".tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/levels/levels/level"+str(randi_range(5,10))+".tscn")
 
 func _on_timer_timeout():
 	$GameplayUI/Control/Water.show()
