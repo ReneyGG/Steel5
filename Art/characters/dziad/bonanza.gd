@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+signal on_attack_trigger
 
 func idle():
 	animation_player.play("idle")
@@ -16,3 +17,6 @@ func crouch_run():
 	
 func attack():
 	animation_player.play("kick")
+	
+func attack_trigger():
+	on_attack_trigger.emit()
