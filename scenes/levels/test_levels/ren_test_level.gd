@@ -9,7 +9,7 @@ var plate_check:= false
 
 func _ready():
 	Global.stage += 1
-	$CanvasLayer/Control/ColorRect2/Stage.text = str(Global.stage)
+	$GameplayUI/Control/ColorRect2/Stage.text = str(Global.stage)
 	get_node("Dziad_I").on_take_damage.connect(_on_impact)
 	get_node("Dziad_II").on_take_damage.connect(_on_impact)
 	for e in $Enemies.get_children():
@@ -27,16 +27,17 @@ func _ready():
 		orb_check = true
 	if get_node_or_null("Plates") == null:
 		plate_check = true
+	check_clear()
 	$AnimationPlayer.play("enter")
 	$Timer.start(60 - Global.stage)
 
 func _physics_process(_delta):
-	$CanvasLayer/Control/ColorRect/Time.text = str(int($Timer.time_left))
+	$GameplayUI/Control/ColorRect/Time.text = str(int($Timer.time_left))
 
 func _on_exit_body_entered(_body):
 	if $Environment/Door.position.y >= -500.0:
 		return
-	if $CanvasLayer/Control/Water.visible:
+	if $GameplayUI/Control/Water.visible:
 		return
 	if not $Dziad_I.other_dziad.is_merged:
 		return
@@ -44,10 +45,10 @@ func _on_exit_body_entered(_body):
 	$AnimationPlayer.play("exit")
 
 func exit():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/levels/levels/level"+str(Global.stage+1)+".tscn")
 
 func _on_timer_timeout():
-	$CanvasLayer/Control/Water.show()
+	$GameplayUI/Control/Water.show()
 	$CameraHandle/Camera2D.apply_shake()
 
 # Restart
@@ -63,7 +64,7 @@ func check_clear():
 		$Environment/Door.position.y = -1000.0
 
 func _on_enemy_death():
-	if $CanvasLayer/Control/Water.visible:
+	if $GameplayUI/Control/Water.visible:
 		return
 	enemy_count -= 1
 	if enemy_count == 0:
@@ -71,7 +72,7 @@ func _on_enemy_death():
 	check_clear()
 
 func _on_orb_death():
-	if $CanvasLayer/Control/Water.visible:
+	if $GameplayUI/Control/Water.visible:
 		return
 	orb_count -= 1
 	if orb_count == 0:

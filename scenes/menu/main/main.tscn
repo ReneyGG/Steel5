@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cuwpxxuxvxjbn"]
+[gd_scene load_steps=34 format=3 uid="uid://cuwpxxuxvxjbn"]
 
 [ext_resource type="Script" uid="uid://w3ghtqp1o4lq" path="res://scenes/menu/main/main.gd" id="1_7p0ll"]
 [ext_resource type="Texture2D" uid="uid://dvmanpat78oge" path="res://scenes/menu/main/vegas/tlo.png" id="3_2aon3"]
@@ -44,6 +44,9 @@ animations = [{
 "name": &"default",
 "speed": 12.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6bxv1"]
+blend_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8cy2w"]
 animations = [{
@@ -175,9 +178,10 @@ script = ExtResource("7_7cofh")
 diff = -1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VegasStart/MenuSign"]
+material = SubResource("CanvasItemMaterial_6bxv1")
 sprite_frames = SubResource("SpriteFrames_8cy2w")
 autoplay = "default"
-frame_progress = 0.8446273
+frame_progress = 0.19224179
 
 [node name="WyjscieButton" type="TextureButton" parent="VegasStart/MenuSign"]
 anchors_preset = 2
