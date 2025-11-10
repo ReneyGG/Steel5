@@ -29,8 +29,8 @@ func _ready():
 		plate_check = true
 	check_clear()
 	$AnimationPlayer.play("enter")
-	$Timer.start(30 - Global.stage)
-	$TimerMinus.start(30 - Global.stage - 5)
+	$Timer.start(50 - Global.stage)
+	$TimerMinus.start(50 - Global.stage - 5)
 	$Pass.play()
 
 func _physics_process(_delta):
@@ -97,6 +97,7 @@ func _on_quit_button_pressed():
 
 func _on_restart_button_pressed():
 	Global.stage = 0
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/levels/levels/level1.tscn")
 
 func _on_timer_minus_timeout():
