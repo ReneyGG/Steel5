@@ -53,8 +53,21 @@ texture = ExtResource("5_shdat")
 [node name="AttackCooldownTimer" type="Timer" parent="." index="4"]
 wait_time = 0.3
 
+[node name="OnHitAudioPlayer" parent="." index="5"]
+volume_db = 6.0
+
 [node name="OnAttackAudioPlayer" parent="." index="6"]
 stream = ExtResource("6_j1otc")
+volume_db = 15.0
+
+[node name="OnTakeDamagePlayer" parent="." index="7"]
+volume_db = 9.0
+
+[node name="OnMergePlayer" parent="." index="8"]
+volume_db = 9.0
+
+[node name="MainAudioPlayer" parent="." index="9"]
+volume_db = 9.0
 
 [connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://de485g6bfs0oi"]
+[gd_scene load_steps=6 format=3 uid="uid://de485g6bfs0oi"]
 
 [ext_resource type="PackedScene" uid="uid://cjw3p12ayi6fr" path="res://scenes/levels/test_levels/ren_test_level.tscn" id="1_h7ujk"]
+[ext_resource type="FontFile" uid="uid://cu0318k5r8gvy" path="res://credible.otf" id="2_etv3c"]
 [ext_resource type="PackedScene" uid="uid://dx52prcy661j0" path="res://scenes/props/orb/orb.tscn" id="2_lfvv2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fqdqp"]
@@ -10,21 +11,36 @@ viewport_path = NodePath("Dziad_I/SubViewportContainer/SubViewport/SubViewport")
 viewport_path = NodePath("Dziad_II/SubViewportContainer/SubViewport/SubViewport")
 
 [node name="RenTestLevel" instance=ExtResource("1_h7ujk")]
-y_sort_enabled = true
 
-[node name="Dziad_I_Avatar" parent="Avatars/Control" index="2"]
+[node name="Dziad_I_Avatar" parent="Avatars/Control" index="4"]
 texture = SubResource("ViewportTexture_fqdqp")
 
-[node name="Dziad_II_Avatar" parent="Avatars/Control" index="3"]
+[node name="Dziad_II_Avatar" parent="Avatars/Control" index="5"]
 texture = SubResource("ViewportTexture_mkafi")
 
-[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="4"]
+[node name="Dziad_I_Avatar_Alt" parent="Avatars/Control" index="6"]
 texture = SubResource("ViewportTexture_fqdqp")
+
+[node name="Label" type="Label" parent="GameplayUI" index="1"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -954.0
+offset_right = 959.0
+offset_bottom = 393.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_etv3c")
+theme_override_font_sizes/font_size = 72
+text = "GRACZ 1: ODPYCHA i RZUCA
+GRACZ 2: ZADAJE OBRAZENIA"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Orb" parent="Orbs" index="0" instance=ExtResource("2_lfvv2")]
 
-[editable path="GameplayUI"]
 [editable path="Avatars"]
+[editable path="GameplayUI"]
 [editable path="Dziad_I"]
 [editable path="Dziad_I/SubViewportContainer/SubViewport/SubViewport/bonanza"]
 [editable path="Dziad_II"]

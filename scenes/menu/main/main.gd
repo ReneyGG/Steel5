@@ -1,7 +1,7 @@
 extends Node2D
 
 var t = 0
-var ts = ["Podziemia Las Vegas to miejsce dla tych, którzy postawili wszystko na jedną kartę. Życie mija tutaj od powodzi do powodzi.","Gra przeznaczona dla dwóch graczy.","DZIADÓW DWÓCH"]
+var ts = ["Podziemia Las Vegas to miejsce dla tych, którzy postawili wszystko na jedną kartę. Życie mija tutaj od powodzi do powodzi.","Gra przeznaczona dla dwóch graczy.","Najwytrwalsi przetrwają."]
 
 var start := false
 
